@@ -1,0 +1,17 @@
+[workspace]
+name = "skill-example-github"
+version = "0.1.0"
+channels = [
+    "https://mweidwork.github.io/pixi-skill-recipes/conda",
+    "conda-forge",
+]
+platforms = [
+    "linux-64",
+    "osx-64",
+    "osx-arm64",
+    "win-64",
+]
+
+[dependencies]
+agent-skill-code-review = ">=0.1.0,<0.2"
+agent-skill-python-development = ">=0.1.0,<0.2"

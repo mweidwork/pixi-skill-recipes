@@ -122,6 +122,13 @@ jobs:
             exit 1
           fi
 
+      - name: Upload built channel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: conda-channel
+          path: channel
+          if-no-files-found: error
+
       - name: Upload Conda channel to Cloudflare R2
         uses: ryand56/r2-upload-action@v1.5
         with:
@@ -137,3 +144,48 @@ jobs:
 
       - name: Publishing completed
         run: echo "Conda channel uploaded successfully to Cloudflare R2."
+
+  publish-github:
+    name: Publish Conda channel to GitHub Pages
+    needs: publish
+
+    if: >
+      github.ref == 'refs/heads/main' &&
+      (
+        github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch'
+      )
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    concurrency:
+      group: company-skills-github-pages
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}conda
+
+    steps:
+      - name: Download built channel
+        uses: actions/download-artifact@v4
+        with:
+          name: conda-channel
+          path: pages/conda
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+
+      - name: Deploy Conda channel to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Publishing completed
+        run: echo "Conda channel available at ${{ steps.deployment.outputs.page_url }}conda"

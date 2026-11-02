@@ -2,7 +2,7 @@
 
 [![Publish company skills](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml)
 
-A private Conda channel for distributing reusable AI agent skills. Skills are packaged with `rattler-build`, published to Cloudflare R2, and installed into Pixi projects.
+A Conda channel for distributing reusable AI agent skills. Skills are packaged with `rattler-build`, published to Cloudflare R2 and mirrored to GitHub Pages, and installed into Pixi projects.
 
 ## Overview
 
@@ -234,7 +234,8 @@ Install the dependencies:
 pixi install
 ```
 
-For a complete project that installs a single skill, see [example/](example/).
+For complete projects, see [example/](example/) for the private R2 channel and
+[example-github/](example-github/) for the public GitHub Pages channel.
 
 The skill packages install their instructions into the Pixi environment under:
 
@@ -263,6 +264,22 @@ pixi-skills manage --backend opencode --scope local
 ```
 
 This configures the installed skills for the selected OpenCode backend and local project scope.
+
+### Public GitHub Pages channel
+
+The workflow also deploys the same packages to GitHub Pages, which requires no
+authentication:
+
+```toml
+[workspace]
+channels = [
+    "https://mweidwork.github.io/pixi-skill-recipes/conda",
+    "conda-forge",
+]
+```
+
+Enable **Settings → Pages → Source → GitHub Actions** once so the `publish-github`
+job can deploy. See [example-github/](example-github/) for a complete project.
 
 ## Versioning
 
