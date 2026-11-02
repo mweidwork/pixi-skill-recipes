@@ -43,19 +43,21 @@ done
 
 - Package name: `agent-skill-<skill>`.
 - Build: `noarch: generic`.
-- Installed file: `share/agent-skills/<skill>/SKILL.md`.
-- Copy instructions from `${RECIPE_DIR}/SKILL.md` in the build script.
+- Installed files: `share/agent-skills/<skill>/SKILL.md` plus optional
+  `scripts/`, `references/`, and `assets/` directories.
+- Copy resources from `${RECIPE_DIR}` in the build script.
 - Each package has its own version; bump `package.version` in `recipe.yaml` when
-  changing its `SKILL.md`.
+  changing its `SKILL.md` or bundled resources.
 - Add a `tests.package_contents` entry for every installed file.
 - Keep `about.summary` and `about.license` set.
 
 ## Adding a skill
 
 1. Create `recipes/<skill>/SKILL.md` with `name` and `description` frontmatter.
-2. Copy an existing `recipe.yaml` and adjust name, version, summary, and paths.
-3. Build the recipe locally before committing.
-4. Push to `main`; the workflow validates and publishes changed skills.
+2. Add optional `scripts/`, `references/`, and `assets/` directories.
+3. Copy an existing `recipe.yaml` and adjust name, version, summary, and paths.
+4. Build the recipe locally before committing.
+5. Push to `main`; the workflow validates and publishes changed skills.
 
 ## Publishing
 

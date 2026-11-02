@@ -34,10 +34,14 @@ pixi-skills / OpenCode
 
 ## Available skills
 
+The skills in this repository are example skills that demonstrate the
+authoring, packaging, and publishing workflow.
+
 | Skill | Conda package | Purpose |
 |---|---|---|
 | Python Development | `agent-skill-python-development` | Python development practices, testing, and maintainability |
 | Code Review | `agent-skill-code-review` | Structured code reviews and actionable findings |
+| Authoring Skills | `agent-skill-authoring-skills` | Skill design, bundled resources, validation, and iteration |
 | Data Engineering | `agent-skill-data-engineering` | Data pipelines, quality, performance, and reliability |
 
 Each skill is distributed as an independent Conda package.
@@ -56,6 +60,12 @@ pixi-skill-recipes/
 │   ├── code-review/
 │   │   ├── recipe.yaml
 │   │   └── SKILL.md
+│   ├── authoring-skills/
+│   │   ├── recipe.yaml
+│   │   ├── SKILL.md
+│   │   ├── scripts/
+│   │   ├── references/
+│   │   └── assets/
 │   └── data-engineering/
 │       ├── recipe.yaml
 │       └── SKILL.md
@@ -138,7 +148,10 @@ Create a new directory under `recipes/`:
 recipes/
 └── my-skill/
     ├── recipe.yaml
-    └── SKILL.md
+    ├── SKILL.md
+    ├── scripts/       # optional executable helpers
+    ├── references/    # optional documentation loaded on demand
+    └── assets/        # optional templates and output files
 ```
 
 ### 1. Create the skill instructions
@@ -165,9 +178,12 @@ The package should follow the existing recipe conventions:
 - Package name: `agent-skill-my-skill`
 - Package version: independently managed
 - Architecture: `noarch`
-- Installed skill file: `share/agent-skills/my-skill/SKILL.md`
+- Installed skill files: `share/agent-skills/my-skill/` including `SKILL.md` and
+  any bundled `scripts/`, `references/`, or `assets/` directories
+- Each installed file needs a corresponding `tests.package_contents` entry
 
-Use an existing recipe as the starting point and adjust the package name, version, description, and installation path.
+Use an existing recipe as the starting point and adjust the package name, version, description, and installation paths. The
+[`authoring-skills`](recipes/authoring-skills/) recipe is a complete example with all three resource directories.
 
 ### 3. Publish
 

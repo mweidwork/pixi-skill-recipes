@@ -1,0 +1,36 @@
+context:
+  skill: authoring-skills
+
+package:
+  name: agent-skill-${{ skill }}
+  version: "0.1.0"
+
+source:
+  path: .
+
+build:
+  noarch: generic
+  script:
+    - mkdir -p "${PREFIX}/share/agent-skills/${{ skill }}"
+    - cp "${RECIPE_DIR}/SKILL.md" "${PREFIX}/share/agent-skills/${{ skill }}/SKILL.md"
+    - cp -R "${RECIPE_DIR}/scripts" "${PREFIX}/share/agent-skills/${{ skill }}/scripts"
+    - cp -R "${RECIPE_DIR}/references" "${PREFIX}/share/agent-skills/${{ skill }}/references"
+    - cp -R "${RECIPE_DIR}/assets" "${PREFIX}/share/agent-skills/${{ skill }}/assets"
+
+tests:
+  - package_contents:
+      files:
+        - share/agent-skills/authoring-skills/SKILL.md
+        - share/agent-skills/authoring-skills/scripts/validate_skill.py
+        - share/agent-skills/authoring-skills/scripts/scaffold_skill.py
+        - share/agent-skills/authoring-skills/references/authoring-guide.md
+        - share/agent-skills/authoring-skills/references/resource-selection.md
+        - share/agent-skills/authoring-skills/references/validation-checklist.md
+        - share/agent-skills/authoring-skills/assets/SKILL.md.template
+        - share/agent-skills/authoring-skills/assets/reference.md.template
+        - share/agent-skills/authoring-skills/assets/script.py.template
+        - share/agent-skills/authoring-skills/assets/asset.txt.template
+
+about:
+  summary: Skill authoring guidelines for AI coding agents
+  license: MIT

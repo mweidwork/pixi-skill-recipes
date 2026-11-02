@@ -1,0 +1,58 @@
+---
+name: {{name}}
+description: >
+  {{description}}
+---
+
+# {{title}}
+
+## When to use this skill
+
+Use this skill when the task requires the {{title}} workflow. Do not use it for
+unrelated work.
+
+## Workflow
+
+Copy this checklist and track your progress:
+
+```text
+Task progress:
+- [ ] 1. Inspect the inputs and confirm the goal
+- [ ] 2. Apply the core steps
+- [ ] 3. Validate the result
+- [ ] 4. Report what changed and any remaining risk
+```
+
+### 1. Inspect the inputs
+
+Describe exactly what to read or verify before acting.
+
+### 2. Apply the core steps
+
+Describe the preferred approach. Provide one default instead of a menu of
+equivalent options.
+
+### 3. Validate the result
+
+Describe how to verify the output. If a validator exists, run it and fix errors
+before continuing.
+
+### 4. Report the result
+
+Describe the expected output format and any follow-up the agent should suggest.
+
+## Resources
+
+Add entries here only for resources that exist:
+
+- Detailed guidance: `references/guide.md`
+- Helper script: `scripts/example.py`
+- Output template: `assets/template.txt`
+
+State whether the agent should run a script or read it as a reference.
+
+## Rules
+
+- Use forward slashes in all file paths.
+- Do not claim a validation passed without running it.
+- Keep this file under 500 lines and move detail into `references/`.

@@ -1,0 +1,64 @@
+# {{title}} Reference
+
+## Contents
+
+- Overview
+- Inputs and outputs
+- Core patterns
+- Error handling
+- Examples
+
+## Overview
+
+Explain the concepts that are too detailed for `SKILL.md`. Assume the reader
+already knows the basics described in the main skill body.
+
+## Inputs and outputs
+
+Document required inputs, accepted formats, and the expected output. Include
+constraints and defaults.
+
+## Core patterns
+
+Describe the recommended patterns. Prefer concrete examples over abstract
+advice. Keep terminology consistent with `SKILL.md`.
+
+## Error handling
+
+List common failure modes and the exact recovery step. Prefer specific messages
+over "handle the error".
+
+## Examples
+
+### Example 1
+
+Input:
+
+```text
+TODO
+```
+
+Expected output:
+
+```text
+TODO
+```
+
+### Example 2
+
+Input:
+
+```text
+TODO
+```
+
+Expected output:
+
+```text
+TODO
+```
+
+## Related resources
+
+Link only to resources that exist in the skill. Keep references one level deep
+from `SKILL.md`.

@@ -1,0 +1,7 @@
+# {{title}} output asset
+
+Replace this file with a template, icon, font, or other asset that the skill
+copies into its output.
+
+Assets are not loaded into the agent context. Reference the asset from
+`SKILL.md` and explain when the agent should use it.
