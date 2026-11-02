@@ -1,0 +1,24 @@
+context:
+  skill: code-review
+
+package:
+  name: agent-skill-${{ skill }}
+  version: "0.1.0"
+
+source:
+  path: .
+
+build:
+  noarch: generic
+  script:
+    - mkdir -p "${PREFIX}/share/agent-skills/${{ skill }}"
+    - cp "${RECIPE_DIR}/SKILL.md" "${PREFIX}/share/agent-skills/${{ skill }}/SKILL.md"
+
+tests:
+  - package_contents:
+      files:
+        - share/agent-skills/code-review/SKILL.md
+
+about:
+  summary: Code review guidelines for AI coding agents
+  license: MIT
