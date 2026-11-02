@@ -1,18 +1,15 @@
-
 name: Publish company skills
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    branches: [main]
     paths:
       - "recipes/**"
       - "pixi.toml"
       - ".github/workflows/publish.yml"
 
-  pull_request:
-    branches:
-      - main
+  push:
+    branches: [main]
     paths:
       - "recipes/**"
       - "pixi.toml"
@@ -84,6 +81,10 @@ jobs:
       S3_REGION: auto
       S3_ADDRESSING_STYLE: path
 
+      AWS_REGION: auto
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: "true"
+
       R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
 
@@ -112,6 +113,7 @@ jobs:
 
           echo "R2 configuration is present."
           echo "Target bucket: ${S3_BUCKET}"
+          echo "Endpoint: ${S3_ENDPOINT_URL}"
 
       - name: Configure Rattler authentication
         shell: bash
@@ -134,7 +136,11 @@ jobs:
               }
           }
 
-          path = os.path.join(os.environ["RUNNER_TEMP"], "rattler-auth.json")
+          path = os.path.join(
+              os.environ["RUNNER_TEMP"],
+              "rattler-auth.json"
+          )
+
           with open(path, "w") as f:
               json.dump(auth, f)
 
