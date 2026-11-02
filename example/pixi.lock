@@ -1,0 +1,36 @@
+version: 6
+environments:
+  default:
+    channels:
+    - url: s3://skill-publish/conda/
+    - url: https://conda.anaconda.org/conda-forge/
+    options:
+      pypi-prerelease-mode: if-necessary-or-explicit
+    packages:
+      linux-64:
+      - conda: s3://skill-publish/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: s3://skill-publish/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      osx-64:
+      - conda: s3://skill-publish/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: s3://skill-publish/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      osx-arm64:
+      - conda: s3://skill-publish/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: s3://skill-publish/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      win-64:
+      - conda: s3://skill-publish/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: s3://skill-publish/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+packages:
+- conda: s3://skill-publish/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+  subdir: noarch
+  sha256: 5f57eceb55299568cb37dce6e53125efb138f19b4df90e178f08a79442e54f37
+  md5: 175b3b270e394754f601b76cab6b3364
+  license: MIT
+  size: 3110
+  timestamp: 1793654974836
+- conda: s3://skill-publish/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+  subdir: noarch
+  sha256: 06c4187443aad4feb1082c822ea8e288b55cf5ffe783bd8476eecef9b9348b48
+  md5: c971fb7ed4eee56c35240f1692d396b9
+  license: MIT
+  size: 3123
+  timestamp: 1793654974909

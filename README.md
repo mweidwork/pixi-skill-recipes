@@ -219,8 +219,8 @@ Authenticate Pixi using the read-only credentials:
 
 ```bash
 pixi auth login \
-  --aws-access-key-id YOUR_READ_ACCESS_KEY \
-  --aws-secret-access-key YOUR_READ_SECRET_KEY \
+  --s3-access-key-id YOUR_READ_ACCESS_KEY \
+  --s3-secret-access-key YOUR_READ_SECRET_KEY \
   s3://skill-publish
 ```
 
@@ -233,6 +233,8 @@ Install the dependencies:
 ```bash
 pixi install
 ```
+
+For a complete project that installs a single skill, see [example/](example/).
 
 The skill packages install their instructions into the Pixi environment under:
 
