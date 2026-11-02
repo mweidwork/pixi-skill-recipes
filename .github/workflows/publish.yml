@@ -182,10 +182,13 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: pages
+          name: github-pages-${{ github.run_attempt }}
 
       - name: Deploy Conda channel to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
 
       - name: Publishing completed
         run: echo "Conda channel available at ${{ steps.deployment.outputs.page_url }}conda"
