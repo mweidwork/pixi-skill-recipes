@@ -2,15 +2,17 @@
 name: Publish company skills
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
     paths:
       - "recipes/**"
       - "pixi.toml"
       - ".github/workflows/publish.yml"
 
-  push:
-    branches: [main]
+  pull_request:
+    branches:
+      - main
     paths:
       - "recipes/**"
       - "pixi.toml"
@@ -39,9 +41,6 @@ jobs:
       - name: Install dependencies
         run: pixi install --verbose
 
-      - name: Show rattler-build version
-        run: pixi run rattler-build --version
-
       - name: Build all recipes
         shell: bash
         run: |
@@ -51,7 +50,7 @@ jobs:
           recipes=(recipes/*/recipe.yaml)
 
           if (( ${#recipes[@]} == 0 )); then
-            echo "::error::No recipe.yaml files found."
+            echo "::error::No recipes found"
             exit 1
           fi
 
@@ -85,13 +84,8 @@ jobs:
       S3_REGION: auto
       S3_ADDRESSING_STYLE: path
 
-      # Credentials expected by rattler-build
-      S3_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-      S3_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-
-      # AWS SDK configuration
-      AWS_REGION: auto
-      AWS_EC2_METADATA_DISABLED: "true"
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
 
     steps:
       - name: Checkout repository
@@ -111,14 +105,43 @@ jobs:
         run: |
           set -euo pipefail
 
-          : "${S3_BUCKET:?Missing GitHub variable R2_BUCKET}"
-          : "${S3_ENDPOINT_URL:?Missing GitHub variable R2_ENDPOINT}"
-          : "${S3_ACCESS_KEY_ID:?Missing GitHub secret R2_ACCESS_KEY_ID}"
-          : "${S3_SECRET_ACCESS_KEY:?Missing GitHub secret R2_SECRET_ACCESS_KEY}"
+          : "${S3_BUCKET:?Missing R2_BUCKET}"
+          : "${S3_ENDPOINT_URL:?Missing R2_ENDPOINT}"
+          : "${R2_ACCESS_KEY_ID:?Missing R2_ACCESS_KEY_ID}"
+          : "${R2_SECRET_ACCESS_KEY:?Missing R2_SECRET_ACCESS_KEY}"
 
           echo "R2 configuration is present."
           echo "Target bucket: ${S3_BUCKET}"
-          echo "Endpoint: ${S3_ENDPOINT_URL}"
+
+      - name: Configure Rattler authentication
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          AUTH_FILE="$RUNNER_TEMP/rattler-auth.json"
+
+          python - <<'PY'
+          import json
+          import os
+
+          auth = {
+              "s3://skill-publish/conda": {
+                  "S3Credentials": {
+                      "access_key_id": os.environ["R2_ACCESS_KEY_ID"],
+                      "secret_access_key": os.environ["R2_SECRET_ACCESS_KEY"],
+                      "session_token": None
+                  }
+              }
+          }
+
+          path = os.path.join(os.environ["RUNNER_TEMP"], "rattler-auth.json")
+          with open(path, "w") as f:
+              json.dump(auth, f)
+
+          os.chmod(path, 0o600)
+          PY
+
+          echo "RATTLER_AUTH_FILE=$AUTH_FILE" >> "$GITHUB_ENV"
 
       - name: Show rattler-build version
         run: pixi run rattler-build --version
@@ -132,7 +155,7 @@ jobs:
           recipes=(recipes/*/recipe.yaml)
 
           if (( ${#recipes[@]} == 0 )); then
-            echo "::error::No recipe.yaml files found."
+            echo "::error::No recipes found"
             exit 1
           fi
 
