@@ -74,7 +74,7 @@ done
 
 ## Commit style
 
-Use Conventional Commits, for example:
+Follow [CONTRIBUTE.md](CONTRIBUTE.md). Use Conventional Commits, for example:
 
 ```text
 feat(recipes): add data-engineering skill

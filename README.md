@@ -321,6 +321,11 @@ The build number can be managed by `rattler-build` when it is omitted from the r
 | Workflow fails during build | Inspect the recipe and `SKILL.md` paths in the Actions logs |
 | Skill is not available in OpenCode | Check that the package is installed and run `pixi-skills manage` again |
 
+## Contributing
+
+See [CONTRIBUTE.md](CONTRIBUTE.md) for the workflow and the Conventional Commits
+pattern used in this repository.
+
 ## License
 
 See [LICENSE](LICENSE) for the repository license and applicable terms.
