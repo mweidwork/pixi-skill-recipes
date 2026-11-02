@@ -85,6 +85,6 @@ channel to GitHub Pages. Enable Pages once in the repository settings:
 
 1. Open **Settings → Pages**.
 2. Set **Source** to **GitHub Actions**.
-3. Run the **Publish company skills** workflow on `main`.
+3. Run the **Publish skills** workflow on `main`.
 
 After the first successful deployment the channel is available at the URL above.

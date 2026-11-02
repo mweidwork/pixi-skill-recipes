@@ -1,12 +1,12 @@
-# Company Skill Forge
+# pixi-skill-recipes
 
-[![Publish company skills](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml)
+[![Publish skills](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/mweidwork/pixi-skill-recipes/actions/workflows/publish.yml)
 
 A Conda channel for distributing reusable AI agent skills. Skills are packaged with `rattler-build`, published to Cloudflare R2 and mirrored to GitHub Pages, and installed into Pixi projects.
 
 ## Overview
 
-Company Skill Forge provides a simple workflow for authoring, versioning, publishing, and consuming AI agent skills.
+`pixi-skill-recipes` provides a simple workflow for authoring, versioning, publishing, and consuming AI agent skills.
 
 ### Architecture
 

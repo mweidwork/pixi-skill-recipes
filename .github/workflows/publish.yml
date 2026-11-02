@@ -1,5 +1,5 @@
 
-name: Publish company skills
+name: Publish skills
 
 on:
   pull_request:
