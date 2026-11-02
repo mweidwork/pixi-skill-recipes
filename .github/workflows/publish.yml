@@ -1,0 +1,88 @@
+
+name: Publish company skills
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "recipes/**"
+      - "pixi.toml"
+      - ".github/workflows/publish.yml"
+
+  push:
+    branches: [main]
+    paths:
+      - "recipes/**"
+      - "pixi.toml"
+      - ".github/workflows/publish.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate skill recipes
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.3
+
+      - name: Install dependencies
+        run: pixi install
+
+      - name: Build all recipes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for recipe in recipes/*/recipe.yaml; do
+            echo "Building $recipe"
+            pixi run rattler-build build "$recipe"
+          done
+
+  publish:
+    name: Publish to Cloudflare R2
+    needs: validate
+    if: >
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' ||
+       github.event_name == 'workflow_dispatch')
+
+    runs-on: ubuntu-latest
+    environment: r2-dev
+
+    concurrency:
+      group: company-skills-r2-publish
+      cancel-in-progress: false
+
+    env:
+      S3_BUCKET: ${{ vars.R2_BUCKET }}
+      S3_ENDPOINT_URL: ${{ vars.R2_ENDPOINT }}
+      S3_REGION: auto
+      S3_ADDRESSING_STYLE: path
+      S3_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      S3_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.3
+
+      - name: Install dependencies
+        run: pixi install
+
+      - name: Publish all skills
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for recipe in recipes/*/recipe.yaml; do
+            echo "Publishing $recipe"
+
+            pixi run rattler-build publish "$recipe" \
+              --to "s3://${S3_BUCKET}/conda"
+          done
