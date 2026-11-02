@@ -60,8 +60,40 @@ jobs:
             echo "::endgroup::"
           done
 
+      - name: Prepare channel artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          rm -rf channel
+          mkdir -p channel
+
+          for output in validation-output/*/; do
+            name="$(basename "$output")"
+            if [[ "$name" == "bld" || "$name" == "src_cache" ]]; then
+              continue
+            fi
+            cp -R "$output" "channel/$name"
+          done
+
+          if [[ ! -f channel/noarch/repodata.json ]]; then
+            echo "::error::Missing channel/noarch/repodata.json"
+            exit 1
+          fi
+
+          echo "Generated channel contents:"
+          find channel -maxdepth 3 -type f | sort
+
+      - name: Upload built channel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: conda-channel
+          path: channel
+          if-no-files-found: error
+
   publish:
-    name: Build and upload Conda channel to Cloudflare R2
+    name: Upload Conda channel to Cloudflare R2
     needs: validate
 
     if: >
@@ -79,55 +111,11 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pixi
-        uses: prefix-dev/setup-pixi@v0.11.2
-        with:
-          run-install: false
-          cache: false
-
-      - name: Install dependencies
-        run: pixi install --verbose
-
-      - name: Build all packages into Conda channel
-        shell: bash
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-
-          recipes=(recipes/*/recipe.yaml)
-
-          if (( ${#recipes[@]} == 0 )); then
-            echo "::error::No recipes found"
-            exit 1
-          fi
-
-          for recipe in "${recipes[@]}"; do
-            echo "::group::Building ${recipe}"
-
-            pixi run rattler-build build \
-              --recipe "$recipe" \
-              --output-dir channel
-
-            echo "::endgroup::"
-          done
-
-          echo "Generated channel contents:"
-          find channel -maxdepth 3 -type f | sort
-
-          if [[ ! -f channel/noarch/repodata.json ]]; then
-            echo "::error::Missing channel/noarch/repodata.json"
-            exit 1
-          fi
-
-      - name: Upload built channel artifact
-        uses: actions/upload-artifact@v4
+      - name: Download built channel
+        uses: actions/download-artifact@v4
         with:
           name: conda-channel
           path: channel
-          if-no-files-found: error
 
       - name: Upload Conda channel to Cloudflare R2
         uses: ryand56/r2-upload-action@v1.5
@@ -147,7 +135,7 @@ jobs:
 
   publish-github:
     name: Publish Conda channel to GitHub Pages
-    needs: publish
+    needs: validate
 
     if: >
       github.ref == 'refs/heads/main' &&
