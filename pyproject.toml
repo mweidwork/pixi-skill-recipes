@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pixi-skill-recipes"
+version = "0.1.0"
+description = "Command line tooling for building, publishing, promoting, and deleting skills in a Pixi-compatible Conda channel."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "ManffTee" }]
+keywords = ["conda", "pixi", "skills", "ai-agents", "s3", "cloudflare-r2"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "boto3>=1.34",
+  "packaging>=23",
+  "ruamel.yaml>=0.18",
+]
+
+[project.optional-dependencies]
+dev = [
+  "boto3-stubs[s3]>=1.34",
+  "mypy>=1.11",
+  "pytest>=8",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+pixi-skill-recipes = "pixi_skill_recipes.cli:main"
+psr = "pixi_skill_recipes.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pixi_skill_recipes"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["pixi_skill_recipes", "tests"]
+exclude = ["recipes"]
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "RUF", "SIM", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+files = ["pixi_skill_recipes"]
