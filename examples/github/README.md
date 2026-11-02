@@ -7,7 +7,7 @@ channel served by GitHub Pages:
 https://mweidwork.github.io/pixi-skill-recipes/conda
 ```
 
-Unlike the R2-based [example](../example/), this channel is public and requires no
+Unlike the R2-based [example](../s3/), this channel is public and requires no
 authentication.
 
 ## Prerequisites
@@ -80,7 +80,7 @@ agent-skill-code-review = "*"
 ## Publishing requirements
 
 The `publish-github` job in
-[`.github/workflows/publish.yml`](../.github/workflows/publish.yml) deploys the built
+[`.github/workflows/publish.yml`](../../.github/workflows/publish.yml) deploys the built
 channel to GitHub Pages. Enable Pages once in the repository settings:
 
 1. Open **Settings → Pages**.

@@ -59,6 +59,9 @@ pixi-skill-recipes/
 │   └── data-engineering/
 │       ├── recipe.yaml
 │       └── SKILL.md
+├── examples/
+│   ├── s3/
+│   └── github/
 ├── pixi.toml
 ├── LICENSE
 └── README.md
@@ -234,8 +237,8 @@ Install the dependencies:
 pixi install
 ```
 
-For complete projects, see [example/](example/) for the private R2 channel and
-[example-github/](example-github/) for the public GitHub Pages channel.
+For complete projects, see [examples/s3/](examples/s3/) for the private R2 channel and
+[examples/github/](examples/github/) for the public GitHub Pages channel.
 
 The skill packages install their instructions into the Pixi environment under:
 
@@ -279,7 +282,7 @@ channels = [
 ```
 
 Enable **Settings → Pages → Source → GitHub Actions** once so the `publish-github`
-job can deploy. See [example-github/](example-github/) for a complete project.
+job can deploy. See [examples/github/](examples/github/) for a complete project.
 
 ## Versioning
 

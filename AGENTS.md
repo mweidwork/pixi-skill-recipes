@@ -15,8 +15,8 @@ recipes/<skill>/SKILL.md      Skill instructions (YAML frontmatter + markdown)
 recipes/<skill>/recipe.yaml   Conda recipe that installs SKILL.md
 pixi.toml                     Build environment (rattler-build)
 .github/workflows/publish.yml Build and publish pipeline
-example/                      Consume skills from the private R2 channel
-example-github/               Consume skills from the public GitHub Pages channel
+examples/s3/                  Consume skills from the private R2 channel
+examples/github/              Consume skills from the public GitHub Pages channel
 ```
 
 The repo's own skills are registered for opencode via `opencode.json`

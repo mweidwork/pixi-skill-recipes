@@ -13,5 +13,5 @@ platforms = [
 ]
 
 [dependencies]
-agent-skill-code-review = ">=0.1.0,<0.2"
 agent-skill-python-development = ">=0.1.0,<0.2"
+agent-skill-code-review = ">=0.1.0,<0.2"

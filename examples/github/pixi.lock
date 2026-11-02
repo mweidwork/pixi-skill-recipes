@@ -1,0 +1,34 @@
+version: 6
+environments:
+  default:
+    channels:
+    - url: https://mweidwork.github.io/pixi-skill-recipes/conda/
+    - url: https://conda.anaconda.org/conda-forge/
+    options:
+      pypi-prerelease-mode: if-necessary-or-explicit
+    packages:
+      linux-64:
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      osx-64:
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      osx-arm64:
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+      win-64:
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+      - conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+packages:
+- conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-code-review-0.1.0-h4616a5c_0.conda
+  sha256: af372dfba18fa5bb9c4b62d4f3aa5514e37e2ffde4f2240c4f3d593d854f000b
+  md5: 5b547f79ca43d75e2e4bd12bb23a8dbe
+  license: MIT
+  size: 3110
+  timestamp: 1793656677578
+- conda: https://mweidwork.github.io/pixi-skill-recipes/conda/noarch/agent-skill-python-development-0.1.0-h4616a5c_0.conda
+  sha256: f836d465781b42fe8eb28280f090be47df54173d57d28a2eaabe8e6dd18b0f70
+  md5: c32371ba5b42d0d6d737293800112564
+  license: MIT
+  size: 3123
+  timestamp: 1793656677651

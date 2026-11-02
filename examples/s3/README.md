@@ -1,7 +1,7 @@
 # Example: install a skill package
 
-This example is a minimal Pixi project that installs a single skill from the private
-`skill-publish` Conda channel: `agent-skill-code-review`.
+This example is a minimal Pixi project that installs skills from the private
+`skill-publish` Conda channel.
 
 ## Prerequisites
 
@@ -32,8 +32,8 @@ From this directory:
 pixi install
 ```
 
-Pixi resolves `agent-skill-code-review` from `s3://skill-publish/conda` and installs it
-into the project environment.
+Pixi resolves the `agent-skill-*` packages from `s3://skill-publish/conda` and installs
+them into the project environment.
 
 ## 3. Verify the installation
 
@@ -80,5 +80,5 @@ Change the dependency in `pixi.toml` to another package from the channel, for ex
 agent-skill-python-development = "*"
 ```
 
-Then run `pixi install` again. See the [main README](../README.md#available-skills) for
+Then run `pixi install` again. See the [main README](../../README.md#available-skills) for
 the available packages.
