@@ -58,7 +58,7 @@ jobs:
 
           for recipe in "${recipes[@]}"; do
             echo "::group::Building ${recipe}"
-            pixi run rattler-build build "$recipe"
+            pixi run rattler-build build --recipe "$recipe"
             echo "::endgroup::"
           done
 
