@@ -1,3 +1,4 @@
+
 name: Publish company skills
 
 on:
@@ -38,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: pixi install --verbose
 
-      - name: Build all recipes
+      - name: Build and validate all recipes
         shell: bash
         run: |
           set -euo pipefail
@@ -53,12 +54,14 @@ jobs:
 
           for recipe in "${recipes[@]}"; do
             echo "::group::Building ${recipe}"
-            pixi run rattler-build build --recipe "$recipe"
+            pixi run rattler-build build \
+              --recipe "$recipe" \
+              --output-dir validation-output
             echo "::endgroup::"
           done
 
   publish:
-    name: Publish packages to Cloudflare R2
+    name: Build and upload Conda channel to Cloudflare R2
     needs: validate
 
     if: >
@@ -75,19 +78,6 @@ jobs:
       group: company-skills-r2-publish
       cancel-in-progress: false
 
-    env:
-      S3_BUCKET: ${{ vars.R2_BUCKET }}
-      S3_ENDPOINT_URL: ${{ vars.R2_ENDPOINT }}
-      S3_REGION: auto
-      S3_ADDRESSING_STYLE: path
-
-      AWS_REGION: auto
-      AWS_DEFAULT_REGION: auto
-      AWS_EC2_METADATA_DISABLED: "true"
-
-      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -101,58 +91,7 @@ jobs:
       - name: Install dependencies
         run: pixi install --verbose
 
-      - name: Verify R2 configuration
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          : "${S3_BUCKET:?Missing R2_BUCKET}"
-          : "${S3_ENDPOINT_URL:?Missing R2_ENDPOINT}"
-          : "${R2_ACCESS_KEY_ID:?Missing R2_ACCESS_KEY_ID}"
-          : "${R2_SECRET_ACCESS_KEY:?Missing R2_SECRET_ACCESS_KEY}"
-
-          echo "R2 configuration is present."
-          echo "Target bucket: ${S3_BUCKET}"
-          echo "Endpoint: ${S3_ENDPOINT_URL}"
-
-      - name: Configure Rattler authentication
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          AUTH_FILE="$RUNNER_TEMP/rattler-auth.json"
-
-          python - <<'PY'
-          import json
-          import os
-
-          auth = {
-              "s3://skill-publish/conda": {
-                  "S3Credentials": {
-                      "access_key_id": os.environ["R2_ACCESS_KEY_ID"],
-                      "secret_access_key": os.environ["R2_SECRET_ACCESS_KEY"],
-                      "session_token": None
-                  }
-              }
-          }
-
-          path = os.path.join(
-              os.environ["RUNNER_TEMP"],
-              "rattler-auth.json"
-          )
-
-          with open(path, "w") as f:
-              json.dump(auth, f)
-
-          os.chmod(path, 0o600)
-          PY
-
-          echo "RATTLER_AUTH_FILE=$AUTH_FILE" >> "$GITHUB_ENV"
-
-      - name: Show rattler-build version
-        run: pixi run rattler-build --version
-
-      - name: Publish all skill recipes
+      - name: Build all packages into Conda channel
         shell: bash
         run: |
           set -euo pipefail
@@ -166,13 +105,35 @@ jobs:
           fi
 
           for recipe in "${recipes[@]}"; do
-            echo "::group::Publishing ${recipe}"
+            echo "::group::Building ${recipe}"
 
-            pixi run rattler-build publish "$recipe" \
-              --to "s3://${S3_BUCKET}/conda"
+            pixi run rattler-build build \
+              --recipe "$recipe" \
+              --output-dir channel
 
             echo "::endgroup::"
           done
 
+          echo "Generated channel contents:"
+          find channel -maxdepth 3 -type f | sort
+
+          if [[ ! -f channel/noarch/repodata.json ]]; then
+            echo "::error::Missing channel/noarch/repodata.json"
+            exit 1
+          fi
+
+      - name: Upload Conda channel to Cloudflare R2
+        uses: ryand56/r2-upload-action@v1.5
+        with:
+          r2-account-id: b9296accc515e61268cbc93ac4377240
+          r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+          r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          r2-bucket: ${{ vars.R2_BUCKET }}
+          r2-jurisdiction: eu
+          source-dir: channel
+          destination-dir: conda
+          keep-file-fresh: true
+          output-file-url: false
+
       - name: Publishing completed
-        run: echo "All skill packages were published successfully."
+        run: echo "Conda channel uploaded successfully to Cloudflare R2."
