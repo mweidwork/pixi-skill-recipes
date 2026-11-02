@@ -1,16 +1,17 @@
-
 name: Publish company skills
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
     paths:
       - "recipes/**"
       - "pixi.toml"
       - ".github/workflows/publish.yml"
 
-  push:
-    branches: [main]
+  pull_request:
+    branches:
+      - main
     paths:
       - "recipes/**"
       - "pixi.toml"
@@ -23,34 +24,54 @@ permissions:
 
 jobs:
   validate:
-    name: Validate skill recipes
+    name: Build and validate recipes
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: prefix-dev/setup-pixi@v0.8.3
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          run-install: false
+          cache: false
 
       - name: Install dependencies
-        run: pixi install
+        run: pixi install --verbose
+
+      - name: Show rattler-build version
+        run: pixi run rattler-build --version
 
       - name: Build all recipes
         shell: bash
         run: |
           set -euo pipefail
 
-          for recipe in recipes/*/recipe.yaml; do
-            echo "Building $recipe"
+          shopt -s nullglob
+          recipes=(recipes/*/recipe.yaml)
+
+          if (( ${#recipes[@]} == 0 )); then
+            echo "::error::No recipe.yaml files found."
+            exit 1
+          fi
+
+          for recipe in "${recipes[@]}"; do
+            echo "::group::Building ${recipe}"
             pixi run rattler-build build "$recipe"
+            echo "::endgroup::"
           done
 
   publish:
-    name: Publish to Cloudflare R2
+    name: Publish packages to Cloudflare R2
     needs: validate
+
     if: >
       github.ref == 'refs/heads/main' &&
-      (github.event_name == 'push' ||
-       github.event_name == 'workflow_dispatch')
+      (
+        github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch'
+      )
 
     runs-on: ubuntu-latest
     environment: r2-dev
@@ -68,21 +89,55 @@ jobs:
       S3_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: prefix-dev/setup-pixi@v0.8.3
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          run-install: false
+          cache: false
 
       - name: Install dependencies
-        run: pixi install
+        run: pixi install --verbose
 
-      - name: Publish all skills
+      - name: Verify R2 configuration
         shell: bash
         run: |
           set -euo pipefail
 
-          for recipe in recipes/*/recipe.yaml; do
-            echo "Publishing $recipe"
+          : "${S3_BUCKET:?Missing GitHub variable R2_BUCKET}"
+          : "${S3_ENDPOINT_URL:?Missing GitHub variable R2_ENDPOINT}"
+          : "${S3_ACCESS_KEY_ID:?Missing GitHub secret R2_ACCESS_KEY_ID}"
+          : "${S3_SECRET_ACCESS_KEY:?Missing GitHub secret R2_SECRET_ACCESS_KEY}"
+
+          echo "R2 configuration is present."
+          echo "Target bucket: ${S3_BUCKET}"
+
+      - name: Show rattler-build version
+        run: pixi run rattler-build --version
+
+      - name: Publish all skill recipes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          shopt -s nullglob
+          recipes=(recipes/*/recipe.yaml)
+
+          if (( ${#recipes[@]} == 0 )); then
+            echo "::error::No recipe.yaml files found."
+            exit 1
+          fi
+
+          for recipe in "${recipes[@]}"; do
+            echo "::group::Publishing ${recipe}"
 
             pixi run rattler-build publish "$recipe" \
               --to "s3://${S3_BUCKET}/conda"
+
+            echo "::endgroup::"
           done
+
+      - name: Publishing completed
+        run: echo "All skill packages were published successfully."
