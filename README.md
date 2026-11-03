@@ -43,6 +43,7 @@ authoring, packaging, and publishing workflow.
 | Code Review | `agent-skill-code-review` | Structured code reviews and actionable findings |
 | Authoring Skills | `agent-skill-authoring-skills` | Skill design, bundled resources, validation, and iteration |
 | Data Engineering | `agent-skill-data-engineering` | Data pipelines, quality, performance, and reliability |
+| SkillForge Channel Management | `agent-skill-skill-forge-channel-management` | Safely test and operate skill-forge package mirroring with the CLI |
 
 Each skill is distributed as an independent Conda package.
 

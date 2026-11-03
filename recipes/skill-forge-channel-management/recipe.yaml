@@ -1,0 +1,24 @@
+context:
+  skill: skill-forge-channel-management
+
+package:
+  name: agent-skill-${{ skill }}
+  version: "0.1.0"
+
+source:
+  path: .
+
+build:
+  noarch: generic
+  script:
+    - mkdir -p "${PREFIX}/share/agent-skills/${{ skill }}"
+    - cp "${RECIPE_DIR}/SKILL.md" "${PREFIX}/share/agent-skills/${{ skill }}/SKILL.md"
+
+tests:
+  - package_contents:
+      files:
+        - share/agent-skills/skill-forge-channel-management/SKILL.md
+
+about:
+  summary: Safely test and operate skill-forge package mirroring with the pixi-skill-recipes CLI
+  license: MIT
