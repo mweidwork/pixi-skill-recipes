@@ -31,7 +31,12 @@ from .recipes import (
     set_recipe_version,
 )
 from .storage import S3Storage, Storage
-from .versioning import bump_version, parse_version
+from .upstream import (
+    DEFAULT_SKILL_FORGE_CHANNEL_URL,
+    download_upstream_package,
+    load_upstream_packages,
+)
+from .versioning import bump_version, latest_version, parse_version
 
 
 @dataclass
@@ -198,6 +203,22 @@ def build_parser() -> argparse.ArgumentParser:
     promote_parser.add_argument("--no-index", action="store_true", help="Skip repodata generation")
     promote_parser.add_argument("--dry-run", action="store_true", help="Print without copying")
     promote_parser.set_defaults(func=cmd_promote)
+
+    update_parser = subparsers.add_parser(
+        "update",
+        help="Mirror newer skill packages from the skill-forge channel",
+    )
+    update_parser.add_argument("skills", nargs="*", metavar="SKILL")
+    update_parser.add_argument("--all", action="store_true", help="Update every upstream skill")
+    update_parser.add_argument("--env", default="dev", help="Target channel (default: dev)")
+    update_parser.add_argument(
+        "--source-url",
+        default=DEFAULT_SKILL_FORGE_CHANNEL_URL,
+        help="Upstream Conda channel URL",
+    )
+    update_parser.add_argument("--dry-run", action="store_true", help="Preview package updates")
+    update_parser.add_argument("--no-index", action="store_true", help="Skip repodata generation")
+    update_parser.set_defaults(func=cmd_update)
 
     list_parser = subparsers.add_parser("list", help="List packages in a channel")
     list_parser.add_argument("--env", default="dev", help="Channel name (default: dev)")
@@ -559,6 +580,74 @@ def cmd_list(runtime: Runtime, args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_update(runtime: Runtime, args: argparse.Namespace) -> int:
+    """Mirror newer skill packages from the public skill-forge channel.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+
+    Raises:
+        ChannelError: If upstream metadata, package downloads, or channel writes fail.
+        RecipeError: If the skill selection is invalid.
+    """
+    source_records = load_upstream_packages(args.source_url)
+    skills = _resolve_upstream_skills(source_records, args.skills, args.all)
+    settings, storage = _load_channel(runtime, args.env)
+    target_records = load_packages(storage, settings)
+
+    updates: list[tuple[PackageRecord, str]] = []
+    for skill in skills:
+        upstream_version = latest_version_for_skill(source_records, skill=skill)
+        target_versions = versions_for_skill(target_records, skill=skill)
+        if target_versions:
+            target_version = latest_version(target_versions)
+            if parse_version(upstream_version) <= parse_version(target_version):
+                print(f"{skill}: already up to date ({target_version})")
+                continue
+
+        for record in select_records(source_records, skill=skill, version=upstream_version):
+            updates.append((record, record.key(settings)))
+
+    if not updates:
+        print(f"no skill-forge updates available in {args.env}")
+        return 0
+
+    _check_conflicts(storage, updates, force=False)
+    if args.dry_run:
+        by_skill: dict[str, list[PackageRecord]] = {}
+        for record, _ in updates:
+            skill = record.name.removeprefix("agent-skill-")
+            by_skill.setdefault(skill, []).append(record)
+        for skill, records in by_skill.items():
+            print(
+                f"would update {skill} to {records[0].version} "
+                f"({len(records)} package file(s)) in {args.env}"
+            )
+        return 0
+
+    with tempfile.TemporaryDirectory(prefix="pixi-skill-recipes-update-") as temporary:
+        for record, key in updates:
+            artifact = Path(temporary) / record.subdir / record.filename
+            download_upstream_package(args.source_url, record, artifact)
+            storage.upload_file(
+                artifact,
+                key,
+                content_type=PACKAGE_CONTENT_TYPE,
+                cache_control=PACKAGE_CACHE_CONTROL,
+            )
+            print(f"updated {record.name} {record.version}: {key}")
+
+    if not args.no_index:
+        runtime.index(settings, storage)
+
+    print(f"updated {len(updates)} package file(s) in {args.env}")
+    return 0
+
+
 def cmd_index(runtime: Runtime, args: argparse.Namespace) -> int:
     """Regenerate channel repodata.
 
@@ -587,6 +676,47 @@ def _load_channel(runtime: Runtime, name: str) -> tuple[ChannelSettings, Storage
     """
     settings = runtime.config.channel(name)
     return settings, runtime.storage(name)
+
+
+def _resolve_upstream_skills(
+    records: Sequence[PackageRecord],
+    skills: Sequence[str],
+    all_skills: bool,
+) -> list[str]:
+    """Resolve skill names against the upstream channel.
+
+    Args:
+        records: Package records from the upstream channel.
+        skills: Skill names supplied on the command line.
+        all_skills: Whether ``--all`` was supplied.
+
+    Returns:
+        Deduplicated selected skill names in the requested order.
+
+    Raises:
+        RecipeError: If the selection is empty, ambiguous, or absent upstream.
+    """
+    if all_skills and skills:
+        raise RecipeError("pass either skill names or --all, not both")
+    available = sorted(
+        {
+            record.name.removeprefix("agent-skill-")
+            for record in records
+            if record.name.startswith("agent-skill-")
+        }
+    )
+    if all_skills:
+        if not available:
+            raise RecipeError("no agent-skill packages found in the upstream channel")
+        return available
+    if not skills:
+        raise RecipeError("specify at least one skill or --all")
+
+    selected = list(dict.fromkeys(skills))
+    missing = [skill for skill in selected if skill not in available]
+    if missing:
+        raise RecipeError(f"skills not found in the upstream channel: {', '.join(missing)}")
+    return selected
 
 
 def _resolve_skills(

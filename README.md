@@ -103,7 +103,8 @@ Changes to documentation alone do not trigger a build.
 2. Pixi installs the project environment.
 3. `rattler-build` validates and builds the skill recipes.
 4. Changed recipes are published to Cloudflare R2.
-5. Channel metadata is updated.
+5. The complete R2 channel is reindexed, including any mirrored upstream packages.
+6. The complete R2 channel is mirrored to GitHub Pages.
 
 The Conda channel is published to:
 
@@ -146,6 +147,10 @@ The `pixi-skill-recipes` command builds and manages skill packages in configured
 S3-compatible channels. Install the repository environment with `pixi install`,
 then create a `pixi-skill-recipes.toml` file in the repository root:
 
+For the complete, in-depth command reference—including configuration, every
+option, update behavior, examples, and release workflows—see
+[CLI-README.md](CLI-README.md).
+
 ```toml
 [channels.dev]
 bucket = "<development-bucket>"
@@ -186,13 +191,37 @@ pixi run pixi-skill-recipes promote my-skill --source dev --target prd
 # Inspect a channel or delete one version after confirmation.
 pixi run pixi-skill-recipes list --env prd
 pixi run pixi-skill-recipes --yes delete my-skill --env dev --version 0.1.0
+
+# Check for newer upstream skill-forge packages and mirror them to development.
+pixi run pixi-skill-recipes update polars --env dev --dry-run
+pixi run pixi-skill-recipes update polars --env dev
+
+# Or check every package in the upstream skill-forge channel.
+pixi run pixi-skill-recipes update --all --env dev
 ```
 
-Use `--all` to build or publish all local recipes, `--all-versions` to promote
-or delete every version, and `--dry-run` to preview supported publishing,
-promotion, or deletion operations. Delete and promote prompt before acting;
-`--yes` skips those prompts for scripted use. The full command list is available
-with `pixi run pixi-skill-recipes --help`.
+Use `--all` to build or publish all local recipes, or update every package from
+upstream. Use `--all-versions` to promote or delete every version, and
+`--dry-run` to preview supported publishing, promotion, deletion, or update
+operations. Delete and promote prompt before acting; `--yes` skips those prompts
+for scripted use. The full command list is available with
+`pixi run pixi-skill-recipes --help`.
+
+The `update` command reads the public
+[`skill-forge` channel](https://prefix.dev/skill-forge) maintained by
+[`pavelzw/skill-forge`](https://github.com/pavelzw/skill-forge), compares the
+latest version of each selected skill with the target channel, downloads only newer
+`noarch` packages, verifies their size and SHA-256 against upstream repodata,
+then uploads them to the selected S3 channel and regenerates its index. The
+source defaults to `https://prefix.dev/skill-forge`; use `--source-url` to
+override it. A skill name such as `polars` refers to the package
+`agent-skill-polars`.
+
+The GitHub Pages deployment mirrors the complete development R2 channel. After
+running `update` against `dev`, start **Actions → Publish skills → Run
+workflow** on `main` to refresh Pages. The workflow rebuilds local recipes,
+uploads them to R2, then deploys the complete R2 channel to Pages. Updates to a
+different S3 environment are not mirrored to Pages.
 
 ## Adding a new skill
 

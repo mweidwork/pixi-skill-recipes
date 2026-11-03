@@ -111,6 +111,18 @@ jobs:
       cancel-in-progress: false
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          run-install: false
+          cache: false
+
+      - name: Install indexing tools
+        run: pixi install --verbose
+
       - name: Download built channel
         uses: actions/download-artifact@v4
         with:
@@ -130,12 +142,45 @@ jobs:
           keep-file-fresh: true
           output-file-url: false
 
+      - name: Reindex the complete R2 channel
+        env:
+          S3_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+        run: |
+          set -euo pipefail
+          pixi run rattler-index s3 "s3://${R2_BUCKET}/conda" \
+            --endpoint-url "$R2_ENDPOINT" \
+            --region auto \
+            --addressing-style path \
+            --force
+
+      - name: Download full R2 channel for GitHub Pages
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+        run: |
+          set -euo pipefail
+          aws s3 sync "s3://${R2_BUCKET}/conda" channel \
+            --endpoint-url "$R2_ENDPOINT" \
+            --region auto
+
+      - name: Upload mirrored channel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: conda-channel-mirror
+          path: channel
+          if-no-files-found: error
+
       - name: Publishing completed
         run: echo "Conda channel uploaded successfully to Cloudflare R2."
 
   publish-github:
     name: Publish Conda channel to GitHub Pages
-    needs: validate
+    needs: [validate, publish]
 
     if: >
       github.ref == 'refs/heads/main' &&
@@ -160,10 +205,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}conda
 
     steps:
-      - name: Download built channel
+      - name: Download mirrored channel
         uses: actions/download-artifact@v4
         with:
-          name: conda-channel
+          name: conda-channel-mirror
           path: pages/conda
 
       - name: Upload Pages artifact

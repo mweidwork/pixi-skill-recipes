@@ -6,7 +6,7 @@ import json
 import os
 import shutil
 import subprocess
-from collections.abc import Callable, Iterable, Sequence
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any
 
@@ -121,14 +121,35 @@ def load_packages(
 
     for subdir in subdirs:
         data = read_repodata(storage, settings, subdir)
-        for section in ("packages", "packages.conda"):
-            entries = data.get(section) or {}
-            if not isinstance(entries, dict):
+        for record in parse_repodata(data, subdir):
+            identity = (record.subdir, record.filename)
+            if identity not in seen:
+                seen.add(identity)
+                records.append(record)
+
+    return sorted(records, key=lambda record: (record.name, record.version, record.build))
+
+
+def parse_repodata(data: Mapping[str, Any], subdir: str) -> list[PackageRecord]:
+    """Parse package records from one repodata document.
+
+    Args:
+        data: Parsed repodata mapping.
+        subdir: Channel subdirectory containing the repodata.
+
+    Returns:
+        Package records listed in the document.
+    """
+    records: list[PackageRecord] = []
+    for section in ("packages", "packages.conda"):
+        entries = data.get(section) or {}
+        if not isinstance(entries, dict):
+            continue
+        for filename, entry in entries.items():
+            if not isinstance(entry, dict):
                 continue
-            for filename, entry in entries.items():
-                if not isinstance(entry, dict):
-                    continue
-                record = PackageRecord(
+            records.append(
+                PackageRecord(
                     name=str(entry.get("name") or ""),
                     version=str(entry.get("version") or ""),
                     build=str(entry.get("build") or ""),
@@ -138,12 +159,8 @@ def load_packages(
                     sha256=_optional_str(entry.get("sha256")),
                     size=_optional_int(entry.get("size")),
                 )
-                identity = (record.subdir, record.filename)
-                if identity not in seen:
-                    seen.add(identity)
-                    records.append(record)
-
-    return sorted(records, key=lambda record: (record.name, record.version, record.build))
+            )
+    return records
 
 
 def select_records(

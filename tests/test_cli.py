@@ -60,19 +60,22 @@ def test_main_new_and_bump_rc(tmp_path: Path, capsys: pytest.CaptureFixture[str]
     """The CLI scaffolds a skill and updates its recipe to an RC version."""
     _write_project(tmp_path)
 
-    assert cli.main(
-        [
-            "--root",
-            str(tmp_path),
-            "new",
-            "code-review",
-            "--description",
-            "Review code carefully.",
-        ]
-    ) == 0
+    assert (
+        cli.main(
+            [
+                "--root",
+                str(tmp_path),
+                "new",
+                "code-review",
+                "--description",
+                "Review code carefully.",
+            ]
+        )
+        == 0
+    )
     assert cli.main(["--root", str(tmp_path), "bump", "code-review", "--rc"]) == 0
 
-    assert "version: \"0.1.0rc1\"" in (
+    assert 'version: "0.1.0rc1"' in (
         tmp_path / "recipes" / "code-review" / "recipe.yaml"
     ).read_text(encoding="utf-8")
     assert "0.1.0 -> 0.1.0rc1" in capsys.readouterr().out
@@ -200,3 +203,84 @@ def test_list_json_emits_package_records(
     assert result == 0
     assert records[0]["name"] == "agent-skill-code-review"
     assert records[0]["version"] == "0.1.0"
+
+
+def test_update_copies_only_a_newer_upstream_version(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The update command copies the latest version missing from the target."""
+    _write_project(tmp_path)
+    config = load_config(root=tmp_path)
+    storage = MemoryStorage()
+    _put_records(storage, [_record("0.1.0")], config.channel("dev"))
+    upstream_records = [_record("0.1.0"), _record("0.2.0")]
+    downloaded: list[str] = []
+    indexed: list[str] = []
+
+    def fake_download(_url: str, record: PackageRecord, destination: Path) -> None:
+        downloaded.append(record.version)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(b"upstream:" + record.version.encode())
+
+    monkeypatch.setattr(cli, "load_upstream_packages", lambda _url: upstream_records)
+    monkeypatch.setattr(cli, "download_upstream_package", fake_download)
+    monkeypatch.setattr(cli.Runtime, "storage", lambda _self, _name: storage)
+    monkeypatch.setattr(
+        cli.Runtime,
+        "index",
+        lambda _self, _settings, _storage, **_kwargs: indexed.append("indexed"),
+    )
+
+    result = cli.main(["--root", str(tmp_path), "update", "code-review"])
+
+    expected = config.channel("dev").key("noarch", _record("0.2.0").filename)
+    assert result == 0
+    assert storage.objects[expected] == b"upstream:0.2.0"
+    assert downloaded == ["0.2.0"]
+    assert indexed == ["indexed"]
+
+
+def test_update_dry_run_does_not_download_or_upload(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """A dry run reports a newer upstream version without changing the target."""
+    _write_project(tmp_path)
+    storage = MemoryStorage()
+    upstream_records = [_record("0.2.0")]
+    monkeypatch.setattr(cli, "load_upstream_packages", lambda _url: upstream_records)
+    monkeypatch.setattr(cli, "download_upstream_package", lambda *_args: pytest.fail("downloaded"))
+    monkeypatch.setattr(cli.Runtime, "storage", lambda _self, _name: storage)
+
+    result = cli.main(["--root", str(tmp_path), "update", "code-review", "--dry-run"])
+
+    assert result == 0
+    assert "would update code-review to 0.2.0" in capsys.readouterr().out
+    assert storage.objects == {}
+
+
+def test_update_skips_when_target_is_newer(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """The update command does not overwrite a newer target release."""
+    _write_project(tmp_path)
+    config = load_config(root=tmp_path)
+    storage = MemoryStorage()
+    _put_records(storage, [_record("0.3.0")], config.channel("dev"))
+    monkeypatch.setattr(cli, "load_upstream_packages", lambda _url: [_record("0.2.0")])
+    monkeypatch.setattr(
+        cli,
+        "download_upstream_package",
+        lambda *_args: pytest.fail("downloaded an older release"),
+    )
+    monkeypatch.setattr(cli.Runtime, "storage", lambda _self, _name: storage)
+
+    result = cli.main(["--root", str(tmp_path), "update", "code-review"])
+
+    assert result == 0
+    assert "already up to date (0.3.0)" in capsys.readouterr().out
+    assert not any(key.endswith(_record("0.2.0").filename) for key in storage.objects)
