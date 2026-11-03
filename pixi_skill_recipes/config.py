@@ -13,7 +13,7 @@ import re
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from .errors import ConfigError
 
@@ -23,7 +23,8 @@ CONFIG_FILENAMES = (
     "skill-recipes.toml",
 )
 DEFAULT_PREFIX = "conda"
-ADDRESSING_STYLES = {"auto", "path", "virtual"}
+AddressingStyle = Literal["auto", "path", "virtual"]
+ADDRESSING_STYLES: frozenset[AddressingStyle] = frozenset({"auto", "path", "virtual"})
 
 
 @dataclass(frozen=True)
@@ -47,7 +48,7 @@ class ChannelSettings:
     prefix: str = DEFAULT_PREFIX
     endpoint_url: str | None = None
     region: str = "auto"
-    addressing_style: str = "virtual"
+    addressing_style: AddressingStyle = "virtual"
 
     def __post_init__(self) -> None:
         """Validate required settings and normalize the object prefix."""

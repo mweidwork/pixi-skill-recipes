@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from pixi_skill_recipes.config import load_config
 from pixi_skill_recipes.errors import ConfigError
 

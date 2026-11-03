@@ -8,11 +8,14 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 from pathlib import Path
-from typing import Any, Protocol
+from typing import TYPE_CHECKING, Any, Protocol
 
 import boto3
 from botocore.config import Config as BotoConfig
 from botocore.exceptions import BotoCoreError, ClientError
+
+if TYPE_CHECKING:
+    from mypy_boto3_s3.type_defs import PutObjectRequestTypeDef
 
 from .config import ChannelSettings
 from .errors import StorageError
@@ -152,13 +155,17 @@ class S3Storage:
         Raises:
             StorageError: If the request fails.
         """
-        extra: dict[str, str] = {}
+        request: PutObjectRequestTypeDef = {
+            "Bucket": self.bucket,
+            "Key": key,
+            "Body": data,
+        }
         if content_type:
-            extra["ContentType"] = content_type
+            request["ContentType"] = content_type
         if cache_control:
-            extra["CacheControl"] = cache_control
+            request["CacheControl"] = cache_control
         try:
-            self._client.put_object(Bucket=self.bucket, Key=key, Body=data, **extra)
+            self._client.put_object(**request)
         except (BotoCoreError, ClientError) as exc:
             raise StorageError(f"failed to write s3://{self.bucket}/{key}: {exc}") from exc
 
@@ -297,9 +304,7 @@ class S3Storage:
                 for item in page.get("Contents") or []:
                     keys.append(item["Key"])
         except (BotoCoreError, ClientError) as exc:
-            raise StorageError(
-                f"failed to list s3://{self.bucket}/{prefix}: {exc}"
-            ) from exc
+            raise StorageError(f"failed to list s3://{self.bucket}/{prefix}: {exc}") from exc
         return keys
 
     def credentials_env(self) -> dict[str, str]:
@@ -313,6 +318,8 @@ class S3Storage:
         if credentials is None:
             return {}
         frozen = credentials.get_frozen_credentials()
+        if frozen.access_key is None or frozen.secret_key is None:
+            raise StorageError("resolved S3 credentials are incomplete")
         env = {
             "S3_ACCESS_KEY_ID": frozen.access_key,
             "S3_SECRET_ACCESS_KEY": frozen.secret_key,

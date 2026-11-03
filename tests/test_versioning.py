@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from pixi_skill_recipes.errors import RecipeError
 from pixi_skill_recipes.versioning import bump_version, latest_version, parse_version
 

@@ -64,9 +64,7 @@ def bump_version(current: str, *, part: str | None = None, rc: bool = False) -> 
         if version.pre and version.pre[0] == "rc":
             return f"{version.base_version}rc{version.pre[1] + 1}"
         if version.pre:
-            raise RecipeError(
-                f"cannot create an rc from pre-release version '{current}'"
-            )
+            raise RecipeError(f"cannot create an rc from pre-release version '{current}'")
         return f"{version.base_version}rc1"
 
     if part is None:
@@ -109,9 +107,7 @@ def _bump_release(version: Version, part: str) -> str:
         index = PART_INDEX[part]
     except KeyError:
         allowed = ", ".join(PART_INDEX)
-        raise RecipeError(
-            f"invalid version part '{part}' (expected one of: {allowed})"
-        ) from None
+        raise RecipeError(f"invalid version part '{part}' (expected one of: {allowed})") from None
 
     release = list(version.release[:3])
     while len(release) < 3:

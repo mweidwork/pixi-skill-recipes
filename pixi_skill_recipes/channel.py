@@ -267,8 +267,7 @@ def index_channel(
     if result.returncode != 0:
         output = (result.stderr or result.stdout or "").strip()
         raise ChannelError(
-            f"rattler-index failed for {settings.s3_url}"
-            + (f": {output}" if output else "")
+            f"rattler-index failed for {settings.s3_url}" + (f": {output}" if output else "")
         )
 
 
@@ -295,9 +294,13 @@ def _optional_int(value: object) -> int | None:
     Returns:
         The value as an integer, or ``None`` when it is absent or invalid.
     """
-    if value is None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if not isinstance(value, str):
         return None
     try:
-        return int(value)  # type: ignore[arg-type]
-    except (TypeError, ValueError):
+        return int(value)
+    except ValueError:
         return None

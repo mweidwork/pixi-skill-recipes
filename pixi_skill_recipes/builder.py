@@ -83,8 +83,7 @@ class Builder:
         if result.returncode != 0:
             output = (result.stderr or result.stdout or "").strip()
             raise BuildError(
-                f"rattler-build failed for {recipe.skill}"
-                + (f": {output}" if output else "")
+                f"rattler-build failed for {recipe.skill}" + (f": {output}" if output else "")
             )
 
         artifacts = find_artifacts(output_dir, recipe)

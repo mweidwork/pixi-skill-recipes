@@ -6,7 +6,6 @@ import subprocess
 from collections.abc import Sequence
 
 import pytest
-
 from pixi_skill_recipes.channel import (
     PackageRecord,
     index_channel,

@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from pixi_skill_recipes.errors import RecipeError
 from pixi_skill_recipes.recipes import (
     list_skills,

@@ -140,6 +140,60 @@ S3_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
 S3_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
 ```
 
+## Manage skills with the CLI
+
+The `pixi-skill-recipes` command builds and manages skill packages in configured
+S3-compatible channels. Install the repository environment with `pixi install`,
+then create a `pixi-skill-recipes.toml` file in the repository root:
+
+```toml
+[channels.dev]
+bucket = "<development-bucket>"
+prefix = "conda"
+endpoint_url = "https://<account-id>.r2.cloudflarestorage.com"
+region = "auto"
+addressing_style = "path"
+
+[channels.prd]
+bucket = "<production-bucket>"
+prefix = "conda"
+endpoint_url = "https://<account-id>.r2.cloudflarestorage.com"
+region = "auto"
+addressing_style = "path"
+```
+
+Use placeholders for your own bucket and endpoint. The CLI uses the standard
+AWS credential chain; pass `--profile <profile>` before the command to select an
+AWS profile. Alternatively, set channel values through environment variables,
+such as `PIXI_SKILL_RECIPES_PRD_BUCKET`. Do not store credentials in the
+configuration file.
+
+Typical workflows:
+
+```bash
+# Create a recipe and its initial skill instructions.
+pixi run pixi-skill-recipes new my-skill --description "A short description"
+
+# Create or increment a release candidate, then build it locally.
+pixi run pixi-skill-recipes bump my-skill --rc
+pixi run pixi-skill-recipes build my-skill
+
+# Publish to development, review the promotion, then copy the latest version to production.
+pixi run pixi-skill-recipes publish my-skill --env dev
+pixi run pixi-skill-recipes promote my-skill --source dev --target prd --dry-run
+pixi run pixi-skill-recipes promote my-skill --source dev --target prd
+
+# Inspect a channel or delete one version after confirmation.
+pixi run pixi-skill-recipes list --env prd
+pixi run pixi-skill-recipes --yes delete my-skill --env dev --version 0.1.0
+```
+
+Use `--all` to build or publish all local recipes, `--all-versions` to promote
+or delete every version, and `--dry-run` to preview supported publishing,
+promotion, or deletion operations. Delete and promote prompt before acting;
+`--yes` skips those prompts for scripted use. The full command list is available
+with `pixi run pixi-skill-recipes --help`.
+
 ## Adding a new skill
 
 Create a new directory under `recipes/`:
