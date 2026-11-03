@@ -3,30 +3,243 @@ environments:
   default:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
+    indexes:
+    - https://pypi.org/simple
     options:
       pypi-prerelease-mode: if-necessary-or-explicit
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hda65f42_10.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-hbd8a1cb_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.46.1-default_hbd61a6d_103.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20260512-pl5321h373387f_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.9.0-hd2095e1_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libffi-3.7.0-h81df57d_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-16.2.0-ha9f2e26_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.18-h0cb94f2_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.8.3-hb03c661_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libmpdec-4.0.0-hb03c661_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.54.1-h0737f62_101.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-16.2.0-h934c35e_7.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.42.4-hcfc3c73_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.6.5-h781a0a9_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/patchelf-0.19.3-hee9eb32_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.15.2-h6e52b48_100_cp315.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.15-9_cp315.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.69.1-ha759004_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-index-0.34.5-h91e2699_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h1df4ec4_4.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_7.conda
+      - pypi: https://files.pythonhosted.org/packages/b4/e6/f2b67c327d9f9533e41791804403ccc2dc457821195a2e51f0b587a90b90/ast_serialize-0.13.1-cp315-abi3.abi3t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/96/b2/a7986c327f80aa6f1544f4cb8f2fa7da4e1fccd472379a21cad0508b8a0e/boto3-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/55/adb3eb5a361fae6eaa4bf8e65c13539a4b057de24eff5a201caf71871864/boto3_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/96/4f2dffd304425c07160ab2c12cb13322d852fd956fe9d4386228c93f02ea/botocore-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/7b/98/32e9d3087facc5836472ccf5b37ae0af086c7802a2bafbc931294834ac25/botocore_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/3c/33bac158f8ab7f89b2e59426d5fe2e4f63f7ed25df84c036890172b412b5/cfgv-3.5.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1d/1a/1fcf0d3886bad15b92459a0e529dd86a1ec4d9ef30e789df48044fd3698c/filelock-4.2.7-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/fa/70/fffc9613501877c0a10a1ef73a165e6ded3e53f6e7502227fef56d973933/identify-2.6.20-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/e1/6f/53762927a32e9dc9eb1d1c1f3528da281290c86d96929a8af652f671266e/librt-0.16.0-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/c3/c9/3108b38f4c30eabd80194f5d9771a87e27196c5e0ddb5bf4b99c6ed1e97e/mypy-2.4.1-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/b8/4a/52419b5496215ab52c6c257134c1ac0da25c1ca5d802f133424d02a43686/mypy_boto3_s3-1.43.106-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/2d/6a/8a9ac7d5e2f7cf53c459bfef90ebc17a2f8cd54b665af96799d4c534840e/nodeenv-1.12.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/41/f0aa003909ee77a9e7e55f8659abb635ca23ab0d022a449bbb18da87a1ef/platformdirs-4.14.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/eb/83/ce0a196e4f7b20b11ce3aa1fc72fb973f64b7628d51c1b8aebad37fb7f81/pre_commit-4.7.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/39/5b/d61e08d34eeb74eb88431243e3849551f0161de08659d55312955afd2a36/python_discovery-1.9.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f0/20/fecedea2209f574ab92033b344e01a7f0c2dc76c6d6d19a14c9f8141173f/ruff-0.17.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/e2/a4/88f9e10498759121060b8050a1554753dfc04df39bbbcc7aad9ecc8d9440/s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/98/972fa03c9a6e1cc9184a28ea0354af50a6764bb172fe2d0751798a295f07/types_s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f7/d8/09c9d6df253b2016312dd5ccbb962dfa86a5202f2452604b52e0a9844661/virtualenv-21.15.2-py3-none-any.whl
+      - pypi: ./
       osx-64:
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/bzip2-1.0.8-h374f1ed_10.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/libcxx-23.1.4-h19cb2f5_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libedit-3.1.20260512-pl5321hba2e2ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libexpat-2.9.0-h6e061ac_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libffi-3.7.0-h6b3a05b_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libiconv-1.18-h4ae439b_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/liblzma-5.8.3-hbb4bfdb_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libmpdec-4.0.0-ha1e9b39_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libsqlite-3.54.1-ha5db789_101.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/libzlib-1.3.2-hbb4bfdb_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/ncurses-6.6-hcc0dc9a_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/openssl-3.6.5-h332eb6d_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/python-3.15.2-h0abcc05_100_cp315.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.15-9_cp315.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/rattler-build-0.69.1-h6193a51_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/rattler-index-0.34.5-h425651a_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-ha6c374e_4.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-hbc1a06c_7.conda
+      - pypi: https://files.pythonhosted.org/packages/2b/e2/b0c140fe50fa39dd249e382f7733af6f816c90021fe7959a0b026f86237f/ast_serialize-0.13.1-cp315-abi3.abi3t-macosx_10_12_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/96/b2/a7986c327f80aa6f1544f4cb8f2fa7da4e1fccd472379a21cad0508b8a0e/boto3-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/55/adb3eb5a361fae6eaa4bf8e65c13539a4b057de24eff5a201caf71871864/boto3_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/96/4f2dffd304425c07160ab2c12cb13322d852fd956fe9d4386228c93f02ea/botocore-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/7b/98/32e9d3087facc5836472ccf5b37ae0af086c7802a2bafbc931294834ac25/botocore_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/3c/33bac158f8ab7f89b2e59426d5fe2e4f63f7ed25df84c036890172b412b5/cfgv-3.5.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1d/1a/1fcf0d3886bad15b92459a0e529dd86a1ec4d9ef30e789df48044fd3698c/filelock-4.2.7-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/fa/70/fffc9613501877c0a10a1ef73a165e6ded3e53f6e7502227fef56d973933/identify-2.6.20-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b6/4b/10fdb42dfab4c1533e1570e686b18e86ff4328b406361b39fb3016667638/librt-0.16.0-cp315-cp315-macosx_10_15_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/21/5c/6e8010f8f2c4ad817364592d4b3883633417269b913fc9d5174fdeb7e565/mypy-2.4.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b8/4a/52419b5496215ab52c6c257134c1ac0da25c1ca5d802f133424d02a43686/mypy_boto3_s3-1.43.106-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/2d/6a/8a9ac7d5e2f7cf53c459bfef90ebc17a2f8cd54b665af96799d4c534840e/nodeenv-1.12.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/41/f0aa003909ee77a9e7e55f8659abb635ca23ab0d022a449bbb18da87a1ef/platformdirs-4.14.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/eb/83/ce0a196e4f7b20b11ce3aa1fc72fb973f64b7628d51c1b8aebad37fb7f81/pre_commit-4.7.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/39/5b/d61e08d34eeb74eb88431243e3849551f0161de08659d55312955afd2a36/python_discovery-1.9.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/72/26/4b2edf31cfebe9605d8f6ed8f1d6f376d3a53d4c9a123e62661c64c440f0/ruff-0.17.3-py3-none-macosx_10_12_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/e2/a4/88f9e10498759121060b8050a1554753dfc04df39bbbcc7aad9ecc8d9440/s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/98/972fa03c9a6e1cc9184a28ea0354af50a6764bb172fe2d0751798a295f07/types_s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f7/d8/09c9d6df253b2016312dd5ccbb962dfa86a5202f2452604b52e0a9844661/virtualenv-21.15.2-py3-none-any.whl
+      - pypi: ./
       osx-arm64:
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/bzip2-1.0.8-h4e30115_10.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-23.1.4-h55c6f16_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libedit-3.1.20260512-pl5321h26f1114_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libexpat-2.9.0-h6111c0a_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libffi-3.7.0-h47dc5ef_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libiconv-1.18-he4c29f2_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/liblzma-5.8.3-h8088a28_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libmpdec-4.0.0-h84a0fba_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libsqlite-3.54.1-h34a968b_101.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libzlib-1.3.2-h8088a28_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/ncurses-6.6-he64c551_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-3.6.5-h55eecbc_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.15.2-h2e4dbab_100_cp315.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.15-9_cp315.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.69.1-h20b3172_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-index-0.34.5-he6b9e14_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-hbeba79b_4.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hf451053_7.conda
+      - pypi: https://files.pythonhosted.org/packages/23/c4/a8a2ca21e3943555b48221f8fba546877a7ad39efaf6505506524967d7c4/ast_serialize-0.13.1-cp315-abi3.abi3t-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/96/b2/a7986c327f80aa6f1544f4cb8f2fa7da4e1fccd472379a21cad0508b8a0e/boto3-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/55/adb3eb5a361fae6eaa4bf8e65c13539a4b057de24eff5a201caf71871864/boto3_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/96/4f2dffd304425c07160ab2c12cb13322d852fd956fe9d4386228c93f02ea/botocore-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/7b/98/32e9d3087facc5836472ccf5b37ae0af086c7802a2bafbc931294834ac25/botocore_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/3c/33bac158f8ab7f89b2e59426d5fe2e4f63f7ed25df84c036890172b412b5/cfgv-3.5.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1d/1a/1fcf0d3886bad15b92459a0e529dd86a1ec4d9ef30e789df48044fd3698c/filelock-4.2.7-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/fa/70/fffc9613501877c0a10a1ef73a165e6ded3e53f6e7502227fef56d973933/identify-2.6.20-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/8e/30/a90ca13f1d3d91af1680000a4038536907018fbd51764767287a05d28b8b/librt-0.16.0-cp315-cp315-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/57/5b/e44a2edb0b25a9f1429de770e1d0238af23302671dd40c77ac5efeb0c559/mypy-2.4.1-cp315-cp315-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/b8/4a/52419b5496215ab52c6c257134c1ac0da25c1ca5d802f133424d02a43686/mypy_boto3_s3-1.43.106-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/2d/6a/8a9ac7d5e2f7cf53c459bfef90ebc17a2f8cd54b665af96799d4c534840e/nodeenv-1.12.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/41/f0aa003909ee77a9e7e55f8659abb635ca23ab0d022a449bbb18da87a1ef/platformdirs-4.14.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/eb/83/ce0a196e4f7b20b11ce3aa1fc72fb973f64b7628d51c1b8aebad37fb7f81/pre_commit-4.7.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/39/5b/d61e08d34eeb74eb88431243e3849551f0161de08659d55312955afd2a36/python_discovery-1.9.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/a2/7e/537aba4b7f54397a374d2f6a6fc93e9c8015e18553f31a4a7b7dbced48b5/ruff-0.17.3-py3-none-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/e2/a4/88f9e10498759121060b8050a1554753dfc04df39bbbcc7aad9ecc8d9440/s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/98/972fa03c9a6e1cc9184a28ea0354af50a6764bb172fe2d0751798a295f07/types_s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f7/d8/09c9d6df253b2016312dd5ccbb962dfa86a5202f2452604b52e0a9844661/virtualenv-21.15.2-py3-none-any.whl
+      - pypi: ./
       win-64:
+      - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_10.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-h4c7d964_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libexpat-2.9.0-hac47afa_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libffi-3.7.0-h3d046cb_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libiconv-1.18-hc1393d2_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/liblzma-5.8.3-hfd05255_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libmpdec-4.0.0-hfd05255_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libsqlite-3.54.1-hf5d6505_101.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libzlib-1.3.2-hfd05255_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/openssl-3.6.5-hf411b9b_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.15.2-h53f6dd8_100_cp315.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.15-9_cp315.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.69.1-he94b42d_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-index-0.34.5-h91801bb_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h967ab96_4.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-ha367084_42.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36247-habf1de7_42.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36247-habf1de7_42.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_7.conda
+      - pypi: https://files.pythonhosted.org/packages/1f/86/2b2d5e6c4fa352874a80618e742ffd32d249dee6c119f4233b51afc6b8f4/ast_serialize-0.13.1-cp315-abi3.abi3t-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/96/b2/a7986c327f80aa6f1544f4cb8f2fa7da4e1fccd472379a21cad0508b8a0e/boto3-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/55/adb3eb5a361fae6eaa4bf8e65c13539a4b057de24eff5a201caf71871864/boto3_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/96/4f2dffd304425c07160ab2c12cb13322d852fd956fe9d4386228c93f02ea/botocore-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/7b/98/32e9d3087facc5836472ccf5b37ae0af086c7802a2bafbc931294834ac25/botocore_stubs-1.43.123-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/3c/33bac158f8ab7f89b2e59426d5fe2e4f63f7ed25df84c036890172b412b5/cfgv-3.5.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1d/1a/1fcf0d3886bad15b92459a0e529dd86a1ec4d9ef30e789df48044fd3698c/filelock-4.2.7-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/fa/70/fffc9613501877c0a10a1ef73a165e6ded3e53f6e7502227fef56d973933/identify-2.6.20-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/1e/801fe26bc622061b9dfd010e166d94142cb774b733217e6d98d1c0cf2638/librt-0.16.0-cp315-cp315-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/76/05/0c22b1f0390120a8592d31209cb6b9f932b6a0b426fe643e550de15139e3/mypy-2.4.1-cp315-cp315-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/b8/4a/52419b5496215ab52c6c257134c1ac0da25c1ca5d802f133424d02a43686/mypy_boto3_s3-1.43.106-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/2d/6a/8a9ac7d5e2f7cf53c459bfef90ebc17a2f8cd54b665af96799d4c534840e/nodeenv-1.12.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/41/f0aa003909ee77a9e7e55f8659abb635ca23ab0d022a449bbb18da87a1ef/platformdirs-4.14.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/eb/83/ce0a196e4f7b20b11ce3aa1fc72fb973f64b7628d51c1b8aebad37fb7f81/pre_commit-4.7.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/39/5b/d61e08d34eeb74eb88431243e3849551f0161de08659d55312955afd2a36/python_discovery-1.9.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d0/a0/f08c1631bfd81faa6a90eaf70c37c786c11bed2046302b56bb506c25e1a0/ruff-0.17.3-py3-none-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/e2/a4/88f9e10498759121060b8050a1554753dfc04df39bbbcc7aad9ecc8d9440/s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/98/972fa03c9a6e1cc9184a28ea0354af50a6764bb172fe2d0751798a295f07/types_s3transfer-0.19.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f7/d8/09c9d6df253b2016312dd5ccbb962dfa86a5202f2452604b52e0a9844661/virtualenv-21.15.2-py3-none-any.whl
+      - pypi: ./
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -39,16 +252,1052 @@ packages:
   - openmp_impl <0.0a0
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 28948
   timestamp: 1770939786096
+- pypi: https://files.pythonhosted.org/packages/1f/86/2b2d5e6c4fa352874a80618e742ffd32d249dee6c119f4233b51afc6b8f4/ast_serialize-0.13.1-cp315-abi3.abi3t-win_amd64.whl
+  name: ast-serialize
+  version: 0.13.1
+  sha256: 032b09d86c785c3984e975378b7861f2a68ac44e22ba7b07b93a536b2524eeb8
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/23/c4/a8a2ca21e3943555b48221f8fba546877a7ad39efaf6505506524967d7c4/ast_serialize-0.13.1-cp315-abi3.abi3t-macosx_11_0_arm64.whl
+  name: ast-serialize
+  version: 0.13.1
+  sha256: 68f8829d114dab6c9db4a8bbb8d0e342958faee1b5e15a29022678df639960f8
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/2b/e2/b0c140fe50fa39dd249e382f7733af6f816c90021fe7959a0b026f86237f/ast_serialize-0.13.1-cp315-abi3.abi3t-macosx_10_12_x86_64.whl
+  name: ast-serialize
+  version: 0.13.1
+  sha256: 23d768369b89d551077dc173da6892fad00443338417523b6732f4e8ba4a7ed5
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/b4/e6/f2b67c327d9f9533e41791804403ccc2dc457821195a2e51f0b587a90b90/ast_serialize-0.13.1-cp315-abi3.abi3t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  name: ast-serialize
+  version: 0.13.1
+  sha256: 121e1d08d58b75c15491cc3003609cbad71ac2b0016043c36d30a6b2032b6605
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/96/b2/a7986c327f80aa6f1544f4cb8f2fa7da4e1fccd472379a21cad0508b8a0e/boto3-1.43.123-py3-none-any.whl
+  name: boto3
+  version: 1.43.123
+  sha256: d18d66e1e13faa0c25d0b1b8c5ce946e29fb5fc0b6456b655a93a678ff4cc313
+  requires_dist:
+  - botocore>=1.43.123,<1.44.0
+  - jmespath>=0.7.1,<2.0.0
+  - s3transfer>=0.19.0,<0.20.0
+  - botocore[crt]>=1.21.0,<2.0a0 ; extra == 'crt'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/19/55/adb3eb5a361fae6eaa4bf8e65c13539a4b057de24eff5a201caf71871864/boto3_stubs-1.43.123-py3-none-any.whl
+  name: boto3-stubs
+  version: 1.43.123
+  sha256: 29bf383f524b10a59478f87994de423cb58e58498b48cd1065a0f23802c0745e
+  requires_dist:
+  - botocore-stubs
+  - types-s3transfer
+  - typing-extensions>=4.1.0 ; python_full_version < '3.12'
+  - boto3-stubs-full>=1.43.0,<1.44.0 ; extra == 'full'
+  - boto3==1.43.123 ; extra == 'boto3'
+  - mypy-boto3-accessanalyzer>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-account>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-account-access>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-acm>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-acm-pca>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-agent-registry>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-agent-registry-control>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-aiops>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-amp>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-amplify>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-amplifybackend>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-amplifyuibuilder>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-apigateway>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-apigatewaymanagementapi>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-apigatewayv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appconfig>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appconfigdata>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appfabric>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appflow>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appintegrations>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-application-autoscaling>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-application-insights>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-application-signals>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-applicationcostprofiler>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appmesh>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-apprunner>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appstream>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-appsync>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-arc-region-switch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-arc-zonal-shift>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-artifact>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-athena>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-auditmanager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-autoscaling>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-autoscaling-plans>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-b2bi>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-backup>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-backup-gateway>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-backupsearch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-batch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bcm-dashboards>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bcm-data-exports>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bcm-pricing-calculator>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bcm-recommended-actions>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-agent>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-agent-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-agentcore>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-agentcore-control>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-data-automation>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-data-automation-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-bedrock-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-billing>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-billingconductor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-braket>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-budgets>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ce>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chatbot>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime-sdk-identity>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime-sdk-media-pipelines>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime-sdk-meetings>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime-sdk-messaging>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-chime-sdk-voice>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cleanrooms>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cleanroomsml>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloud9>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudcontrol>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-clouddirectory>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudformation>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudfront>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudfront-keyvaluestore>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudhsm>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudhsmv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudsearch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudsearchdomain>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudtrail>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudtrail-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudwatch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudwatchomni>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codeartifact>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codebuild>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codecatalyst>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codecommit>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codeconnections>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codedeploy>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codeguru-reviewer>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codeguru-security>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codeguruprofiler>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codepipeline>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codestar-connections>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-codestar-notifications>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cognito-identity>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cognito-idp>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cognito-sync>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-comprehend>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-comprehendmedical>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-compute-optimizer>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-compute-optimizer-automation>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-config>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connect-contact-lens>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connectcampaigns>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connectcampaignsv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connectcases>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connecthealth>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-connectparticipant>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-continuum>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-controlcatalog>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-controltower>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cost-optimization-hub>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cur>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-customer-profiles>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-databrew>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dataexchange>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-datapipeline>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-datasync>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-datazone>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dax>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-deadline>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-detective>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-devicefarm>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-devops-agent>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-devops-guru>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-directconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-discovery>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dlm>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dms>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-docdb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-docdb-elastic>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-drs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ds>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ds-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dsql>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dynamodb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-dynamodbstreams>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ebs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ec2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ec2-instance-connect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ecr>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ecr-public>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ecs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-efs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-eks>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-eks-auth>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-elasticache>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-elasticbeanstalk>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-elb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-elbv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-elementalinference>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-emr>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-emr-containers>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-emr-serverless>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-endusermessaging>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-entityresolution>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-es>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-eventbridgev2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-events>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-evs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-firehose>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-fis>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-fms>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-forecast>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-forecastquery>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-frauddetector>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-freetier>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-fsx>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-gamelift>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-gameliftstreams>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-geo-maps>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-geo-places>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-geo-routes>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-glacier>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-globalaccelerator>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-glue>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-grafana>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-greengrass>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-greengrassv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-groundstation>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-guardduty>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-health>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-healthlake>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iam>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iam-toolbox>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-identitystore>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-imagebuilder>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-importexport>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-inspector>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-inspector-scan>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-inspector2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-interconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-internetmonitor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-invoicing>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iot>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iot-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iot-jobs-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iot-managed-integrations>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotdeviceadvisor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotfleetwise>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotsecuretunneling>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotsitewise>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotthingsgraph>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iottwinmaker>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-iotwireless>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ivs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ivs-realtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ivschat>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kafka>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kafkaconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kendra>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kendra-ranking>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-keyspaces>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-keyspacesstreams>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesis>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesis-video-archived-media>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesis-video-media>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesis-video-signaling>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesis-video-webrtc-storage>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesisanalytics>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesisanalyticsv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kinesisvideo>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-kms>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lakeformation>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lambda>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lambda-core>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lambda-microvms>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lambda-web>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-launch-wizard>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lex-models>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lex-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lexv2-models>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lexv2-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-license-manager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-license-manager-linux-subscriptions>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-license-manager-user-subscriptions>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lightsail>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-location>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-logs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-lookoutequipment>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-m2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-machinelearning>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-macie2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mailmanager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-managedblockchain>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-managedblockchain-query>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-agreement>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-catalog>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-deployment>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-discovery>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-entitlement>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplace-reporting>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-marketplacecommerceanalytics>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediaconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediaconvert>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-medialive>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediapackage>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediapackage-vod>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediapackagev2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediastore>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediastore-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mediatailor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-medical-imaging>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-memorydb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-meteringmarketplace>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mgh>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mgn>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-migration-hub-refactor-spaces>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-migrationhub-config>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-migrationhuborchestrator>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-migrationhubstrategy>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mpa>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mq>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mturk>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mwaa>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-mwaa-serverless>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-neptune>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-neptune-graph>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-neptunedata>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-network-firewall>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-network-security-manager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-networkflowmonitor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-networkmanager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-networkmonitor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-notifications>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-notificationscontacts>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-nova-act>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-oam>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-observabilityadmin>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-odb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-omics>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-opensearch>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-opensearchserverless>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-organizations>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-osis>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-outposts>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-partnercentral-account>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-partnercentral-benefits>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-partnercentral-channel>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-partnercentral-revenue-measurement>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-partnercentral-selling>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-payment-cryptography>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-payment-cryptography-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pca-connector-ad>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pca-connector-scep>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pcs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-personalize>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-personalize-events>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-personalize-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pi>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pinpoint>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pinpoint-email>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pinpoint-sms-voice>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pinpoint-sms-voice-v2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pipes>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-polly>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pricing>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-pricing-plan-manager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-proton>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-qapps>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-qbusiness>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-qconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-quicksight>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ram>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rbin>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rds>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rds-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-redshift>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-redshift-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-redshift-serverless>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rekognition>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-repostspace>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-resiliencehub>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-resiliencehubv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-resource-explorer-2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-resource-groups>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-resourcegroupstaggingapi>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rolesanywhere>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53-recovery-cluster>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53-recovery-control-config>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53-recovery-readiness>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53domains>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53globalresolver>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53profiles>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-route53resolver>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rtbfabric>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-rum>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3control>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3files>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3outposts>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3tables>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-s3vectors>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-a2i-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-edge>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-featurestore-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-geospatial>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-metrics>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemaker-runtime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemakerjobruntime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sagemakertrainingsessionruntime>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-savingsplans>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-scheduler>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-schemas>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sdb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-secretsmanager>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-security-ir>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-securityagent>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-securityhub>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-securitylake>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-serverlessrepo>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-service-quotas>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-servicecatalog>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-servicecatalog-appregistry>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-servicediscovery>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ses>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sesv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-shield>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-signer>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-signer-data>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-signin>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-simpledbv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-snow-device-management>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-snowball>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sns>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-socialmessaging>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sqs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm-contacts>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm-guiconnect>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm-incidents>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm-quicksetup>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-ssm-sap>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sso>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sso-admin>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sso-oidc>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-stepfunctions>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-storagegateway>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sts>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-supplychain>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-support>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-support-app>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-supportauthz>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-sustainability>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-swf>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-synthetics>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-taxsettings>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-textract>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-timestream-influxdb>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-timestream-query>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-timestream-write>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-transcribe>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-transfer>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-translate>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-trustedadvisor>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-uxc>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-verifiedpermissions>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-voice-id>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-vpc-lattice>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-waf>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-waf-regional>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-wafv2>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-wellarchitected>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-wickr>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-wisdom>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workdocs>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workmail>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workmailmessageflow>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workspaces>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workspaces-instances>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workspaces-thin-client>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-workspaces-web>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-xray>=1.43.0,<1.44.0 ; extra == 'all'
+  - mypy-boto3-cloudformation>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-dynamodb>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-ec2>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-lambda>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-rds>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-s3>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-sqs>=1.43.0,<1.44.0 ; extra == 'essential'
+  - mypy-boto3-accessanalyzer>=1.43.0,<1.44.0 ; extra == 'accessanalyzer'
+  - mypy-boto3-account>=1.43.0,<1.44.0 ; extra == 'account'
+  - mypy-boto3-account-access>=1.43.0,<1.44.0 ; extra == 'account-access'
+  - mypy-boto3-acm>=1.43.0,<1.44.0 ; extra == 'acm'
+  - mypy-boto3-acm-pca>=1.43.0,<1.44.0 ; extra == 'acm-pca'
+  - mypy-boto3-agent-registry>=1.43.0,<1.44.0 ; extra == 'agent-registry'
+  - mypy-boto3-agent-registry-control>=1.43.0,<1.44.0 ; extra == 'agent-registry-control'
+  - mypy-boto3-aiops>=1.43.0,<1.44.0 ; extra == 'aiops'
+  - mypy-boto3-amp>=1.43.0,<1.44.0 ; extra == 'amp'
+  - mypy-boto3-amplify>=1.43.0,<1.44.0 ; extra == 'amplify'
+  - mypy-boto3-amplifybackend>=1.43.0,<1.44.0 ; extra == 'amplifybackend'
+  - mypy-boto3-amplifyuibuilder>=1.43.0,<1.44.0 ; extra == 'amplifyuibuilder'
+  - mypy-boto3-apigateway>=1.43.0,<1.44.0 ; extra == 'apigateway'
+  - mypy-boto3-apigatewaymanagementapi>=1.43.0,<1.44.0 ; extra == 'apigatewaymanagementapi'
+  - mypy-boto3-apigatewayv2>=1.43.0,<1.44.0 ; extra == 'apigatewayv2'
+  - mypy-boto3-appconfig>=1.43.0,<1.44.0 ; extra == 'appconfig'
+  - mypy-boto3-appconfigdata>=1.43.0,<1.44.0 ; extra == 'appconfigdata'
+  - mypy-boto3-appfabric>=1.43.0,<1.44.0 ; extra == 'appfabric'
+  - mypy-boto3-appflow>=1.43.0,<1.44.0 ; extra == 'appflow'
+  - mypy-boto3-appintegrations>=1.43.0,<1.44.0 ; extra == 'appintegrations'
+  - mypy-boto3-application-autoscaling>=1.43.0,<1.44.0 ; extra == 'application-autoscaling'
+  - mypy-boto3-application-insights>=1.43.0,<1.44.0 ; extra == 'application-insights'
+  - mypy-boto3-application-signals>=1.43.0,<1.44.0 ; extra == 'application-signals'
+  - mypy-boto3-applicationcostprofiler>=1.43.0,<1.44.0 ; extra == 'applicationcostprofiler'
+  - mypy-boto3-appmesh>=1.43.0,<1.44.0 ; extra == 'appmesh'
+  - mypy-boto3-apprunner>=1.43.0,<1.44.0 ; extra == 'apprunner'
+  - mypy-boto3-appstream>=1.43.0,<1.44.0 ; extra == 'appstream'
+  - mypy-boto3-appsync>=1.43.0,<1.44.0 ; extra == 'appsync'
+  - mypy-boto3-arc-region-switch>=1.43.0,<1.44.0 ; extra == 'arc-region-switch'
+  - mypy-boto3-arc-zonal-shift>=1.43.0,<1.44.0 ; extra == 'arc-zonal-shift'
+  - mypy-boto3-artifact>=1.43.0,<1.44.0 ; extra == 'artifact'
+  - mypy-boto3-athena>=1.43.0,<1.44.0 ; extra == 'athena'
+  - mypy-boto3-auditmanager>=1.43.0,<1.44.0 ; extra == 'auditmanager'
+  - mypy-boto3-autoscaling>=1.43.0,<1.44.0 ; extra == 'autoscaling'
+  - mypy-boto3-autoscaling-plans>=1.43.0,<1.44.0 ; extra == 'autoscaling-plans'
+  - mypy-boto3-b2bi>=1.43.0,<1.44.0 ; extra == 'b2bi'
+  - mypy-boto3-backup>=1.43.0,<1.44.0 ; extra == 'backup'
+  - mypy-boto3-backup-gateway>=1.43.0,<1.44.0 ; extra == 'backup-gateway'
+  - mypy-boto3-backupsearch>=1.43.0,<1.44.0 ; extra == 'backupsearch'
+  - mypy-boto3-batch>=1.43.0,<1.44.0 ; extra == 'batch'
+  - mypy-boto3-bcm-dashboards>=1.43.0,<1.44.0 ; extra == 'bcm-dashboards'
+  - mypy-boto3-bcm-data-exports>=1.43.0,<1.44.0 ; extra == 'bcm-data-exports'
+  - mypy-boto3-bcm-pricing-calculator>=1.43.0,<1.44.0 ; extra == 'bcm-pricing-calculator'
+  - mypy-boto3-bcm-recommended-actions>=1.43.0,<1.44.0 ; extra == 'bcm-recommended-actions'
+  - mypy-boto3-bedrock>=1.43.0,<1.44.0 ; extra == 'bedrock'
+  - mypy-boto3-bedrock-agent>=1.43.0,<1.44.0 ; extra == 'bedrock-agent'
+  - mypy-boto3-bedrock-agent-runtime>=1.43.0,<1.44.0 ; extra == 'bedrock-agent-runtime'
+  - mypy-boto3-bedrock-agentcore>=1.43.0,<1.44.0 ; extra == 'bedrock-agentcore'
+  - mypy-boto3-bedrock-agentcore-control>=1.43.0,<1.44.0 ; extra == 'bedrock-agentcore-control'
+  - mypy-boto3-bedrock-data-automation>=1.43.0,<1.44.0 ; extra == 'bedrock-data-automation'
+  - mypy-boto3-bedrock-data-automation-runtime>=1.43.0,<1.44.0 ; extra == 'bedrock-data-automation-runtime'
+  - mypy-boto3-bedrock-runtime>=1.43.0,<1.44.0 ; extra == 'bedrock-runtime'
+  - mypy-boto3-billing>=1.43.0,<1.44.0 ; extra == 'billing'
+  - mypy-boto3-billingconductor>=1.43.0,<1.44.0 ; extra == 'billingconductor'
+  - mypy-boto3-braket>=1.43.0,<1.44.0 ; extra == 'braket'
+  - mypy-boto3-budgets>=1.43.0,<1.44.0 ; extra == 'budgets'
+  - mypy-boto3-ce>=1.43.0,<1.44.0 ; extra == 'ce'
+  - mypy-boto3-chatbot>=1.43.0,<1.44.0 ; extra == 'chatbot'
+  - mypy-boto3-chime>=1.43.0,<1.44.0 ; extra == 'chime'
+  - mypy-boto3-chime-sdk-identity>=1.43.0,<1.44.0 ; extra == 'chime-sdk-identity'
+  - mypy-boto3-chime-sdk-media-pipelines>=1.43.0,<1.44.0 ; extra == 'chime-sdk-media-pipelines'
+  - mypy-boto3-chime-sdk-meetings>=1.43.0,<1.44.0 ; extra == 'chime-sdk-meetings'
+  - mypy-boto3-chime-sdk-messaging>=1.43.0,<1.44.0 ; extra == 'chime-sdk-messaging'
+  - mypy-boto3-chime-sdk-voice>=1.43.0,<1.44.0 ; extra == 'chime-sdk-voice'
+  - mypy-boto3-cleanrooms>=1.43.0,<1.44.0 ; extra == 'cleanrooms'
+  - mypy-boto3-cleanroomsml>=1.43.0,<1.44.0 ; extra == 'cleanroomsml'
+  - mypy-boto3-cloud9>=1.43.0,<1.44.0 ; extra == 'cloud9'
+  - mypy-boto3-cloudcontrol>=1.43.0,<1.44.0 ; extra == 'cloudcontrol'
+  - mypy-boto3-clouddirectory>=1.43.0,<1.44.0 ; extra == 'clouddirectory'
+  - mypy-boto3-cloudformation>=1.43.0,<1.44.0 ; extra == 'cloudformation'
+  - mypy-boto3-cloudfront>=1.43.0,<1.44.0 ; extra == 'cloudfront'
+  - mypy-boto3-cloudfront-keyvaluestore>=1.43.0,<1.44.0 ; extra == 'cloudfront-keyvaluestore'
+  - mypy-boto3-cloudhsm>=1.43.0,<1.44.0 ; extra == 'cloudhsm'
+  - mypy-boto3-cloudhsmv2>=1.43.0,<1.44.0 ; extra == 'cloudhsmv2'
+  - mypy-boto3-cloudsearch>=1.43.0,<1.44.0 ; extra == 'cloudsearch'
+  - mypy-boto3-cloudsearchdomain>=1.43.0,<1.44.0 ; extra == 'cloudsearchdomain'
+  - mypy-boto3-cloudtrail>=1.43.0,<1.44.0 ; extra == 'cloudtrail'
+  - mypy-boto3-cloudtrail-data>=1.43.0,<1.44.0 ; extra == 'cloudtrail-data'
+  - mypy-boto3-cloudwatch>=1.43.0,<1.44.0 ; extra == 'cloudwatch'
+  - mypy-boto3-cloudwatchomni>=1.43.0,<1.44.0 ; extra == 'cloudwatchomni'
+  - mypy-boto3-codeartifact>=1.43.0,<1.44.0 ; extra == 'codeartifact'
+  - mypy-boto3-codebuild>=1.43.0,<1.44.0 ; extra == 'codebuild'
+  - mypy-boto3-codecatalyst>=1.43.0,<1.44.0 ; extra == 'codecatalyst'
+  - mypy-boto3-codecommit>=1.43.0,<1.44.0 ; extra == 'codecommit'
+  - mypy-boto3-codeconnections>=1.43.0,<1.44.0 ; extra == 'codeconnections'
+  - mypy-boto3-codedeploy>=1.43.0,<1.44.0 ; extra == 'codedeploy'
+  - mypy-boto3-codeguru-reviewer>=1.43.0,<1.44.0 ; extra == 'codeguru-reviewer'
+  - mypy-boto3-codeguru-security>=1.43.0,<1.44.0 ; extra == 'codeguru-security'
+  - mypy-boto3-codeguruprofiler>=1.43.0,<1.44.0 ; extra == 'codeguruprofiler'
+  - mypy-boto3-codepipeline>=1.43.0,<1.44.0 ; extra == 'codepipeline'
+  - mypy-boto3-codestar-connections>=1.43.0,<1.44.0 ; extra == 'codestar-connections'
+  - mypy-boto3-codestar-notifications>=1.43.0,<1.44.0 ; extra == 'codestar-notifications'
+  - mypy-boto3-cognito-identity>=1.43.0,<1.44.0 ; extra == 'cognito-identity'
+  - mypy-boto3-cognito-idp>=1.43.0,<1.44.0 ; extra == 'cognito-idp'
+  - mypy-boto3-cognito-sync>=1.43.0,<1.44.0 ; extra == 'cognito-sync'
+  - mypy-boto3-comprehend>=1.43.0,<1.44.0 ; extra == 'comprehend'
+  - mypy-boto3-comprehendmedical>=1.43.0,<1.44.0 ; extra == 'comprehendmedical'
+  - mypy-boto3-compute-optimizer>=1.43.0,<1.44.0 ; extra == 'compute-optimizer'
+  - mypy-boto3-compute-optimizer-automation>=1.43.0,<1.44.0 ; extra == 'compute-optimizer-automation'
+  - mypy-boto3-config>=1.43.0,<1.44.0 ; extra == 'config'
+  - mypy-boto3-connect>=1.43.0,<1.44.0 ; extra == 'connect'
+  - mypy-boto3-connect-contact-lens>=1.43.0,<1.44.0 ; extra == 'connect-contact-lens'
+  - mypy-boto3-connectcampaigns>=1.43.0,<1.44.0 ; extra == 'connectcampaigns'
+  - mypy-boto3-connectcampaignsv2>=1.43.0,<1.44.0 ; extra == 'connectcampaignsv2'
+  - mypy-boto3-connectcases>=1.43.0,<1.44.0 ; extra == 'connectcases'
+  - mypy-boto3-connecthealth>=1.43.0,<1.44.0 ; extra == 'connecthealth'
+  - mypy-boto3-connectparticipant>=1.43.0,<1.44.0 ; extra == 'connectparticipant'
+  - mypy-boto3-continuum>=1.43.0,<1.44.0 ; extra == 'continuum'
+  - mypy-boto3-controlcatalog>=1.43.0,<1.44.0 ; extra == 'controlcatalog'
+  - mypy-boto3-controltower>=1.43.0,<1.44.0 ; extra == 'controltower'
+  - mypy-boto3-cost-optimization-hub>=1.43.0,<1.44.0 ; extra == 'cost-optimization-hub'
+  - mypy-boto3-cur>=1.43.0,<1.44.0 ; extra == 'cur'
+  - mypy-boto3-customer-profiles>=1.43.0,<1.44.0 ; extra == 'customer-profiles'
+  - mypy-boto3-databrew>=1.43.0,<1.44.0 ; extra == 'databrew'
+  - mypy-boto3-dataexchange>=1.43.0,<1.44.0 ; extra == 'dataexchange'
+  - mypy-boto3-datapipeline>=1.43.0,<1.44.0 ; extra == 'datapipeline'
+  - mypy-boto3-datasync>=1.43.0,<1.44.0 ; extra == 'datasync'
+  - mypy-boto3-datazone>=1.43.0,<1.44.0 ; extra == 'datazone'
+  - mypy-boto3-dax>=1.43.0,<1.44.0 ; extra == 'dax'
+  - mypy-boto3-deadline>=1.43.0,<1.44.0 ; extra == 'deadline'
+  - mypy-boto3-detective>=1.43.0,<1.44.0 ; extra == 'detective'
+  - mypy-boto3-devicefarm>=1.43.0,<1.44.0 ; extra == 'devicefarm'
+  - mypy-boto3-devops-agent>=1.43.0,<1.44.0 ; extra == 'devops-agent'
+  - mypy-boto3-devops-guru>=1.43.0,<1.44.0 ; extra == 'devops-guru'
+  - mypy-boto3-directconnect>=1.43.0,<1.44.0 ; extra == 'directconnect'
+  - mypy-boto3-discovery>=1.43.0,<1.44.0 ; extra == 'discovery'
+  - mypy-boto3-dlm>=1.43.0,<1.44.0 ; extra == 'dlm'
+  - mypy-boto3-dms>=1.43.0,<1.44.0 ; extra == 'dms'
+  - mypy-boto3-docdb>=1.43.0,<1.44.0 ; extra == 'docdb'
+  - mypy-boto3-docdb-elastic>=1.43.0,<1.44.0 ; extra == 'docdb-elastic'
+  - mypy-boto3-drs>=1.43.0,<1.44.0 ; extra == 'drs'
+  - mypy-boto3-ds>=1.43.0,<1.44.0 ; extra == 'ds'
+  - mypy-boto3-ds-data>=1.43.0,<1.44.0 ; extra == 'ds-data'
+  - mypy-boto3-dsql>=1.43.0,<1.44.0 ; extra == 'dsql'
+  - mypy-boto3-dynamodb>=1.43.0,<1.44.0 ; extra == 'dynamodb'
+  - mypy-boto3-dynamodbstreams>=1.43.0,<1.44.0 ; extra == 'dynamodbstreams'
+  - mypy-boto3-ebs>=1.43.0,<1.44.0 ; extra == 'ebs'
+  - mypy-boto3-ec2>=1.43.0,<1.44.0 ; extra == 'ec2'
+  - mypy-boto3-ec2-instance-connect>=1.43.0,<1.44.0 ; extra == 'ec2-instance-connect'
+  - mypy-boto3-ecr>=1.43.0,<1.44.0 ; extra == 'ecr'
+  - mypy-boto3-ecr-public>=1.43.0,<1.44.0 ; extra == 'ecr-public'
+  - mypy-boto3-ecs>=1.43.0,<1.44.0 ; extra == 'ecs'
+  - mypy-boto3-efs>=1.43.0,<1.44.0 ; extra == 'efs'
+  - mypy-boto3-eks>=1.43.0,<1.44.0 ; extra == 'eks'
+  - mypy-boto3-eks-auth>=1.43.0,<1.44.0 ; extra == 'eks-auth'
+  - mypy-boto3-elasticache>=1.43.0,<1.44.0 ; extra == 'elasticache'
+  - mypy-boto3-elasticbeanstalk>=1.43.0,<1.44.0 ; extra == 'elasticbeanstalk'
+  - mypy-boto3-elb>=1.43.0,<1.44.0 ; extra == 'elb'
+  - mypy-boto3-elbv2>=1.43.0,<1.44.0 ; extra == 'elbv2'
+  - mypy-boto3-elementalinference>=1.43.0,<1.44.0 ; extra == 'elementalinference'
+  - mypy-boto3-emr>=1.43.0,<1.44.0 ; extra == 'emr'
+  - mypy-boto3-emr-containers>=1.43.0,<1.44.0 ; extra == 'emr-containers'
+  - mypy-boto3-emr-serverless>=1.43.0,<1.44.0 ; extra == 'emr-serverless'
+  - mypy-boto3-endusermessaging>=1.43.0,<1.44.0 ; extra == 'endusermessaging'
+  - mypy-boto3-entityresolution>=1.43.0,<1.44.0 ; extra == 'entityresolution'
+  - mypy-boto3-es>=1.43.0,<1.44.0 ; extra == 'es'
+  - mypy-boto3-eventbridgev2>=1.43.0,<1.44.0 ; extra == 'eventbridgev2'
+  - mypy-boto3-events>=1.43.0,<1.44.0 ; extra == 'events'
+  - mypy-boto3-evs>=1.43.0,<1.44.0 ; extra == 'evs'
+  - mypy-boto3-firehose>=1.43.0,<1.44.0 ; extra == 'firehose'
+  - mypy-boto3-fis>=1.43.0,<1.44.0 ; extra == 'fis'
+  - mypy-boto3-fms>=1.43.0,<1.44.0 ; extra == 'fms'
+  - mypy-boto3-forecast>=1.43.0,<1.44.0 ; extra == 'forecast'
+  - mypy-boto3-forecastquery>=1.43.0,<1.44.0 ; extra == 'forecastquery'
+  - mypy-boto3-frauddetector>=1.43.0,<1.44.0 ; extra == 'frauddetector'
+  - mypy-boto3-freetier>=1.43.0,<1.44.0 ; extra == 'freetier'
+  - mypy-boto3-fsx>=1.43.0,<1.44.0 ; extra == 'fsx'
+  - mypy-boto3-gamelift>=1.43.0,<1.44.0 ; extra == 'gamelift'
+  - mypy-boto3-gameliftstreams>=1.43.0,<1.44.0 ; extra == 'gameliftstreams'
+  - mypy-boto3-geo-maps>=1.43.0,<1.44.0 ; extra == 'geo-maps'
+  - mypy-boto3-geo-places>=1.43.0,<1.44.0 ; extra == 'geo-places'
+  - mypy-boto3-geo-routes>=1.43.0,<1.44.0 ; extra == 'geo-routes'
+  - mypy-boto3-glacier>=1.43.0,<1.44.0 ; extra == 'glacier'
+  - mypy-boto3-globalaccelerator>=1.43.0,<1.44.0 ; extra == 'globalaccelerator'
+  - mypy-boto3-glue>=1.43.0,<1.44.0 ; extra == 'glue'
+  - mypy-boto3-grafana>=1.43.0,<1.44.0 ; extra == 'grafana'
+  - mypy-boto3-greengrass>=1.43.0,<1.44.0 ; extra == 'greengrass'
+  - mypy-boto3-greengrassv2>=1.43.0,<1.44.0 ; extra == 'greengrassv2'
+  - mypy-boto3-groundstation>=1.43.0,<1.44.0 ; extra == 'groundstation'
+  - mypy-boto3-guardduty>=1.43.0,<1.44.0 ; extra == 'guardduty'
+  - mypy-boto3-health>=1.43.0,<1.44.0 ; extra == 'health'
+  - mypy-boto3-healthlake>=1.43.0,<1.44.0 ; extra == 'healthlake'
+  - mypy-boto3-iam>=1.43.0,<1.44.0 ; extra == 'iam'
+  - mypy-boto3-iam-toolbox>=1.43.0,<1.44.0 ; extra == 'iam-toolbox'
+  - mypy-boto3-identitystore>=1.43.0,<1.44.0 ; extra == 'identitystore'
+  - mypy-boto3-imagebuilder>=1.43.0,<1.44.0 ; extra == 'imagebuilder'
+  - mypy-boto3-importexport>=1.43.0,<1.44.0 ; extra == 'importexport'
+  - mypy-boto3-inspector>=1.43.0,<1.44.0 ; extra == 'inspector'
+  - mypy-boto3-inspector-scan>=1.43.0,<1.44.0 ; extra == 'inspector-scan'
+  - mypy-boto3-inspector2>=1.43.0,<1.44.0 ; extra == 'inspector2'
+  - mypy-boto3-interconnect>=1.43.0,<1.44.0 ; extra == 'interconnect'
+  - mypy-boto3-internetmonitor>=1.43.0,<1.44.0 ; extra == 'internetmonitor'
+  - mypy-boto3-invoicing>=1.43.0,<1.44.0 ; extra == 'invoicing'
+  - mypy-boto3-iot>=1.43.0,<1.44.0 ; extra == 'iot'
+  - mypy-boto3-iot-data>=1.43.0,<1.44.0 ; extra == 'iot-data'
+  - mypy-boto3-iot-jobs-data>=1.43.0,<1.44.0 ; extra == 'iot-jobs-data'
+  - mypy-boto3-iot-managed-integrations>=1.43.0,<1.44.0 ; extra == 'iot-managed-integrations'
+  - mypy-boto3-iotdeviceadvisor>=1.43.0,<1.44.0 ; extra == 'iotdeviceadvisor'
+  - mypy-boto3-iotfleetwise>=1.43.0,<1.44.0 ; extra == 'iotfleetwise'
+  - mypy-boto3-iotsecuretunneling>=1.43.0,<1.44.0 ; extra == 'iotsecuretunneling'
+  - mypy-boto3-iotsitewise>=1.43.0,<1.44.0 ; extra == 'iotsitewise'
+  - mypy-boto3-iotthingsgraph>=1.43.0,<1.44.0 ; extra == 'iotthingsgraph'
+  - mypy-boto3-iottwinmaker>=1.43.0,<1.44.0 ; extra == 'iottwinmaker'
+  - mypy-boto3-iotwireless>=1.43.0,<1.44.0 ; extra == 'iotwireless'
+  - mypy-boto3-ivs>=1.43.0,<1.44.0 ; extra == 'ivs'
+  - mypy-boto3-ivs-realtime>=1.43.0,<1.44.0 ; extra == 'ivs-realtime'
+  - mypy-boto3-ivschat>=1.43.0,<1.44.0 ; extra == 'ivschat'
+  - mypy-boto3-kafka>=1.43.0,<1.44.0 ; extra == 'kafka'
+  - mypy-boto3-kafkaconnect>=1.43.0,<1.44.0 ; extra == 'kafkaconnect'
+  - mypy-boto3-kendra>=1.43.0,<1.44.0 ; extra == 'kendra'
+  - mypy-boto3-kendra-ranking>=1.43.0,<1.44.0 ; extra == 'kendra-ranking'
+  - mypy-boto3-keyspaces>=1.43.0,<1.44.0 ; extra == 'keyspaces'
+  - mypy-boto3-keyspacesstreams>=1.43.0,<1.44.0 ; extra == 'keyspacesstreams'
+  - mypy-boto3-kinesis>=1.43.0,<1.44.0 ; extra == 'kinesis'
+  - mypy-boto3-kinesis-video-archived-media>=1.43.0,<1.44.0 ; extra == 'kinesis-video-archived-media'
+  - mypy-boto3-kinesis-video-media>=1.43.0,<1.44.0 ; extra == 'kinesis-video-media'
+  - mypy-boto3-kinesis-video-signaling>=1.43.0,<1.44.0 ; extra == 'kinesis-video-signaling'
+  - mypy-boto3-kinesis-video-webrtc-storage>=1.43.0,<1.44.0 ; extra == 'kinesis-video-webrtc-storage'
+  - mypy-boto3-kinesisanalytics>=1.43.0,<1.44.0 ; extra == 'kinesisanalytics'
+  - mypy-boto3-kinesisanalyticsv2>=1.43.0,<1.44.0 ; extra == 'kinesisanalyticsv2'
+  - mypy-boto3-kinesisvideo>=1.43.0,<1.44.0 ; extra == 'kinesisvideo'
+  - mypy-boto3-kms>=1.43.0,<1.44.0 ; extra == 'kms'
+  - mypy-boto3-lakeformation>=1.43.0,<1.44.0 ; extra == 'lakeformation'
+  - mypy-boto3-lambda>=1.43.0,<1.44.0 ; extra == 'lambda'
+  - mypy-boto3-lambda-core>=1.43.0,<1.44.0 ; extra == 'lambda-core'
+  - mypy-boto3-lambda-microvms>=1.43.0,<1.44.0 ; extra == 'lambda-microvms'
+  - mypy-boto3-lambda-web>=1.43.0,<1.44.0 ; extra == 'lambda-web'
+  - mypy-boto3-launch-wizard>=1.43.0,<1.44.0 ; extra == 'launch-wizard'
+  - mypy-boto3-lex-models>=1.43.0,<1.44.0 ; extra == 'lex-models'
+  - mypy-boto3-lex-runtime>=1.43.0,<1.44.0 ; extra == 'lex-runtime'
+  - mypy-boto3-lexv2-models>=1.43.0,<1.44.0 ; extra == 'lexv2-models'
+  - mypy-boto3-lexv2-runtime>=1.43.0,<1.44.0 ; extra == 'lexv2-runtime'
+  - mypy-boto3-license-manager>=1.43.0,<1.44.0 ; extra == 'license-manager'
+  - mypy-boto3-license-manager-linux-subscriptions>=1.43.0,<1.44.0 ; extra == 'license-manager-linux-subscriptions'
+  - mypy-boto3-license-manager-user-subscriptions>=1.43.0,<1.44.0 ; extra == 'license-manager-user-subscriptions'
+  - mypy-boto3-lightsail>=1.43.0,<1.44.0 ; extra == 'lightsail'
+  - mypy-boto3-location>=1.43.0,<1.44.0 ; extra == 'location'
+  - mypy-boto3-logs>=1.43.0,<1.44.0 ; extra == 'logs'
+  - mypy-boto3-lookoutequipment>=1.43.0,<1.44.0 ; extra == 'lookoutequipment'
+  - mypy-boto3-m2>=1.43.0,<1.44.0 ; extra == 'm2'
+  - mypy-boto3-machinelearning>=1.43.0,<1.44.0 ; extra == 'machinelearning'
+  - mypy-boto3-macie2>=1.43.0,<1.44.0 ; extra == 'macie2'
+  - mypy-boto3-mailmanager>=1.43.0,<1.44.0 ; extra == 'mailmanager'
+  - mypy-boto3-managedblockchain>=1.43.0,<1.44.0 ; extra == 'managedblockchain'
+  - mypy-boto3-managedblockchain-query>=1.43.0,<1.44.0 ; extra == 'managedblockchain-query'
+  - mypy-boto3-marketplace-agreement>=1.43.0,<1.44.0 ; extra == 'marketplace-agreement'
+  - mypy-boto3-marketplace-catalog>=1.43.0,<1.44.0 ; extra == 'marketplace-catalog'
+  - mypy-boto3-marketplace-deployment>=1.43.0,<1.44.0 ; extra == 'marketplace-deployment'
+  - mypy-boto3-marketplace-discovery>=1.43.0,<1.44.0 ; extra == 'marketplace-discovery'
+  - mypy-boto3-marketplace-entitlement>=1.43.0,<1.44.0 ; extra == 'marketplace-entitlement'
+  - mypy-boto3-marketplace-reporting>=1.43.0,<1.44.0 ; extra == 'marketplace-reporting'
+  - mypy-boto3-marketplacecommerceanalytics>=1.43.0,<1.44.0 ; extra == 'marketplacecommerceanalytics'
+  - mypy-boto3-mediaconnect>=1.43.0,<1.44.0 ; extra == 'mediaconnect'
+  - mypy-boto3-mediaconvert>=1.43.0,<1.44.0 ; extra == 'mediaconvert'
+  - mypy-boto3-medialive>=1.43.0,<1.44.0 ; extra == 'medialive'
+  - mypy-boto3-mediapackage>=1.43.0,<1.44.0 ; extra == 'mediapackage'
+  - mypy-boto3-mediapackage-vod>=1.43.0,<1.44.0 ; extra == 'mediapackage-vod'
+  - mypy-boto3-mediapackagev2>=1.43.0,<1.44.0 ; extra == 'mediapackagev2'
+  - mypy-boto3-mediastore>=1.43.0,<1.44.0 ; extra == 'mediastore'
+  - mypy-boto3-mediastore-data>=1.43.0,<1.44.0 ; extra == 'mediastore-data'
+  - mypy-boto3-mediatailor>=1.43.0,<1.44.0 ; extra == 'mediatailor'
+  - mypy-boto3-medical-imaging>=1.43.0,<1.44.0 ; extra == 'medical-imaging'
+  - mypy-boto3-memorydb>=1.43.0,<1.44.0 ; extra == 'memorydb'
+  - mypy-boto3-meteringmarketplace>=1.43.0,<1.44.0 ; extra == 'meteringmarketplace'
+  - mypy-boto3-mgh>=1.43.0,<1.44.0 ; extra == 'mgh'
+  - mypy-boto3-mgn>=1.43.0,<1.44.0 ; extra == 'mgn'
+  - mypy-boto3-migration-hub-refactor-spaces>=1.43.0,<1.44.0 ; extra == 'migration-hub-refactor-spaces'
+  - mypy-boto3-migrationhub-config>=1.43.0,<1.44.0 ; extra == 'migrationhub-config'
+  - mypy-boto3-migrationhuborchestrator>=1.43.0,<1.44.0 ; extra == 'migrationhuborchestrator'
+  - mypy-boto3-migrationhubstrategy>=1.43.0,<1.44.0 ; extra == 'migrationhubstrategy'
+  - mypy-boto3-mpa>=1.43.0,<1.44.0 ; extra == 'mpa'
+  - mypy-boto3-mq>=1.43.0,<1.44.0 ; extra == 'mq'
+  - mypy-boto3-mturk>=1.43.0,<1.44.0 ; extra == 'mturk'
+  - mypy-boto3-mwaa>=1.43.0,<1.44.0 ; extra == 'mwaa'
+  - mypy-boto3-mwaa-serverless>=1.43.0,<1.44.0 ; extra == 'mwaa-serverless'
+  - mypy-boto3-neptune>=1.43.0,<1.44.0 ; extra == 'neptune'
+  - mypy-boto3-neptune-graph>=1.43.0,<1.44.0 ; extra == 'neptune-graph'
+  - mypy-boto3-neptunedata>=1.43.0,<1.44.0 ; extra == 'neptunedata'
+  - mypy-boto3-network-firewall>=1.43.0,<1.44.0 ; extra == 'network-firewall'
+  - mypy-boto3-network-security-manager>=1.43.0,<1.44.0 ; extra == 'network-security-manager'
+  - mypy-boto3-networkflowmonitor>=1.43.0,<1.44.0 ; extra == 'networkflowmonitor'
+  - mypy-boto3-networkmanager>=1.43.0,<1.44.0 ; extra == 'networkmanager'
+  - mypy-boto3-networkmonitor>=1.43.0,<1.44.0 ; extra == 'networkmonitor'
+  - mypy-boto3-notifications>=1.43.0,<1.44.0 ; extra == 'notifications'
+  - mypy-boto3-notificationscontacts>=1.43.0,<1.44.0 ; extra == 'notificationscontacts'
+  - mypy-boto3-nova-act>=1.43.0,<1.44.0 ; extra == 'nova-act'
+  - mypy-boto3-oam>=1.43.0,<1.44.0 ; extra == 'oam'
+  - mypy-boto3-observabilityadmin>=1.43.0,<1.44.0 ; extra == 'observabilityadmin'
+  - mypy-boto3-odb>=1.43.0,<1.44.0 ; extra == 'odb'
+  - mypy-boto3-omics>=1.43.0,<1.44.0 ; extra == 'omics'
+  - mypy-boto3-opensearch>=1.43.0,<1.44.0 ; extra == 'opensearch'
+  - mypy-boto3-opensearchserverless>=1.43.0,<1.44.0 ; extra == 'opensearchserverless'
+  - mypy-boto3-organizations>=1.43.0,<1.44.0 ; extra == 'organizations'
+  - mypy-boto3-osis>=1.43.0,<1.44.0 ; extra == 'osis'
+  - mypy-boto3-outposts>=1.43.0,<1.44.0 ; extra == 'outposts'
+  - mypy-boto3-partnercentral-account>=1.43.0,<1.44.0 ; extra == 'partnercentral-account'
+  - mypy-boto3-partnercentral-benefits>=1.43.0,<1.44.0 ; extra == 'partnercentral-benefits'
+  - mypy-boto3-partnercentral-channel>=1.43.0,<1.44.0 ; extra == 'partnercentral-channel'
+  - mypy-boto3-partnercentral-revenue-measurement>=1.43.0,<1.44.0 ; extra == 'partnercentral-revenue-measurement'
+  - mypy-boto3-partnercentral-selling>=1.43.0,<1.44.0 ; extra == 'partnercentral-selling'
+  - mypy-boto3-payment-cryptography>=1.43.0,<1.44.0 ; extra == 'payment-cryptography'
+  - mypy-boto3-payment-cryptography-data>=1.43.0,<1.44.0 ; extra == 'payment-cryptography-data'
+  - mypy-boto3-pca-connector-ad>=1.43.0,<1.44.0 ; extra == 'pca-connector-ad'
+  - mypy-boto3-pca-connector-scep>=1.43.0,<1.44.0 ; extra == 'pca-connector-scep'
+  - mypy-boto3-pcs>=1.43.0,<1.44.0 ; extra == 'pcs'
+  - mypy-boto3-personalize>=1.43.0,<1.44.0 ; extra == 'personalize'
+  - mypy-boto3-personalize-events>=1.43.0,<1.44.0 ; extra == 'personalize-events'
+  - mypy-boto3-personalize-runtime>=1.43.0,<1.44.0 ; extra == 'personalize-runtime'
+  - mypy-boto3-pi>=1.43.0,<1.44.0 ; extra == 'pi'
+  - mypy-boto3-pinpoint>=1.43.0,<1.44.0 ; extra == 'pinpoint'
+  - mypy-boto3-pinpoint-email>=1.43.0,<1.44.0 ; extra == 'pinpoint-email'
+  - mypy-boto3-pinpoint-sms-voice>=1.43.0,<1.44.0 ; extra == 'pinpoint-sms-voice'
+  - mypy-boto3-pinpoint-sms-voice-v2>=1.43.0,<1.44.0 ; extra == 'pinpoint-sms-voice-v2'
+  - mypy-boto3-pipes>=1.43.0,<1.44.0 ; extra == 'pipes'
+  - mypy-boto3-polly>=1.43.0,<1.44.0 ; extra == 'polly'
+  - mypy-boto3-pricing>=1.43.0,<1.44.0 ; extra == 'pricing'
+  - mypy-boto3-pricing-plan-manager>=1.43.0,<1.44.0 ; extra == 'pricing-plan-manager'
+  - mypy-boto3-proton>=1.43.0,<1.44.0 ; extra == 'proton'
+  - mypy-boto3-qapps>=1.43.0,<1.44.0 ; extra == 'qapps'
+  - mypy-boto3-qbusiness>=1.43.0,<1.44.0 ; extra == 'qbusiness'
+  - mypy-boto3-qconnect>=1.43.0,<1.44.0 ; extra == 'qconnect'
+  - mypy-boto3-quicksight>=1.43.0,<1.44.0 ; extra == 'quicksight'
+  - mypy-boto3-ram>=1.43.0,<1.44.0 ; extra == 'ram'
+  - mypy-boto3-rbin>=1.43.0,<1.44.0 ; extra == 'rbin'
+  - mypy-boto3-rds>=1.43.0,<1.44.0 ; extra == 'rds'
+  - mypy-boto3-rds-data>=1.43.0,<1.44.0 ; extra == 'rds-data'
+  - mypy-boto3-redshift>=1.43.0,<1.44.0 ; extra == 'redshift'
+  - mypy-boto3-redshift-data>=1.43.0,<1.44.0 ; extra == 'redshift-data'
+  - mypy-boto3-redshift-serverless>=1.43.0,<1.44.0 ; extra == 'redshift-serverless'
+  - mypy-boto3-rekognition>=1.43.0,<1.44.0 ; extra == 'rekognition'
+  - mypy-boto3-repostspace>=1.43.0,<1.44.0 ; extra == 'repostspace'
+  - mypy-boto3-resiliencehub>=1.43.0,<1.44.0 ; extra == 'resiliencehub'
+  - mypy-boto3-resiliencehubv2>=1.43.0,<1.44.0 ; extra == 'resiliencehubv2'
+  - mypy-boto3-resource-explorer-2>=1.43.0,<1.44.0 ; extra == 'resource-explorer-2'
+  - mypy-boto3-resource-groups>=1.43.0,<1.44.0 ; extra == 'resource-groups'
+  - mypy-boto3-resourcegroupstaggingapi>=1.43.0,<1.44.0 ; extra == 'resourcegroupstaggingapi'
+  - mypy-boto3-rolesanywhere>=1.43.0,<1.44.0 ; extra == 'rolesanywhere'
+  - mypy-boto3-route53>=1.43.0,<1.44.0 ; extra == 'route53'
+  - mypy-boto3-route53-recovery-cluster>=1.43.0,<1.44.0 ; extra == 'route53-recovery-cluster'
+  - mypy-boto3-route53-recovery-control-config>=1.43.0,<1.44.0 ; extra == 'route53-recovery-control-config'
+  - mypy-boto3-route53-recovery-readiness>=1.43.0,<1.44.0 ; extra == 'route53-recovery-readiness'
+  - mypy-boto3-route53domains>=1.43.0,<1.44.0 ; extra == 'route53domains'
+  - mypy-boto3-route53globalresolver>=1.43.0,<1.44.0 ; extra == 'route53globalresolver'
+  - mypy-boto3-route53profiles>=1.43.0,<1.44.0 ; extra == 'route53profiles'
+  - mypy-boto3-route53resolver>=1.43.0,<1.44.0 ; extra == 'route53resolver'
+  - mypy-boto3-rtbfabric>=1.43.0,<1.44.0 ; extra == 'rtbfabric'
+  - mypy-boto3-rum>=1.43.0,<1.44.0 ; extra == 'rum'
+  - mypy-boto3-s3>=1.43.0,<1.44.0 ; extra == 's3'
+  - mypy-boto3-s3control>=1.43.0,<1.44.0 ; extra == 's3control'
+  - mypy-boto3-s3files>=1.43.0,<1.44.0 ; extra == 's3files'
+  - mypy-boto3-s3outposts>=1.43.0,<1.44.0 ; extra == 's3outposts'
+  - mypy-boto3-s3tables>=1.43.0,<1.44.0 ; extra == 's3tables'
+  - mypy-boto3-s3vectors>=1.43.0,<1.44.0 ; extra == 's3vectors'
+  - mypy-boto3-sagemaker>=1.43.0,<1.44.0 ; extra == 'sagemaker'
+  - mypy-boto3-sagemaker-a2i-runtime>=1.43.0,<1.44.0 ; extra == 'sagemaker-a2i-runtime'
+  - mypy-boto3-sagemaker-edge>=1.43.0,<1.44.0 ; extra == 'sagemaker-edge'
+  - mypy-boto3-sagemaker-featurestore-runtime>=1.43.0,<1.44.0 ; extra == 'sagemaker-featurestore-runtime'
+  - mypy-boto3-sagemaker-geospatial>=1.43.0,<1.44.0 ; extra == 'sagemaker-geospatial'
+  - mypy-boto3-sagemaker-metrics>=1.43.0,<1.44.0 ; extra == 'sagemaker-metrics'
+  - mypy-boto3-sagemaker-runtime>=1.43.0,<1.44.0 ; extra == 'sagemaker-runtime'
+  - mypy-boto3-sagemakerjobruntime>=1.43.0,<1.44.0 ; extra == 'sagemakerjobruntime'
+  - mypy-boto3-sagemakertrainingsessionruntime>=1.43.0,<1.44.0 ; extra == 'sagemakertrainingsessionruntime'
+  - mypy-boto3-savingsplans>=1.43.0,<1.44.0 ; extra == 'savingsplans'
+  - mypy-boto3-scheduler>=1.43.0,<1.44.0 ; extra == 'scheduler'
+  - mypy-boto3-schemas>=1.43.0,<1.44.0 ; extra == 'schemas'
+  - mypy-boto3-sdb>=1.43.0,<1.44.0 ; extra == 'sdb'
+  - mypy-boto3-secretsmanager>=1.43.0,<1.44.0 ; extra == 'secretsmanager'
+  - mypy-boto3-security-ir>=1.43.0,<1.44.0 ; extra == 'security-ir'
+  - mypy-boto3-securityagent>=1.43.0,<1.44.0 ; extra == 'securityagent'
+  - mypy-boto3-securityhub>=1.43.0,<1.44.0 ; extra == 'securityhub'
+  - mypy-boto3-securitylake>=1.43.0,<1.44.0 ; extra == 'securitylake'
+  - mypy-boto3-serverlessrepo>=1.43.0,<1.44.0 ; extra == 'serverlessrepo'
+  - mypy-boto3-service-quotas>=1.43.0,<1.44.0 ; extra == 'service-quotas'
+  - mypy-boto3-servicecatalog>=1.43.0,<1.44.0 ; extra == 'servicecatalog'
+  - mypy-boto3-servicecatalog-appregistry>=1.43.0,<1.44.0 ; extra == 'servicecatalog-appregistry'
+  - mypy-boto3-servicediscovery>=1.43.0,<1.44.0 ; extra == 'servicediscovery'
+  - mypy-boto3-ses>=1.43.0,<1.44.0 ; extra == 'ses'
+  - mypy-boto3-sesv2>=1.43.0,<1.44.0 ; extra == 'sesv2'
+  - mypy-boto3-shield>=1.43.0,<1.44.0 ; extra == 'shield'
+  - mypy-boto3-signer>=1.43.0,<1.44.0 ; extra == 'signer'
+  - mypy-boto3-signer-data>=1.43.0,<1.44.0 ; extra == 'signer-data'
+  - mypy-boto3-signin>=1.43.0,<1.44.0 ; extra == 'signin'
+  - mypy-boto3-simpledbv2>=1.43.0,<1.44.0 ; extra == 'simpledbv2'
+  - mypy-boto3-snow-device-management>=1.43.0,<1.44.0 ; extra == 'snow-device-management'
+  - mypy-boto3-snowball>=1.43.0,<1.44.0 ; extra == 'snowball'
+  - mypy-boto3-sns>=1.43.0,<1.44.0 ; extra == 'sns'
+  - mypy-boto3-socialmessaging>=1.43.0,<1.44.0 ; extra == 'socialmessaging'
+  - mypy-boto3-sqs>=1.43.0,<1.44.0 ; extra == 'sqs'
+  - mypy-boto3-ssm>=1.43.0,<1.44.0 ; extra == 'ssm'
+  - mypy-boto3-ssm-contacts>=1.43.0,<1.44.0 ; extra == 'ssm-contacts'
+  - mypy-boto3-ssm-guiconnect>=1.43.0,<1.44.0 ; extra == 'ssm-guiconnect'
+  - mypy-boto3-ssm-incidents>=1.43.0,<1.44.0 ; extra == 'ssm-incidents'
+  - mypy-boto3-ssm-quicksetup>=1.43.0,<1.44.0 ; extra == 'ssm-quicksetup'
+  - mypy-boto3-ssm-sap>=1.43.0,<1.44.0 ; extra == 'ssm-sap'
+  - mypy-boto3-sso>=1.43.0,<1.44.0 ; extra == 'sso'
+  - mypy-boto3-sso-admin>=1.43.0,<1.44.0 ; extra == 'sso-admin'
+  - mypy-boto3-sso-oidc>=1.43.0,<1.44.0 ; extra == 'sso-oidc'
+  - mypy-boto3-stepfunctions>=1.43.0,<1.44.0 ; extra == 'stepfunctions'
+  - mypy-boto3-storagegateway>=1.43.0,<1.44.0 ; extra == 'storagegateway'
+  - mypy-boto3-sts>=1.43.0,<1.44.0 ; extra == 'sts'
+  - mypy-boto3-supplychain>=1.43.0,<1.44.0 ; extra == 'supplychain'
+  - mypy-boto3-support>=1.43.0,<1.44.0 ; extra == 'support'
+  - mypy-boto3-support-app>=1.43.0,<1.44.0 ; extra == 'support-app'
+  - mypy-boto3-supportauthz>=1.43.0,<1.44.0 ; extra == 'supportauthz'
+  - mypy-boto3-sustainability>=1.43.0,<1.44.0 ; extra == 'sustainability'
+  - mypy-boto3-swf>=1.43.0,<1.44.0 ; extra == 'swf'
+  - mypy-boto3-synthetics>=1.43.0,<1.44.0 ; extra == 'synthetics'
+  - mypy-boto3-taxsettings>=1.43.0,<1.44.0 ; extra == 'taxsettings'
+  - mypy-boto3-textract>=1.43.0,<1.44.0 ; extra == 'textract'
+  - mypy-boto3-timestream-influxdb>=1.43.0,<1.44.0 ; extra == 'timestream-influxdb'
+  - mypy-boto3-timestream-query>=1.43.0,<1.44.0 ; extra == 'timestream-query'
+  - mypy-boto3-timestream-write>=1.43.0,<1.44.0 ; extra == 'timestream-write'
+  - mypy-boto3-transcribe>=1.43.0,<1.44.0 ; extra == 'transcribe'
+  - mypy-boto3-transfer>=1.43.0,<1.44.0 ; extra == 'transfer'
+  - mypy-boto3-translate>=1.43.0,<1.44.0 ; extra == 'translate'
+  - mypy-boto3-trustedadvisor>=1.43.0,<1.44.0 ; extra == 'trustedadvisor'
+  - mypy-boto3-uxc>=1.43.0,<1.44.0 ; extra == 'uxc'
+  - mypy-boto3-verifiedpermissions>=1.43.0,<1.44.0 ; extra == 'verifiedpermissions'
+  - mypy-boto3-voice-id>=1.43.0,<1.44.0 ; extra == 'voice-id'
+  - mypy-boto3-vpc-lattice>=1.43.0,<1.44.0 ; extra == 'vpc-lattice'
+  - mypy-boto3-waf>=1.43.0,<1.44.0 ; extra == 'waf'
+  - mypy-boto3-waf-regional>=1.43.0,<1.44.0 ; extra == 'waf-regional'
+  - mypy-boto3-wafv2>=1.43.0,<1.44.0 ; extra == 'wafv2'
+  - mypy-boto3-wellarchitected>=1.43.0,<1.44.0 ; extra == 'wellarchitected'
+  - mypy-boto3-wickr>=1.43.0,<1.44.0 ; extra == 'wickr'
+  - mypy-boto3-wisdom>=1.43.0,<1.44.0 ; extra == 'wisdom'
+  - mypy-boto3-workdocs>=1.43.0,<1.44.0 ; extra == 'workdocs'
+  - mypy-boto3-workmail>=1.43.0,<1.44.0 ; extra == 'workmail'
+  - mypy-boto3-workmailmessageflow>=1.43.0,<1.44.0 ; extra == 'workmailmessageflow'
+  - mypy-boto3-workspaces>=1.43.0,<1.44.0 ; extra == 'workspaces'
+  - mypy-boto3-workspaces-instances>=1.43.0,<1.44.0 ; extra == 'workspaces-instances'
+  - mypy-boto3-workspaces-thin-client>=1.43.0,<1.44.0 ; extra == 'workspaces-thin-client'
+  - mypy-boto3-workspaces-web>=1.43.0,<1.44.0 ; extra == 'workspaces-web'
+  - mypy-boto3-xray>=1.43.0,<1.44.0 ; extra == 'xray'
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/db/96/4f2dffd304425c07160ab2c12cb13322d852fd956fe9d4386228c93f02ea/botocore-1.43.123-py3-none-any.whl
+  name: botocore
+  version: 1.43.123
+  sha256: e30580f9c1282c321529238ff8ff75066096a2adbd0a293c8ae592c21d1733a3
+  requires_dist:
+  - jmespath>=0.7.1,<2.0.0
+  - python-dateutil>=2.1,<3.0.0
+  - urllib3>=1.25.4,!=2.2.0,<3
+  - awscrt==0.38.0 ; extra == 'crt'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/7b/98/32e9d3087facc5836472ccf5b37ae0af086c7802a2bafbc931294834ac25/botocore_stubs-1.43.123-py3-none-any.whl
+  name: botocore-stubs
+  version: 1.43.123
+  sha256: bb0dc9d13d7f066385bfbe0ed483ca097a7572ae35fe4e1abe5fa9303355d1df
+  requires_dist:
+  - botocore ; extra == 'botocore'
+  requires_python: '>=3.10'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hda65f42_10.conda
+  sha256: 1a0d382c515ebf55f8ee1f38c8b81bc95af5c2acc42ad53b66bc5df932032f96
+  md5: e675fabcf81499adc7edf58124fb1e01
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  license: bzip2-1.0.6
+  license_family: BSD
+  purls: []
+  size: 257808
+  timestamp: 1785906269155
+- conda: https://conda.anaconda.org/conda-forge/osx-64/bzip2-1.0.8-h374f1ed_10.conda
+  sha256: 4ed83961876dc8844a6f0df49c07b408efbaea275ffb0b37133e24c006990b3a
+  md5: 9d9a39212a876e4bb751c1cc3927b678
+  depends:
+  - __osx >=11.0
+  license: bzip2-1.0.6
+  license_family: BSD
+  purls: []
+  size: 133271
+  timestamp: 1785906721507
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/bzip2-1.0.8-h4e30115_10.conda
+  sha256: 8ec22f0ba25cbfc2e64d70cf29459eccd7ffdf6436f6a6ff15bbfef799f7d4f6
+  md5: b50612e7d190b8061ab4e7dc119cf4d5
+  depends:
+  - __osx >=11.0
+  license: bzip2-1.0.6
+  license_family: BSD
+  purls: []
+  size: 124965
+  timestamp: 1785906749812
+- conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_10.conda
+  sha256: 04767466ee9227c9c57ab2c6503e0149177d34111c7418d2f420297acb1eb229
+  md5: c3301c058362f340100d91cd8be0393f
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: bzip2-1.0.6
+  license_family: BSD
+  purls: []
+  size: 55919
+  timestamp: 1785906343696
+- conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-h4c7d964_0.conda
+  sha256: f1d280d2618de987204102090e83733089c092dc2dd45686fd3dcbe809034f6a
+  md5: ea9dc39dcd2815202749c1e5bc2a8973
+  depends:
+  - __win
+  license: ISC
+  purls: []
+  size: 130423
+  timestamp: 1792772460189
 - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.10.23-hbd8a1cb_0.conda
   sha256: 95619b9c1184be7175392eeb0ee7eeb5ccf25d280951f4225f2d62e725790be3
   md5: 3fd02989038a1e1cee627c14c2d73f29
   depends:
   - __unix
   license: ISC
+  purls: []
   size: 130057
   timestamp: 1792772446739
+- pypi: https://files.pythonhosted.org/packages/db/3c/33bac158f8ab7f89b2e59426d5fe2e4f63f7ed25df84c036890172b412b5/cfgv-3.5.0-py2.py3-none-any.whl
+  name: cfgv
+  version: 3.5.0
+  sha256: a8dc6b26ad22ff227d2634a65cb388215ce6cc96bbcc5cfde7641ae87e8dacc0
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
+  name: colorama
+  version: 0.4.6
+  sha256: 4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
+  requires_python: '>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*'
+- pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
+  name: distlib
+  version: 0.4.4
+  sha256: cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638
+- pypi: https://files.pythonhosted.org/packages/1d/1a/1fcf0d3886bad15b92459a0e529dd86a1ec4d9ef30e789df48044fd3698c/filelock-4.2.7-py3-none-any.whl
+  name: filelock
+  version: 4.2.7
+  sha256: d08972bbca2b8767ee552aff877b091dd111ffb1d22de7de885766ea7d719d5e
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/fa/70/fffc9613501877c0a10a1ef73a165e6ded3e53f6e7502227fef56d973933/identify-2.6.20-py2.py3-none-any.whl
+  name: identify
+  version: 2.6.20
+  sha256: 6a16b69b93187244e0548cbfd25b3e4a6f9a7a2ad784625c3bec2b8d27b81aaa
+  requires_dist:
+  - ukkonen ; extra == 'license'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl
+  name: iniconfig
+  version: 2.3.1
+  sha256: 9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
+  name: jmespath
+  version: 1.1.0
+  sha256: a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64
+  requires_python: '>=3.9'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.46.1-default_hbd61a6d_103.conda
+  sha256: 901649b1edbe841fd4ee7e2d491a05184ed540eb01cdae506872f344babc1d28
+  md5: 2362c70e7e79827c32db35547d9c179b
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - zstd >=1.5.7,<1.6.0a0
+  constrains:
+  - binutils_impl_linux-64 2.46.1
+  license: GPL-3.0-only
+  license_family: GPL
+  purls: []
+  size: 742109
+  timestamp: 1791565468810
 - conda: https://conda.anaconda.org/conda-forge/osx-64/libcxx-23.1.4-h19cb2f5_2.conda
   sha256: 5d66e121f30c4b3792480de92230ec05d024106df5c031452bba356153df8c65
   md5: f2a679a70cf584c6886579155fd7ee8f
@@ -56,6 +1305,7 @@ packages:
   - __osx >=11.0
   license: Apache-2.0 WITH LLVM-exception
   license_family: Apache
+  purls: []
   size: 577045
   timestamp: 1792749345117
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-23.1.4-h55c6f16_2.conda
@@ -65,8 +1315,140 @@ packages:
   - __osx >=11.0
   license: Apache-2.0 WITH LLVM-exception
   license_family: Apache
+  purls: []
   size: 577255
   timestamp: 1792748855178
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20260512-pl5321h373387f_0.conda
+  sha256: 45301f14f4eb66da57cfaf2d265f3eeee73f8b07e99614ee3afc5b26eea91126
+  md5: 27dbd7e2984b8fe48e069379636ccfdd
+  depends:
+  - ncurses
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - ncurses >=6.6,<7.0a0
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 135877
+  timestamp: 1791327370514
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libedit-3.1.20260512-pl5321hba2e2ab_0.conda
+  sha256: 3b664a2fcc69b0e2ed6622bfacdf408a31003e92191ace3f4f1ab086c384449d
+  md5: f9fefe52ca6fa0cdb62806f626b70d98
+  depends:
+  - ncurses
+  - __osx >=11.0
+  - ncurses >=6.6,<7.0a0
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 116143
+  timestamp: 1791327578296
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libedit-3.1.20260512-pl5321h26f1114_0.conda
+  sha256: 5692a969e49b200c7874d1e869d281753361980b2ecfe9191b571d7e550f8b92
+  md5: ef2ab2462744ec6ba3a54c34dcc6a06e
+  depends:
+  - ncurses
+  - __osx >=11.0
+  - ncurses >=6.6,<7.0a0
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 108512
+  timestamp: 1791327440683
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.9.0-hd2095e1_0.conda
+  sha256: 7b930a8b6bc6553cb754b4977a11f9c862c719a652fc2d128d89270992ce8beb
+  md5: 317ecabe4a58b3068c7958dc5eb89e43
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=15
+  constrains:
+  - expat 2.9.0.*
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 78894
+  timestamp: 1793054221966
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libexpat-2.9.0-h6e061ac_0.conda
+  sha256: 8715589908ab0d2c92c9f94cd1b185e6abc0a62ce4b1808d3b776cee2d2351fd
+  md5: 31af5ee74e29c1fcb75babc2817625ca
+  depends:
+  - __osx >=11.0
+  constrains:
+  - expat 2.9.0.*
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 76142
+  timestamp: 1793054593465
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libexpat-2.9.0-h6111c0a_0.conda
+  sha256: b155c524118f751ad8b1c823397bab8b7f715f7e3ca10479925867a7e23e7e9d
+  md5: f85a1fda9a2758a7aef2a7787d9c0203
+  depends:
+  - __osx >=11.0
+  constrains:
+  - expat 2.9.0.*
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 69681
+  timestamp: 1793054210049
+- conda: https://conda.anaconda.org/conda-forge/win-64/libexpat-2.9.0-hac47afa_0.conda
+  sha256: d4a8e5aac8999a90cd71aa6f9f5c40d8594ed2b89cd7f898f997767ecc6cd52d
+  md5: 74ac404611024dc488ae71cfb7a5bf8f
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  constrains:
+  - expat 2.9.0.*
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 72983
+  timestamp: 1793054271728
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libffi-3.7.0-h81df57d_1.conda
+  sha256: c8c7583ef063bc3c430f1d48298e5ad24f796a35c22ed5b14183325825a61106
+  md5: 6525a0b06aa4fd390795f0740636a9dd
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=15
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 68004
+  timestamp: 1787753412298
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libffi-3.7.0-h6b3a05b_1.conda
+  sha256: c4793041226c87f987b9903e6503b76f02f52855cc193be2729ac127e600529b
+  md5: e077b71ae65754eda067e4125364b905
+  depends:
+  - __osx >=11.0
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 60786
+  timestamp: 1787754056669
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libffi-3.7.0-h47dc5ef_1.conda
+  sha256: 2783389a7b9dda04c62cc54c6bbeb03dd3cef24b3fc642715d02a3fa19464a9a
+  md5: 216bbcc23c11e9695b3db4a8771d76eb
+  depends:
+  - __osx >=11.0
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 43637
+  timestamp: 1787753403688
+- conda: https://conda.anaconda.org/conda-forge/win-64/libffi-3.7.0-h3d046cb_1.conda
+  sha256: 613e8077c5cca5df7fe84ade7d5050301bee3c6c4c450ffe61d34a349ab4f11c
+  md5: ceb38b0ba900847d8da4289c3c8e5708
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: MIT
+  license_family: MIT
+  purls: []
+  size: 49992
+  timestamp: 1787753517346
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-16.2.0-ha9f2e26_7.conda
   sha256: e031634c3a928f9594eba868bc46ef5230d6571a364a0c63215b06c4563bfcea
   md5: 735629b400b70eeab21a2ba8f5b1c2ce
@@ -78,6 +1460,7 @@ packages:
   - libgomp 16.2.0 he0feb66_7
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
+  purls: []
   size: 1058444
   timestamp: 1790303109576
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda
@@ -87,8 +1470,206 @@ packages:
   - __glibc >=2.17,<3.0.a0
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
+  purls: []
   size: 640566
   timestamp: 1790303046034
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.18-h0cb94f2_3.conda
+  sha256: f943117edb9cd4d9c61cc972eee5a34291dc55ea7a6e9e38da104995841cbcb6
+  md5: f92233bf33e24a25668bb2119e2c51f9
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=15
+  license: LGPL-2.1-only
+  purls: []
+  size: 789471
+  timestamp: 1787033836207
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libiconv-1.18-h4ae439b_3.conda
+  sha256: 2389e03a58ed0f5e8f2469eb4d4ba80d0af378b38854ae5eee65e5b641244082
+  md5: 9fd2f77288f43e462ccc6b0e5f018c89
+  depends:
+  - __osx >=11.0
+  license: LGPL-2.1-only
+  purls: []
+  size: 736150
+  timestamp: 1787034707041
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libiconv-1.18-he4c29f2_3.conda
+  sha256: 689a14968267f2f97c07112fca5636e7d756036b9aee969911267c20bd3eea1f
+  md5: 17f4744c0873e9f77ac9b5cd0a27c187
+  depends:
+  - __osx >=11.0
+  license: LGPL-2.1-only
+  purls: []
+  size: 750816
+  timestamp: 1787033961086
+- conda: https://conda.anaconda.org/conda-forge/win-64/libiconv-1.18-hc1393d2_3.conda
+  sha256: 35e04e3ddac7720fc7c550a1c9f998604299d6a7bd1f3ec9b2825d825061daa2
+  md5: a8a2abdf0f901bc4779d9b7be0845921
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: LGPL-2.1-only
+  purls: []
+  size: 694899
+  timestamp: 1787033851701
+- conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.8.3-hb03c661_1.conda
+  sha256: 9787df8c22a59c9a70d3e5a10db9ad663485e75e9ccc3f09bd092cb7b95e0dab
+  md5: 1390b7c5ac0b1d8e447bc5efa6d3c8c2
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  constrains:
+  - xz 5.8.3.*
+  license: 0BSD
+  purls: []
+  size: 112995
+  timestamp: 1786348617826
+- conda: https://conda.anaconda.org/conda-forge/osx-64/liblzma-5.8.3-hbb4bfdb_1.conda
+  sha256: 7915dac7c71c208e40e716e2f6d3eff41a8d5584e0e7c2d46f9bf9bd5f9aa739
+  md5: daf49067580fbfeae3ac7f9535400494
+  depends:
+  - __osx >=11.0
+  constrains:
+  - xz 5.8.3.*
+  license: 0BSD
+  purls: []
+  size: 104919
+  timestamp: 1786349094608
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/liblzma-5.8.3-h8088a28_1.conda
+  sha256: 23d0630046a3e8b164d8f80f2b74ed2605af2e7050ab9913018056402fae4311
+  md5: 8ab10323068b107661a4b9a4af84f3b5
+  depends:
+  - __osx >=11.0
+  constrains:
+  - xz 5.8.3.*
+  license: 0BSD
+  purls: []
+  size: 91720
+  timestamp: 1786348695846
+- conda: https://conda.anaconda.org/conda-forge/win-64/liblzma-5.8.3-hfd05255_1.conda
+  sha256: d36c4a1e1f80fd08e18a407e03622ff2f34dfdd022da6488ad19603dea19e6d5
+  md5: 880a0c8549479b198af21ba5dc49b109
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  constrains:
+  - xz 5.8.3.*
+  license: 0BSD
+  purls: []
+  size: 105809
+  timestamp: 1786348717883
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libmpdec-4.0.0-hb03c661_2.conda
+  sha256: 46820b4a835e175940ae20bec00fdddaff804cda27a1408ab1b95e77a2196437
+  md5: fcfed1dc5053eb1901b66e7b1fc32588
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 92759
+  timestamp: 1786650399772
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libmpdec-4.0.0-ha1e9b39_2.conda
+  sha256: 6438d0ef76e81f2b75ad7599685a525407c1d9fb2d6a7c18f360614ae6807970
+  md5: b10a43915a31193e06b2781b9d11aec3
+  depends:
+  - __osx >=11.0
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 79639
+  timestamp: 1786651070313
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libmpdec-4.0.0-h84a0fba_2.conda
+  sha256: 04cc136c5a956a73aa14e0a160b5822b0b29714e67b299fa1b1fd16dbcba5366
+  md5: ff33a4dbd93abc8a798cc4e0e7c8136d
+  depends:
+  - __osx >=11.0
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 73289
+  timestamp: 1786651074391
+- conda: https://conda.anaconda.org/conda-forge/win-64/libmpdec-4.0.0-hfd05255_2.conda
+  sha256: f07e451de3db1836b87f7aedf95c8e65cdb06c0e6105329ba24bb5f7b5c75e2a
+  md5: 5ae92fd6614edd024576e14069d7ad4c
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: BSD-2-Clause
+  license_family: BSD
+  purls: []
+  size: 89109
+  timestamp: 1786650384519
+- pypi: https://files.pythonhosted.org/packages/56/1e/801fe26bc622061b9dfd010e166d94142cb774b733217e6d98d1c0cf2638/librt-0.16.0-cp315-cp315-win_amd64.whl
+  name: librt
+  version: 0.16.0
+  sha256: bc02954b1295de798bbdb0b4e2d8a28c2117de8b5c73dcbeb27dc32572dfb971
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/8e/30/a90ca13f1d3d91af1680000a4038536907018fbd51764767287a05d28b8b/librt-0.16.0-cp315-cp315-macosx_11_0_arm64.whl
+  name: librt
+  version: 0.16.0
+  sha256: 8ff5d26c529336be9bd7ae04483235d77778ee7d6444a95353102b542601ce81
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/b6/4b/10fdb42dfab4c1533e1570e686b18e86ff4328b406361b39fb3016667638/librt-0.16.0-cp315-cp315-macosx_10_15_x86_64.whl
+  name: librt
+  version: 0.16.0
+  sha256: 6fe436af2eaf630474f491af5d032cbe45f93fcff5c3b9fe4ab194a7255b20ff
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/e1/6f/53762927a32e9dc9eb1d1c1f3528da281290c86d96929a8af652f671266e/librt-0.16.0-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+  name: librt
+  version: 0.16.0
+  sha256: e56aaf8c167548dc8e5d6f3bd0f48dcdd299a23c73be3f744aab79d99e9c7f5d
+  requires_python: '>=3.9'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.54.1-h0737f62_101.conda
+  sha256: c294029f893d05286f1061bbab85b820f1eea73dd859af4bcc619197bcc34810
+  md5: 36e097bf5f1e0699e88c8ac801f2dc65
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=15
+  - libzlib >=1.3.2,<2.0a0
+  constrains:
+  - icu <0.0a0
+  license: blessing
+  purls: []
+  size: 980491
+  timestamp: 1793051548007
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libsqlite-3.54.1-ha5db789_101.conda
+  sha256: 45af47119bf30cd41f661349cef1e93ad8e736d04b617560d0ae8d74d2eb8ffa
+  md5: 85e048d37014e45480008113534fe988
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  constrains:
+  - icu <0.0a0
+  license: blessing
+  purls: []
+  size: 1020171
+  timestamp: 1793051863404
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libsqlite-3.54.1-h34a968b_101.conda
+  sha256: c49adf700ad17332b938ac627845a3fdc70a0810660d3ec3814de25b156fbf60
+  md5: 6b3b2ea51e2685192a790730c59dbb01
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  constrains:
+  - icu <0.0a0
+  license: blessing
+  purls: []
+  size: 949450
+  timestamp: 1793051666641
+- conda: https://conda.anaconda.org/conda-forge/win-64/libsqlite-3.54.1-hf5d6505_101.conda
+  sha256: 1f7ddd7d9383cf6ab6ee5a3a84e07a679a8539edc0ddd05fe476ff08142bf742
+  md5: 3fd1cac4336c12f2fb5545a999d7e9b6
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: blessing
+  purls: []
+  size: 1333137
+  timestamp: 1793051563198
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-16.2.0-h934c35e_7.conda
   sha256: fa7018298629fc429971fffd6ecba3d27a7b02e4e890d6a93ea01ffebe8cb745
   md5: 9b6707e0caca917fa6ea9ee473f37a5d
@@ -99,8 +1680,190 @@ packages:
   - libstdcxx-ng ==16.2.0=*_7
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
+  purls: []
   size: 6615436
   timestamp: 1790303132935
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.42.4-hcfc3c73_0.conda
+  sha256: f34b8d1de9a2bf62476d8608057d9b8a918d97444236dc53a47128f2fae79041
+  md5: 54a948337e66706380ff24d6b5fde63f
+  depends:
+  - libgcc >=15
+  - __glibc >=2.17,<3.0.a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 34442
+  timestamp: 1790121449161
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda
+  sha256: eb8a0db0aa570124f7d2a93d7c7f596e3390df5e047818d873baad32985fc736
+  md5: 0de0122d9570a8ab637c6b73db268389
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  constrains:
+  - zlib 1.3.2 *_3
+  license: Zlib
+  license_family: Other
+  purls: []
+  size: 63713
+  timestamp: 1785362952714
+- conda: https://conda.anaconda.org/conda-forge/osx-64/libzlib-1.3.2-hbb4bfdb_3.conda
+  sha256: b2dba286dd6632292b12296e761193b5ef9fb0eaeecaa481f5ba9af72c0c18e1
+  md5: 7d3fa28263bb7f8ea32db11f570a5bb6
+  depends:
+  - __osx >=11.0
+  constrains:
+  - zlib 1.3.2 *_3
+  license: Zlib
+  license_family: Other
+  purls: []
+  size: 58993
+  timestamp: 1785276808631
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/libzlib-1.3.2-h8088a28_3.conda
+  sha256: a18fa5d5bac452401459f966cf0d872224e8080c4ff93c77e168d43ab42ef9d7
+  md5: f39288f0ea63ae962e1a2e4f355a0d75
+  depends:
+  - __osx >=11.0
+  constrains:
+  - zlib 1.3.2 *_3
+  license: Zlib
+  license_family: Other
+  purls: []
+  size: 47822
+  timestamp: 1785277049190
+- conda: https://conda.anaconda.org/conda-forge/win-64/libzlib-1.3.2-hfd05255_3.conda
+  sha256: 0629c2cc0404d3bb29d6baa7b4ba62da80797015e86de050db81ea5a07050527
+  md5: 5d2ff29d465097458cc3ff6569151991
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  constrains:
+  - zlib 1.3.2 *_3
+  license: Zlib
+  license_family: Other
+  purls: []
+  size: 58529
+  timestamp: 1785276664143
+- pypi: https://files.pythonhosted.org/packages/21/5c/6e8010f8f2c4ad817364592d4b3883633417269b913fc9d5174fdeb7e565/mypy-2.4.1-py3-none-any.whl
+  name: mypy
+  version: 2.4.1
+  sha256: 1784648d6ec8c2b5465e3f26241b845a0b3cb4e56c993c64abe16989e7698999
+  requires_dist:
+  - typing-extensions>=4.6.0 ; python_full_version < '3.15'
+  - typing-extensions>=4.14.0 ; python_full_version >= '3.15'
+  - mypy-extensions>=1.0.0
+  - pathspec>=1.0.0
+  - tomli>=1.1.0 ; python_full_version < '3.11'
+  - librt>=0.16.0 ; platform_python_implementation != 'PyPy'
+  - ast-serialize>=0.12.1,<1.0.0
+  - psutil>=4.0 ; extra == 'dmypy'
+  - setuptools>=50 ; extra == 'mypyc'
+  - lxml ; extra == 'reports'
+  - pip ; extra == 'install-types'
+  - orjson ; extra == 'faster-cache'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/57/5b/e44a2edb0b25a9f1429de770e1d0238af23302671dd40c77ac5efeb0c559/mypy-2.4.1-cp315-cp315-macosx_11_0_arm64.whl
+  name: mypy
+  version: 2.4.1
+  sha256: db599d03e7d60d15f2e0a11665c18bc52a88699fcab990fdf8cecd5be8ac801c
+  requires_dist:
+  - typing-extensions>=4.6.0 ; python_full_version < '3.15'
+  - typing-extensions>=4.14.0 ; python_full_version >= '3.15'
+  - mypy-extensions>=1.0.0
+  - pathspec>=1.0.0
+  - tomli>=1.1.0 ; python_full_version < '3.11'
+  - librt>=0.16.0 ; platform_python_implementation != 'PyPy'
+  - ast-serialize>=0.12.1,<1.0.0
+  - psutil>=4.0 ; extra == 'dmypy'
+  - setuptools>=50 ; extra == 'mypyc'
+  - lxml ; extra == 'reports'
+  - pip ; extra == 'install-types'
+  - orjson ; extra == 'faster-cache'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/76/05/0c22b1f0390120a8592d31209cb6b9f932b6a0b426fe643e550de15139e3/mypy-2.4.1-cp315-cp315-win_amd64.whl
+  name: mypy
+  version: 2.4.1
+  sha256: 080cf64a60b90a73435542feecf4171904cc5710658165b40c6869115d4aa100
+  requires_dist:
+  - typing-extensions>=4.6.0 ; python_full_version < '3.15'
+  - typing-extensions>=4.14.0 ; python_full_version >= '3.15'
+  - mypy-extensions>=1.0.0
+  - pathspec>=1.0.0
+  - tomli>=1.1.0 ; python_full_version < '3.11'
+  - librt>=0.16.0 ; platform_python_implementation != 'PyPy'
+  - ast-serialize>=0.12.1,<1.0.0
+  - psutil>=4.0 ; extra == 'dmypy'
+  - setuptools>=50 ; extra == 'mypyc'
+  - lxml ; extra == 'reports'
+  - pip ; extra == 'install-types'
+  - orjson ; extra == 'faster-cache'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/c3/c9/3108b38f4c30eabd80194f5d9771a87e27196c5e0ddb5bf4b99c6ed1e97e/mypy-2.4.1-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+  name: mypy
+  version: 2.4.1
+  sha256: a2d4a51db92059eecc2c33b2a5194b28585ebfd917292c015fe87a77dbff6cd2
+  requires_dist:
+  - typing-extensions>=4.6.0 ; python_full_version < '3.15'
+  - typing-extensions>=4.14.0 ; python_full_version >= '3.15'
+  - mypy-extensions>=1.0.0
+  - pathspec>=1.0.0
+  - tomli>=1.1.0 ; python_full_version < '3.11'
+  - librt>=0.16.0 ; platform_python_implementation != 'PyPy'
+  - ast-serialize>=0.12.1,<1.0.0
+  - psutil>=4.0 ; extra == 'dmypy'
+  - setuptools>=50 ; extra == 'mypyc'
+  - lxml ; extra == 'reports'
+  - pip ; extra == 'install-types'
+  - orjson ; extra == 'faster-cache'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/b8/4a/52419b5496215ab52c6c257134c1ac0da25c1ca5d802f133424d02a43686/mypy_boto3_s3-1.43.106-py3-none-any.whl
+  name: mypy-boto3-s3
+  version: 1.43.106
+  sha256: e233d04dbcf3925522dff4346e75c37344ec3d1cbb82337e5eed2af263847668
+  requires_dist:
+  - typing-extensions ; python_full_version < '3.12'
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl
+  name: mypy-extensions
+  version: 1.1.0
+  sha256: 1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505
+  requires_python: '>=3.8'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
+  sha256: 5d46557214ed184381dafe835b7c94a474a1c3b307a08a250b1ea4779b44ffb3
+  md5: ee6c0cd80a60961a1f48aa3e0b91f986
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  license: X11 AND BSD-3-Clause
+  purls: []
+  size: 911196
+  timestamp: 1786355078102
+- conda: https://conda.anaconda.org/conda-forge/osx-64/ncurses-6.6-hcc0dc9a_1.conda
+  sha256: 12c1d676b9a0e8109b576672519312c5428308f3f3d7706f8717e2f536d5d9e7
+  md5: 88a79390f87c8f3334b9999a892e78d4
+  depends:
+  - __osx >=11.0
+  license: X11 AND BSD-3-Clause
+  purls: []
+  size: 834865
+  timestamp: 1786356957789
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/ncurses-6.6-he64c551_1.conda
+  sha256: 7024a48c8c0d0114ed4ab53c76bf9275d50e91ba7cea367a9aead638d3c29c68
+  md5: 3dfa0d0316dc246cd44937a557de4501
+  depends:
+  - __osx >=11.0
+  license: X11 AND BSD-3-Clause
+  purls: []
+  size: 804298
+  timestamp: 1786355189145
+- pypi: https://files.pythonhosted.org/packages/2d/6a/8a9ac7d5e2f7cf53c459bfef90ebc17a2f8cd54b665af96799d4c534840e/nodeenv-1.12.0-py3-none-any.whl
+  name: nodeenv
+  version: 1.12.0
+  sha256: 80644d65c10cc2be12e3e4b54b3367ff288c7ad24ae75c2dcc65454fc7449d4d
+  requires_dist:
+  - certifi ; extra == 'certifi'
+  - shtab>=1.11 ; extra == 'completion'
+  requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.6.5-h781a0a9_0.conda
   sha256: 9c1533f1cf784f0e250919c0c9762d0b0e6bc727a79290ffb7cea1ceca1d038c
   md5: 5a51a2ea653f120240b1a9bf76e0aae9
@@ -110,8 +1873,49 @@ packages:
   - libgcc >=15
   license: Apache-2.0
   license_family: Apache
+  purls: []
   size: 3195299
   timestamp: 1791098052301
+- conda: https://conda.anaconda.org/conda-forge/osx-64/openssl-3.6.5-h332eb6d_0.conda
+  sha256: d992d27aec2f1beac81f792c85b449546c030f06937b5b3ea7cf58431861dde4
+  md5: 615ac6cff316565b442cd1af8b94837f
+  depends:
+  - __osx >=11.0
+  - ca-certificates
+  license: Apache-2.0
+  license_family: Apache
+  purls: []
+  size: 2786968
+  timestamp: 1791099439455
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-3.6.5-h55eecbc_0.conda
+  sha256: 44fbc526456571a9fb8fa18157f6f269d4d4bd40eef20183a93b9c9296f94497
+  md5: 45d9179cdf6e53d88aec034246f0dad6
+  depends:
+  - __osx >=11.0
+  - ca-certificates
+  license: Apache-2.0
+  license_family: Apache
+  purls: []
+  size: 3111573
+  timestamp: 1791097959641
+- conda: https://conda.anaconda.org/conda-forge/win-64/openssl-3.6.5-hf411b9b_0.conda
+  sha256: bc44625e0c6d83f3e02b5f6adc01e0e3ca7001d3d94e24959591a57f5a011b9a
+  md5: f002ec2237836867bfd3d1299a6005da
+  depends:
+  - ca-certificates
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: Apache-2.0
+  license_family: Apache
+  purls: []
+  size: 9402647
+  timestamp: 1791099870810
+- pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
+  name: packaging
+  version: '26.3'
+  sha256: d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c
+  requires_python: '>=3.9'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/patchelf-0.19.3-hee9eb32_0.conda
   sha256: 7da285de77a135989c68f0ecc12ea90532ae93235604f0a8852c64eec018c649
   md5: f5aebd2e337f70a4c5165b3318717011
@@ -121,8 +1925,219 @@ packages:
   - __glibc >=2.17,<3.0.a0
   license: GPL-3.0-or-later
   license_family: GPL
+  purls: []
   size: 153872
   timestamp: 1793409194884
+- pypi: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+  name: pathspec
+  version: 1.1.1
+  sha256: a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189
+  requires_dist:
+  - hyperscan>=0.7 ; extra == 'hyperscan'
+  - typing-extensions>=4 ; extra == 'optional'
+  - google-re2>=1.1 ; extra == 're2'
+  requires_python: '>=3.9'
+- pypi: ./
+  name: pixi-skill-recipes
+  version: 0.1.0
+  sha256: a1a871415893c10f17d582e47a3dc54d91bc534a526d5e60cfe9819aa314558c
+  requires_dist:
+  - boto3>=1.34
+  - packaging>=23
+  - ruamel-yaml>=0.18
+  - boto3-stubs[s3]>=1.34 ; extra == 'dev'
+  - mypy>=1.11 ; extra == 'dev'
+  - pre-commit>=3.7 ; extra == 'dev'
+  - pytest>=8 ; extra == 'dev'
+  - ruff>=0.6 ; extra == 'dev'
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/93/41/f0aa003909ee77a9e7e55f8659abb635ca23ab0d022a449bbb18da87a1ef/platformdirs-4.14.3-py3-none-any.whl
+  name: platformdirs
+  version: 4.14.3
+  sha256: cba2d05fe5e18b26b1fa6f376b8e6234c012abe1f8696c486fface7d0054e931
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/40/9e/2b38731e0fc536806f16490e1a12d7f0dc2a1235aa8cc07bcc75416a7daa/pluggy-1.7.0-py3-none-any.whl
+  name: pluggy
+  version: 1.7.0
+  sha256: 7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/eb/83/ce0a196e4f7b20b11ce3aa1fc72fb973f64b7628d51c1b8aebad37fb7f81/pre_commit-4.7.0-py2.py3-none-any.whl
+  name: pre-commit
+  version: 4.7.0
+  sha256: 2e229038ad3656081b70c27913157e4b636ef306f643f024a8a8e3f0f7b2f877
+  requires_dist:
+  - cfgv>=2.0.0
+  - identify>=1.0.0
+  - nodeenv>=0.11.1
+  - pyyaml>=5.1
+  - virtualenv>=20.10.0
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl
+  name: pygments
+  version: 2.21.0
+  sha256: 2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9
+  requires_dist:
+  - colorama>=0.4.6 ; extra == 'windows-terminal'
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl
+  name: pytest
+  version: 9.2.0
+  sha256: 07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588
+  requires_dist:
+  - colorama>=0.4 ; sys_platform == 'win32'
+  - exceptiongroup>=1 ; python_full_version < '3.11'
+  - iniconfig>=2
+  - packaging>=24
+  - pluggy>=1.6,<2
+  - pygments>=2.15
+  - tomli>=2 ; python_full_version < '3.11'
+  - argcomplete ; extra == 'dev'
+  - asynctest ; python_full_version < '3.11' and extra == 'dev'
+  - attrs>=23.1 ; extra == 'dev'
+  - coverage>=7.5 ; extra == 'dev'
+  - hypothesis>=6.75 ; extra == 'dev'
+  - mock ; extra == 'dev'
+  - numpy>=1.26 ; extra == 'dev'
+  - pexpect>=4.9 ; extra == 'dev'
+  - pytest-xdist>=3.5 ; extra == 'dev'
+  - pyyaml ; extra == 'dev'
+  - requests ; extra == 'dev'
+  - setuptools ; extra == 'dev'
+  - xmlschema ; extra == 'dev'
+  requires_python: '>=3.10'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.15.2-h6e52b48_100_cp315.conda
+  build_number: 100
+  sha256: dd6fdef748df5636029673a834ca3632ce44c86d71e4986d70bcdb2ae5607a25
+  md5: 38c3edc23439db3ca383be02ae2b702e
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - bzip2 >=1.0.8,<2.0a0
+  - ld_impl_linux-64 >=2.36.1
+  - libedit >=3.1.20260512,<3.2.0a0
+  - libexpat >=2.8.5,<3.0a0
+  - libffi >=3.7.0,<3.8.0a0
+  - libgcc >=15
+  - liblzma >=5.8.3,<6.0a0
+  - libmpdec >=4.0.0,<5.0a0
+  - libsqlite >=3.54.1,<4.0a0
+  - libuuid >=2.42.4,<3.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - ncurses >=6.6,<7.0a0
+  - openssl >=3.5.9,<4.0a0
+  - python_abi 3.15.* *_cp315
+  - tk >=8.6.13,<8.7.0a0
+  - tzdata
+  - zstd >=1.5.7,<1.6.0a0
+  license: Python-2.0
+  purls: []
+  size: 29327137
+  timestamp: 1793015518763
+  python_site_packages_path: lib/python3.15/site-packages
+- conda: https://conda.anaconda.org/conda-forge/osx-64/python-3.15.2-h0abcc05_100_cp315.conda
+  build_number: 100
+  sha256: 94acb9cb307343cf56f6f20fdd7596a5d617ce803eecafe9b9ff4e125e39660b
+  md5: a6bd63ad7af96c79dfc6e060b97cb5d1
+  depends:
+  - __osx >=11.0
+  - bzip2 >=1.0.8,<2.0a0
+  - libedit >=3.1.20260512,<3.2.0a0
+  - libexpat >=2.8.5,<3.0a0
+  - libffi >=3.7.0,<3.8.0a0
+  - liblzma >=5.8.3,<6.0a0
+  - libmpdec >=4.0.0,<5.0a0
+  - libsqlite >=3.54.1,<4.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - ncurses >=6.6,<7.0a0
+  - openssl >=3.5.9,<4.0a0
+  - python_abi 3.15.* *_cp315
+  - tk >=8.6.13,<8.7.0a0
+  - tzdata
+  - zstd >=1.5.7,<1.6.0a0
+  license: Python-2.0
+  purls: []
+  size: 13680614
+  timestamp: 1793017644613
+  python_site_packages_path: lib/python3.15/site-packages
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.15.2-h2e4dbab_100_cp315.conda
+  build_number: 100
+  sha256: 78acd0410df52318db76856658143c687fd91398ec1850a027cf9f143498db13
+  md5: b4665b09f097706f547ef7048afee0be
+  depends:
+  - __osx >=11.0
+  - bzip2 >=1.0.8,<2.0a0
+  - libedit >=3.1.20260512,<3.2.0a0
+  - libexpat >=2.8.5,<3.0a0
+  - libffi >=3.7.0,<3.8.0a0
+  - liblzma >=5.8.3,<6.0a0
+  - libmpdec >=4.0.0,<5.0a0
+  - libsqlite >=3.54.1,<4.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - ncurses >=6.6,<7.0a0
+  - openssl >=3.5.9,<4.0a0
+  - python_abi 3.15.* *_cp315
+  - tk >=8.6.13,<8.7.0a0
+  - tzdata
+  - zstd >=1.5.7,<1.6.0a0
+  license: Python-2.0
+  purls: []
+  size: 13419531
+  timestamp: 1793014795433
+  python_site_packages_path: lib/python3.15/site-packages
+- conda: https://conda.anaconda.org/conda-forge/win-64/python-3.15.2-h53f6dd8_100_cp315.conda
+  build_number: 100
+  sha256: 75ce979442c5a5cd4f38ced72c5060c35e3b3d4539d92d2cb8bae5e3b6043fa4
+  md5: 969c2999f8e4cc1da50ec1930cc7f3a5
+  depends:
+  - bzip2 >=1.0.8,<2.0a0
+  - libexpat >=2.8.5,<3.0a0
+  - libffi >=3.7.0,<3.8.0a0
+  - liblzma >=5.8.3,<6.0a0
+  - libmpdec >=4.0.0,<5.0a0
+  - libsqlite >=3.54.1,<4.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - openssl >=3.5.9,<4.0a0
+  - python_abi 3.15.* *_cp315
+  - tk >=8.6.13,<8.7.0a0
+  - tzdata
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - zstd >=1.5.7,<1.6.0a0
+  license: Python-2.0
+  purls: []
+  size: 18579162
+  timestamp: 1793015037227
+  python_site_packages_path: lib/python/site-packages
+- pypi: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+  name: python-dateutil
+  version: 2.9.0.post0
+  sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
+  requires_dist:
+  - six>=1.5
+  requires_python: '>=2.7,!=3.0.*,!=3.1.*,!=3.2.*'
+- pypi: https://files.pythonhosted.org/packages/39/5b/d61e08d34eeb74eb88431243e3849551f0161de08659d55312955afd2a36/python_discovery-1.9.2-py3-none-any.whl
+  name: python-discovery
+  version: 1.9.2
+  sha256: 65857e689ba72aeb5517e68b7025430ed60372b78d037245e0bed3d41ae7ba65
+  requires_dist:
+  - filelock>=3.16.1
+  requires_python: '>=3.9'
+- conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.15-9_cp315.conda
+  build_number: 9
+  sha256: 976c4a6db967a62385aa633daaab19a929f986b979a7ad836b8b70e15ca7aefd
+  md5: b23461631fe2abdbade0cb64babe7344
+  constrains:
+  - python 3.15.* *_cp315
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 6800
+  timestamp: 1788302827589
+- pypi: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+  name: pyyaml
+  version: 6.0.3
+  sha256: d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
+  requires_python: '>=3.8'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-build-0.69.1-ha759004_0.conda
   sha256: d2efa40ce9f081e7b986b9e38e7a37347a3c704b115fabb279144fe666e5042b
   md5: 36a5570e43547ff728801ea150ca0ef4
@@ -136,6 +2151,7 @@ packages:
   - __glibc >=2.17
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 19581806
   timestamp: 1784200424207
 - conda: https://conda.anaconda.org/conda-forge/osx-64/rattler-build-0.69.1-h6193a51_0.conda
@@ -148,6 +2164,7 @@ packages:
   - __osx >=11.0
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 19046801
   timestamp: 1784200513542
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.69.1-h20b3172_0.conda
@@ -160,6 +2177,7 @@ packages:
   - __osx >=11.0
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 17663388
   timestamp: 1784200444138
 - conda: https://conda.anaconda.org/conda-forge/win-64/rattler-build-0.69.1-he94b42d_0.conda
@@ -171,8 +2189,175 @@ packages:
   - ucrt >=10.0.20348.0
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 20273330
   timestamp: 1784200463559
+- conda: https://conda.anaconda.org/conda-forge/linux-64/rattler-index-0.34.5-h91e2699_0.conda
+  sha256: b712ac61eac637f34d13f97d411e37a0f454d23d67df31b9742d522e34c00bab
+  md5: fafb7e85fba781b4f920c442fa1a1334
+  depends:
+  - libstdcxx >=15
+  - libgcc >=15
+  - __glibc >=2.17,<3.0.a0
+  - libiconv >=1.18,<2.0a0
+  - openssl >=3.5.9,<4.0a0
+  constrains:
+  - __glibc >=2.17
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 7849221
+  timestamp: 1793645161545
+- conda: https://conda.anaconda.org/conda-forge/osx-64/rattler-index-0.34.5-h425651a_0.conda
+  sha256: 27cb1fe1224f87424007f0a9d160a7e3226c3494671dccd1a118fbcb87c9cc53
+  md5: 83370e31e782012a27454c113855a841
+  depends:
+  - libcxx >=21
+  - __osx >=11.0
+  - openssl >=3.5.9,<4.0a0
+  - libiconv >=1.18,<2.0a0
+  constrains:
+  - __osx >=11.0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 7468445
+  timestamp: 1793645267071
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-index-0.34.5-he6b9e14_0.conda
+  sha256: 1d4ff9ab594e1bfbb1f6dc381cbd3ada8c46aa01b951ba9136ff4bd1702146eb
+  md5: a40be198a31c01ee5ade90341625b056
+  depends:
+  - __osx >=11.0
+  - libcxx >=21
+  - libiconv >=1.18,<2.0a0
+  - openssl >=3.5.9,<4.0a0
+  constrains:
+  - __osx >=11.0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 6510712
+  timestamp: 1793645196240
+- conda: https://conda.anaconda.org/conda-forge/win-64/rattler-index-0.34.5-h91801bb_0.conda
+  sha256: 8221f6cbb48acd627c49874b00a0e3a88a4625de43c23d74bdc68c5a8325abac
+  md5: d75d21e4241a07e440c36555e1fec5dd
+  depends:
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - libiconv >=1.18,<2.0a0
+  - openssl >=3.5.9,<4.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 7871951
+  timestamp: 1793645187462
+- pypi: https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl
+  name: ruamel-yaml
+  version: 0.19.1
+  sha256: 27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93
+  requires_dist:
+  - ruamel-yaml-clib ; platform_python_implementation == 'CPython' and extra == 'oldlibyaml'
+  - ruamel-yaml-clibz>=0.3.7 ; platform_python_implementation == 'CPython' and extra == 'libyaml'
+  - ruamel-yaml-jinja2>=0.2 ; extra == 'jinja2'
+  - ryd ; extra == 'docs'
+  - mercurial>5.7 ; extra == 'docs'
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/72/26/4b2edf31cfebe9605d8f6ed8f1d6f376d3a53d4c9a123e62661c64c440f0/ruff-0.17.3-py3-none-macosx_10_12_x86_64.whl
+  name: ruff
+  version: 0.17.3
+  sha256: e407b4a6852853a9a2cdce96963e94ad9775578bb44e7561a0f2829f3cc04b11
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/a2/7e/537aba4b7f54397a374d2f6a6fc93e9c8015e18553f31a4a7b7dbced48b5/ruff-0.17.3-py3-none-macosx_11_0_arm64.whl
+  name: ruff
+  version: 0.17.3
+  sha256: b75cc113b3aca388933d8296b667b1ac401a80317ea3074c9b0a66541199da29
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/d0/a0/f08c1631bfd81faa6a90eaf70c37c786c11bed2046302b56bb506c25e1a0/ruff-0.17.3-py3-none-win_amd64.whl
+  name: ruff
+  version: 0.17.3
+  sha256: 56b8ffb3f3b3cbccb8b76b71b38261b7ed982ef5d20f5b447b1b61a7f4949b24
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/f0/20/fecedea2209f574ab92033b344e01a7f0c2dc76c6d6d19a14c9f8141173f/ruff-0.17.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  name: ruff
+  version: 0.17.3
+  sha256: 7fa4b0f931cdbcb8a52044f370a3eb429fb42eb88807b0e800fcaa98dd42b24e
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/e2/a4/88f9e10498759121060b8050a1554753dfc04df39bbbcc7aad9ecc8d9440/s3transfer-0.19.3-py3-none-any.whl
+  name: s3transfer
+  version: 0.19.3
+  sha256: 24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553
+  requires_dist:
+  - botocore>=1.37.4,<2.0a0
+  - botocore[crt]>=1.37.4,<2.0a0 ; extra == 'crt'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+  name: six
+  version: 1.17.0
+  sha256: 4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
+  requires_python: '>=2.7,!=3.0.*,!=3.1.*,!=3.2.*'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h1df4ec4_4.conda
+  build_number: 104
+  sha256: a1a241d172c1ccab067ba245206dd048bc3c2d1b84504b53c9468e99adfc16a1
+  md5: 676a2f9b1c4fcf57b70aa5c65f6c60d0
+  depends:
+  - libgcc >=15
+  - __glibc >=2.17,<3.0.a0
+  - libzlib >=1.3.2,<2.0a0
+  constrains:
+  - xorg-libx11 >=1.8.13,<2.0a0
+  license: TCL
+  purls: []
+  size: 3566806
+  timestamp: 1787272857910
+- conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-ha6c374e_4.conda
+  sha256: 74e5fabcaf6ca0db052c645646ea04ded98a5eb7540483217f8101a819eb3107
+  md5: 71c9f1f0267f2639523e898c6b50a4dc
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  license: TCL
+  purls: []
+  size: 3512384
+  timestamp: 1787272935349
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-hbeba79b_4.conda
+  sha256: 857d89087ae7f2c328cf256728affcb7343031a148b4af847334d248a9cf564c
+  md5: 90a01bf394d1c594e0eb9258f967d828
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  license: TCL
+  purls: []
+  size: 3342183
+  timestamp: 1787272852357
+- conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h967ab96_4.conda
+  sha256: f19618a3a82cc483dacf1c70a30367ee7b0c7e71b90f1f80e14feff44fbd3688
+  md5: dd9eb33c99d352b6356f86964d6040f7
+  depends:
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  license: TCL
+  purls: []
+  size: 3782376
+  timestamp: 1787272860855
+- pypi: https://files.pythonhosted.org/packages/f5/98/972fa03c9a6e1cc9184a28ea0354af50a6764bb172fe2d0751798a295f07/types_s3transfer-0.19.3-py3-none-any.whl
+  name: types-s3transfer
+  version: 0.19.3
+  sha256: 6843143f3b79e3cb73e58b6f45738e28e88d9f681fd32cc5ef7fa16f0c193356
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+  name: typing-extensions
+  version: 4.16.0
+  sha256: 481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8
+  requires_python: '>=3.9'
+- conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
+  sha256: 2b7ca858879f183ce2dcc65b300f48a0133d5430550f35b23d80d405a0788dbf
+  md5: abccc3810d2b97e570dee487f2b46e38
+  license: LicenseRef-Public-Domain
+  purls: []
+  size: 119208
+  timestamp: 1792758382821
 - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda
   sha256: 3005729dce6f3d3f5ec91dfc49fc75a0095f9cd23bab49efb899657297ac91a5
   md5: 71b24316859acd00bdb8b38f5e2ce328
@@ -180,8 +2365,20 @@ packages:
   - vc14_runtime >=14.29.30037
   - vs2015_runtime >=14.29.30037
   license: LicenseRef-MicrosoftWindowsSDK10
+  purls: []
   size: 694692
   timestamp: 1756385147981
+- pypi: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+  name: urllib3
+  version: 2.8.0
+  sha256: 0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3
+  requires_dist:
+  - brotli>=1.2.0 ; platform_python_implementation == 'CPython' and extra == 'brotli'
+  - brotlicffi>=1.2.0.0 ; platform_python_implementation != 'CPython' and extra == 'brotli'
+  - h2>=4,<5 ; extra == 'h2'
+  - pysocks>=1.5.6,!=1.5.7,<2.0 ; extra == 'socks'
+  - backports-zstd>=1.0.0 ; python_full_version < '3.14' and extra == 'zstd'
+  requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.5-ha367084_42.conda
   sha256: 0598ca1ce913618cff9bd90391bcf75cd9edb22057c85dd6784dd762b7a888e2
   md5: 14166cbeafd1f1d255bd21abcc742a65
@@ -191,6 +2388,7 @@ packages:
   - vc14
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 21309
   timestamp: 1793305687162
 - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36247-habf1de7_42.conda
@@ -203,6 +2401,7 @@ packages:
   - vs2015_runtime 14.51.36247.* *_42
   license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
   license_family: Proprietary
+  purls: []
   size: 767099
   timestamp: 1793305684782
 - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36247-habf1de7_42.conda
@@ -214,5 +2413,65 @@ packages:
   - vs2015_runtime 14.51.36247.* *_42
   license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
   license_family: Proprietary
+  purls: []
   size: 155686
   timestamp: 1793305669217
+- pypi: https://files.pythonhosted.org/packages/f7/d8/09c9d6df253b2016312dd5ccbb962dfa86a5202f2452604b52e0a9844661/virtualenv-21.15.2-py3-none-any.whl
+  name: virtualenv
+  version: 21.15.2
+  sha256: fb8c62c7c328e0238061c721068f06b7bc6bd10f7a0f5987195cef1008837ee6
+  requires_dist:
+  - distlib>=0.4.3,<1
+  - filelock>=3.24.2,<5 ; python_full_version >= '3.10'
+  - filelock<=3.19.1,>=3.19.1 ; python_full_version < '3.10'
+  - packaging>=26.3
+  - platformdirs>=4.4,<5
+  - python-discovery>=1.6.1
+  - typing-extensions>=4.16 ; python_full_version < '3.11'
+  requires_python: '>=3.9'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_7.conda
+  sha256: 47d682b9f6d6ec9eb1a6e6c3e75ea6273e899e78fb7fc59f81d39745009fbc60
+  md5: aa459086047c0e5e27023ab19f8cb86a
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libzlib >=1.3.2,<2.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 601301
+  timestamp: 1786599621503
+- conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-hbc1a06c_7.conda
+  sha256: 5277886d9704a624dc9b79ac985861e1e431bdb39a57c082507ab577a138ec6c
+  md5: c1d11f04327e40537ffe6cad5b131019
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 528228
+  timestamp: 1786599702092
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hf451053_7.conda
+  sha256: da867f5092eb0cb746d353694f0098031fd9817a4ce7d5743121209ae0f406ca
+  md5: 4ec2684c73812cc2c3d78379384a39cc
+  depends:
+  - __osx >=11.0
+  - libzlib >=1.3.2,<2.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 433687
+  timestamp: 1786599629846
+- conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_7.conda
+  sha256: ca7daae4f218a11fab82cc2857f0ea518ec3f46acec60490485347a4c22c6b3e
+  md5: e4ac308c39d6d0e131154976da67cf3b
+  depends:
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - libzlib >=1.3.2,<2.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 387535
+  timestamp: 1786599623274

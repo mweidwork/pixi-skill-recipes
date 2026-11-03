@@ -4,13 +4,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 import tempfile
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
 
 from .builder import Builder, find_artifacts
 from .channel import (
@@ -21,14 +19,12 @@ from .channel import (
     index_channel,
     latest_version_for_skill,
     load_packages,
-    package_name_for_skill,
     select_records,
     versions_for_skill,
 )
 from .config import Config, load_config
 from .errors import ChannelError, RecipeError, SkillRecipesError
 from .recipes import (
-    Recipe,
     list_skills,
     load_recipe,
     scaffold_skill,
@@ -40,7 +36,16 @@ from .versioning import bump_version, parse_version
 
 @dataclass
 class Runtime:
-    """Resolved runtime dependencies shared by command handlers."""
+    """Resolved runtime dependencies shared by command handlers.
+
+    Args:
+        config: Loaded repository configuration.
+        profile: Optional AWS profile name.
+        assume_yes: Whether destructive operations skip confirmation prompts.
+        verbose: Whether subprocess output is streamed to the terminal.
+        rattler_build: Optional path to ``rattler-build``.
+        rattler_index: Optional path to ``rattler-index``.
+    """
 
     config: Config
     profile: str | None = None
@@ -49,12 +54,23 @@ class Runtime:
     rattler_build: str | None = None
     rattler_index: str | None = None
 
-    def storage(self, channel_name: str) -> S3Storage:
-        """Create an S3 storage adapter for a configured channel."""
+    def storage(self, channel_name: str) -> Storage:
+        """Create an S3 storage adapter for a configured channel.
+
+        Args:
+            channel_name: Logical channel name such as ``dev`` or ``prd``.
+
+        Returns:
+            A storage implementation for the channel.
+        """
         return S3Storage(self.config.channel(channel_name), profile=self.profile)
 
     def builder(self) -> Builder:
-        """Create a recipe builder."""
+        """Create a recipe builder.
+
+        Returns:
+            A builder configured for this runtime.
+        """
         return Builder(self.rattler_build, verbose=self.verbose)
 
     def index(
@@ -64,18 +80,28 @@ class Runtime:
         *,
         force: bool = False,
     ) -> None:
-        """Regenerate the channel repodata for a configured channel."""
+        """Regenerate channel repodata.
+
+        Args:
+            settings: Channel connection settings.
+            storage: Storage implementation used to resolve credentials.
+            force: Whether to rebuild repodata from scratch.
+        """
         index_channel(
             settings,
             force=force,
             verbose=self.verbose,
             executable=self.rattler_index,
-            credentials=storage.credentials_env(),  # type: ignore[attr-defined]
+            credentials=storage.credentials_env(),
         )
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """Create the top-level argument parser."""
+    """Create the top-level argument parser.
+
+    Returns:
+        A parser with every CLI command registered.
+    """
     parser = argparse.ArgumentParser(
         prog="pixi-skill-recipes",
         description="Build and manage agent skills in a Pixi-compatible Conda channel.",
@@ -116,15 +142,15 @@ def build_parser() -> argparse.ArgumentParser:
     bump_parser.add_argument("--dry-run", action="store_true", help="Print without writing")
     bump_parser.set_defaults(func=cmd_bump)
 
-    build_parser = subparsers.add_parser("build", help="Build one or more recipes")
-    build_parser.add_argument("skills", nargs="*", metavar="SKILL")
-    build_parser.add_argument("--all", action="store_true", help="Build every recipe")
-    build_parser.add_argument(
+    build_parser_command = subparsers.add_parser("build", help="Build one or more recipes")
+    build_parser_command.add_argument("skills", nargs="*", metavar="SKILL")
+    build_parser_command.add_argument("--all", action="store_true", help="Build every recipe")
+    build_parser_command.add_argument(
         "--output-dir",
         type=Path,
         help="Build output directory (defaults to validation-output)",
     )
-    build_parser.set_defaults(func=cmd_build)
+    build_parser_command.set_defaults(func=cmd_build)
 
     publish_parser = subparsers.add_parser("publish", help="Upload built skills to a channel")
     publish_parser.add_argument("skills", nargs="*", metavar="SKILL")
@@ -188,7 +214,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    """Run the command line interface and return a process exit code."""
+    """Run the command line interface.
+
+    Args:
+        argv: Argument list. Defaults to ``sys.argv[1:]``.
+
+    Returns:
+        A process exit code.
+    """
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -212,7 +245,15 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 
 def cmd_new(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Scaffold a new skill under the configured recipes directory."""
+    """Scaffold a new skill under the configured recipes directory.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+    """
     skill_path, recipe_path = scaffold_skill(
         runtime.config.recipes_dir,
         args.skill,
@@ -225,7 +266,18 @@ def cmd_new(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_bump(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Update the version in a recipe."""
+    """Update the version in a recipe.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+
+    Raises:
+        RecipeError: If the arguments are ambiguous or the version is unchanged.
+    """
     if args.version and (args.part or args.rc):
         raise RecipeError("--version cannot be combined with --part or --rc")
     if not args.version and not args.part and not args.rc:
@@ -251,7 +303,15 @@ def cmd_bump(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_build(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Build one or more skill recipes."""
+    """Build one or more skill recipes.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+    """
     skills = _resolve_skills(runtime, args.skills, args.all)
     output_dir = args.output_dir or runtime.config.root / "validation-output"
     builder = runtime.builder()
@@ -265,7 +325,18 @@ def cmd_build(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_publish(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Build and upload skill packages to a configured channel."""
+    """Build and upload skill packages to a configured channel.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+
+    Raises:
+        ChannelError: If build artifacts are missing or existing objects conflict.
+    """
     settings, storage = _load_channel(runtime, args.env)
     skills = _resolve_skills(runtime, args.skills, args.all)
     build_dir_argument = (
@@ -319,7 +390,18 @@ def cmd_publish(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_delete(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Delete skill packages from a channel and refresh repodata."""
+    """Delete skill packages from a channel and refresh repodata.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+
+    Raises:
+        ChannelError: If the selection is ambiguous or no packages match.
+    """
     if not args.version and not args.all_versions:
         raise ChannelError("specify --version or --all-versions")
     if args.version and args.all_versions:
@@ -333,16 +415,18 @@ def cmd_delete(runtime: Runtime, args: argparse.Namespace) -> int:
         raise ChannelError(f"skill '{args.skill}' ({scope}) was not found in {args.env}")
 
     keys = sorted({record.key(settings) for record in selected})
-    for key in keys:
-        print(f"would delete {key}" if args.dry_run else f"deleting {key}")
 
     if args.dry_run:
+        for key in keys:
+            print(f"would delete {key}")
         return 0
 
     _confirm(
         runtime,
         f"Delete {len(keys)} package file(s) for '{args.skill}' from {args.env}?",
     )
+    for key in keys:
+        print(f"deleting {key}")
     storage.delete_keys(keys)
 
     if not args.no_index:
@@ -353,7 +437,18 @@ def cmd_delete(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_promote(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Copy skill packages from a source channel to a target channel."""
+    """Copy skill packages from a source channel to a target channel.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+
+    Raises:
+        ChannelError: If the source package is missing or target objects conflict.
+    """
     if args.source == args.target:
         raise ChannelError("source and target channels must be different")
     if args.version and args.all_versions:
@@ -391,10 +486,14 @@ def cmd_promote(runtime: Runtime, args: argparse.Namespace) -> int:
                     )
                 )
 
-    _check_conflicts(target_storage, [(record, key) for record, _, key in copies], force=args.force)
+    _check_conflicts(
+        target_storage,
+        [(record, target_key) for record, _, target_key in copies],
+        force=args.force,
+    )
 
     if args.dry_run:
-        for record, source_key, target_key in copies:
+        for _, source_key, target_key in copies:
             print(f"would copy {source_key} -> {target_key}")
         return 0
 
@@ -424,7 +523,15 @@ def cmd_promote(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_list(runtime: Runtime, args: argparse.Namespace) -> int:
-    """List packages available in a channel."""
+    """List packages available in a channel.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+    """
     settings, storage = _load_channel(runtime, args.env)
     records = load_packages(storage, settings)
     if args.skill:
@@ -453,14 +560,31 @@ def cmd_list(runtime: Runtime, args: argparse.Namespace) -> int:
 
 
 def cmd_index(runtime: Runtime, args: argparse.Namespace) -> int:
-    """Regenerate channel repodata."""
+    """Regenerate channel repodata.
+
+    Args:
+        runtime: Shared command dependencies.
+        args: Parsed command arguments.
+
+    Returns:
+        Process exit code ``0``.
+    """
     settings, storage = _load_channel(runtime, args.env)
     runtime.index(settings, storage, force=args.force)
     print(f"indexed {settings.s3_url}")
     return 0
 
 
-def _load_channel(runtime: Runtime, name: str) -> tuple[ChannelSettings, S3Storage]:
+def _load_channel(runtime: Runtime, name: str) -> tuple[ChannelSettings, Storage]:
+    """Resolve a channel and create its storage adapter.
+
+    Args:
+        runtime: Shared command dependencies.
+        name: Logical channel name.
+
+    Returns:
+        The channel settings and a matching storage implementation.
+    """
     settings = runtime.config.channel(name)
     return settings, runtime.storage(name)
 
@@ -472,6 +596,20 @@ def _resolve_skills(
     *,
     require_recipe: bool = True,
 ) -> list[str]:
+    """Resolve the skill selection for a command.
+
+    Args:
+        runtime: Shared command dependencies.
+        skills: Skill names supplied on the command line.
+        all_skills: Whether ``--all`` was supplied.
+        require_recipe: Whether every selected skill must have a local recipe.
+
+    Returns:
+        Deduplicated skill names in the requested order.
+
+    Raises:
+        RecipeError: If the selection is empty, ambiguous, or missing a recipe.
+    """
     if all_skills and skills:
         raise RecipeError("pass either skill names or --all, not both")
     if all_skills:
@@ -492,10 +630,20 @@ def _resolve_skills(
 
 def _check_conflicts(
     storage: Storage,
-    items: Sequence[tuple[Any, str]],
+    items: Sequence[tuple[object, str]],
     *,
     force: bool,
 ) -> None:
+    """Reject overwrites unless the caller explicitly allows them.
+
+    Args:
+        storage: Target storage implementation.
+        items: Pairs of local objects and target keys.
+        force: Whether overwrites are allowed.
+
+    Raises:
+        ChannelError: If any target key already exists and ``force`` is false.
+    """
     if force:
         return
     conflicts = [key for _, key in items if storage.exists(key)]
@@ -508,6 +656,16 @@ def _check_conflicts(
 
 
 def _confirm(runtime: Runtime, message: str) -> None:
+    """Ask for confirmation before a destructive operation.
+
+    Args:
+        runtime: Shared command dependencies.
+        message: Prompt shown to the user.
+
+    Raises:
+        SkillRecipesError: If the user declines or the session is non-interactive
+            without ``--yes``.
+    """
     if runtime.assume_yes:
         return
     if not sys.stdin.isatty():
@@ -518,6 +676,15 @@ def _confirm(runtime: Runtime, message: str) -> None:
 
 
 def _display_path(path: Path, root: Path) -> str:
+    """Format a path relative to the repository when possible.
+
+    Args:
+        path: Path to display.
+        root: Repository root.
+
+    Returns:
+        A relative path when possible, otherwise the absolute path.
+    """
     try:
         return str(path.resolve().relative_to(root.resolve()))
     except ValueError:
@@ -525,6 +692,12 @@ def _display_path(path: Path, root: Path) -> str:
 
 
 def _print_table(headers: Sequence[str], rows: Sequence[Sequence[str]]) -> None:
+    """Print a simple aligned text table.
+
+    Args:
+        headers: Column headers.
+        rows: Table rows with the same number of columns as ``headers``.
+    """
     widths = [len(header) for header in headers]
     for row in rows:
         for index, value in enumerate(row):
@@ -534,11 +707,6 @@ def _print_table(headers: Sequence[str], rows: Sequence[Sequence[str]]) -> None:
     print("  ".join("-" * width for width in widths))
     for row in rows:
         print("  ".join(value.ljust(widths[index]) for index, value in enumerate(row)))
-
-
-def _package_name_for_skill(skill: str) -> str:
-    """Return the Conda package name for a skill (kept for API compatibility)."""
-    return package_name_for_skill(skill)
 
 
 if __name__ == "__main__":

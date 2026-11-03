@@ -3,7 +3,7 @@ context:
 
 package:
   name: agent-skill-${{ skill }}
-  version: "0.1.0"
+  version: "0.1.1"
 
 source:
   path: .

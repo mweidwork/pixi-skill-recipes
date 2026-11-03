@@ -50,6 +50,7 @@ class ChannelSettings:
     addressing_style: str = "virtual"
 
     def __post_init__(self) -> None:
+        """Validate required settings and normalize the object prefix."""
         if not self.bucket or not str(self.bucket).strip():
             raise ConfigError(f"channel '{self.name}' is missing a bucket")
         if self.addressing_style not in ADDRESSING_STYLES:

@@ -91,6 +91,7 @@ class S3Storage:
         profile: str | None = None,
         session: boto3.Session | None = None,
     ) -> None:
+        """Create an S3 client configured for the channel."""
         self.settings = settings
         self.session = session or boto3.Session(profile_name=profile)
         self._client = self.session.client(

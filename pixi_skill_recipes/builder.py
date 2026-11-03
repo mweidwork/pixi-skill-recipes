@@ -47,6 +47,7 @@ class Builder:
         verbose: bool = False,
         runner: Callable[..., subprocess.CompletedProcess[str]] = subprocess.run,
     ) -> None:
+        """Initialize the builder and resolve its executable."""
         self.executable = executable or shutil.which("rattler-build") or "rattler-build"
         self.verbose = verbose
         self.runner = runner

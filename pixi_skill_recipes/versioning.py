@@ -1,8 +1,7 @@
-"""Version parsing and release candidate helpers.
+"""Parse, compare, and increment package versions.
 
-The project uses PEP 440 style versions because Conda orders them predictably
-for release candidates. A release candidate sorts before its final release, so
-``0.2.0rc1`` is older than ``0.2.0``.
+Versions follow PEP 440 ordering, where a release candidate sorts before its
+final release. For example, ``0.2.0rc1`` is older than ``0.2.0``.
 """
 
 from __future__ import annotations
@@ -13,20 +12,20 @@ from packaging.version import InvalidVersion, Version
 
 from .errors import RecipeError
 
-PART_INDEX = {"major": 0, "minor": 1, "patch": 2}
+PART_INDEX: dict[str, int] = {"major": 0, "minor": 1, "patch": 2}
 
 
 def parse_version(value: str) -> Version:
-    """Parse and validate a package version.
+    """Parse a package version using PEP 440 rules.
 
     Args:
-        value: Version string such as ``0.2.0`` or ``0.2.0rc1``.
+        value: Version string to parse.
 
     Returns:
-        The parsed :class:`packaging.version.Version`.
+        The parsed `Version`.
 
     Raises:
-        RecipeError: If the version is not PEP 440 compatible.
+        RecipeError: If the value is not a valid PEP 440 version.
     """
     try:
         return Version(value)
@@ -35,23 +34,27 @@ def parse_version(value: str) -> Version:
 
 
 def bump_version(current: str, *, part: str | None = None, rc: bool = False) -> str:
-    """Return the next version for a recipe.
+    """Return the next recipe version after a release or release-candidate bump.
 
-    ``rc=True`` without a part promotes ``X.Y.Z`` to ``X.Y.Zrc1`` and increments
-    an existing ``rcN``. Supplying both ``part`` and ``rc`` bumps the release
-    first, so ``0.2.0`` with ``part="minor"`` becomes ``0.3.0rc1``.
+    With ``rc=True`` and no ``part``, a final version becomes its first release
+    candidate and an existing release candidate advances by one. Supplying
+    both ``part`` and ``rc`` increments the release component first, then
+    starts at ``rc1`` (for example, ``0.2.0`` with ``part="minor"`` becomes
+    ``0.3.0rc1``).
 
     Args:
-        current: Current version string.
-        part: Release component to increment: ``major``, ``minor``, or ``patch``.
-        rc: Whether to produce a release candidate version.
+        current: Version string to increment.
+        part: Release component to increment, if any. Must be ``major``,
+            ``minor``, or ``patch``.
+        rc: Whether to return a release-candidate version.
 
     Returns:
-        The next version as a string.
+        The incremented version string.
 
     Raises:
-        RecipeError: If the current version is invalid, no part is supplied, or
-            an unsupported pre-release is converted to an rc.
+        RecipeError: If the current version is invalid, ``part`` is missing for
+            a release bump, ``part`` is unsupported, or ``rc=True`` is used
+            without ``part`` for a non-release-candidate pre-release version.
     """
     version = parse_version(current)
 
@@ -72,13 +75,13 @@ def bump_version(current: str, *, part: str | None = None, rc: bool = False) -> 
 
 
 def latest_version(versions: Iterable[str]) -> str:
-    """Return the highest version from an iterable.
+    """Return the highest version from an iterable using PEP 440 ordering.
 
     Args:
-        versions: Version strings to compare.
+        versions: Version strings to compare. The iterable is consumed once.
 
     Returns:
-        The highest version using PEP 440 ordering.
+        The highest version string.
 
     Raises:
         RecipeError: If the iterable is empty or contains an invalid version.
@@ -90,14 +93,14 @@ def latest_version(versions: Iterable[str]) -> str:
 
 
 def _bump_release(version: Version, part: str) -> str:
-    """Increment a release component and clear lower components.
+    """Increment a release component and reset all lower components.
 
     Args:
-        version: Parsed current version.
-        part: Release component to increment.
+        version: Parsed version to increment.
+        part: Component to increment: ``major``, ``minor``, or ``patch``.
 
     Returns:
-        A three-component version string without pre-release segments.
+        A three-component release string without pre-release segments.
 
     Raises:
         RecipeError: If ``part`` is not a supported release component.
@@ -106,7 +109,9 @@ def _bump_release(version: Version, part: str) -> str:
         index = PART_INDEX[part]
     except KeyError:
         allowed = ", ".join(PART_INDEX)
-        raise RecipeError(f"invalid version part '{part}' (expected one of: {allowed})") from None
+        raise RecipeError(
+            f"invalid version part '{part}' (expected one of: {allowed})"
+        ) from None
 
     release = list(version.release[:3])
     while len(release) < 3:
